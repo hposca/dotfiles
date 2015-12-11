@@ -365,6 +365,9 @@ augroup end
 
 runtime macros/matchit.vim " match the opening/closing html tag when pressing '%'
 
+" Configuring CtrlP to ignore git ignored files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 """"""""""
 " vim-json
 """"""""""
