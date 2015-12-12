@@ -376,6 +376,9 @@ if exists("g:ctrlp_user_command")
 endif
 
 if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command =
     \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
@@ -390,9 +393,12 @@ endif
 
 " Additional mapping for buffer search
 nnoremap <C-o> :CtrlPBuffer<CR>
-"
+
 " Default to filename searches
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 """"""""""
 " vim-json
