@@ -368,9 +368,31 @@ runtime macros/matchit.vim " match the opening/closing html tag when pressing '%
 """""""
 " CtrlP
 """""""
-" Configuring CtrlP to ignore git ignored files
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Changing cursor-line to make it more recognizable
 hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkred guifg=white
+
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command =
+    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+" Additional mapping for buffer search
+nnoremap <C-o> :CtrlPBuffer<CR>
+"
+" Default to filename searches
+let g:ctrlp_by_filename = 1
 
 """"""""""
 " vim-json
