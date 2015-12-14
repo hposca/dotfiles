@@ -393,6 +393,7 @@ endif
 
 " Additional mapping for buffer search
 nnoremap <C-o> :CtrlPBuffer<CR>
+nnoremap <C-i> :CtrlPMRUFiles<CR>
 
 " Default to filename searches
 " let g:ctrlp_by_filename = 1
