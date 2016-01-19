@@ -460,6 +460,15 @@ let g:multi_cursor_start_key='<F6>'
 
 " Python format JSON
 map <Leader>j !python -m json.tool<CR>
+
+"""""""""""""""""""""""""""""""""
+" Vim and CSS
+" Autocomplete for CSS
+" Start typing then Ctrl-x Ctrl-o
+"""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.scss set ft=scss.css
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 """""""""""""""""""""""""""""""""""""""""""
 " Custom status line (overriden by airline)
 """""""""""""""""""""""""""""""""""""""""""
