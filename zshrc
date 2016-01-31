@@ -156,6 +156,8 @@ alias dcki="docker-compose kill"
 alias dcps="docker-compose ps"
 alias dcrm="docker-compose rm -f"
 alias dcup="docker-compose up -d"
+alias dewb="docker exec -ti \$(docker-compose ps -q web) bash"
+alias dclw="docker-compose logs web"
 
 # Directory stack configuration
 DIRSTACKSIZE=7
