@@ -40,7 +40,8 @@ NeoBundle 'gundo'                         " Gundo - Undo, in small pieces
 " NeoBundle 'minibufexpl.vim'             " Mini-buffer explorer
 NeoBundle "vim-scripts/TaskList.vim"      " Better Organize your TODOs
 NeoBundle 'tpope/vim-dispatch'            " Kick off builds and test suites
-NeoBundle 'bling/vim-airline'             " Powerline like statusline
+NeoBundle 'vim-airline/vim-airline'       " Powerline like statusline
+NeoBundle 'vim-airline/vim-airline-themes' " Airline themes
 NeoBundle 'trapd00r/neverland-vim-theme'  " Neverland colorscheme
 NeoBundle 'junegunn/vim-easy-align'       " Easy alignment
 NeoBundle 'majutsushi/tagbar'             " Tag bar
