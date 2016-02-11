@@ -283,7 +283,7 @@ nnoremap <leader>d :YcmCompleter GoTo<CR>
 set t_Co=256 " Needed to activate 256 colors in vim
 " Enable vim-airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme             = 'powerlineish'
+let g:airline_theme             = 'wombat'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
