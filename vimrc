@@ -49,6 +49,7 @@ NeoBundle 'scrooloose/syntastic'          " Linter
 NeoBundle 'rking/ag.vim'                  " The silver searcher
                                           " It needs a: sudo apt-get install -y silversearcher-ag
 NeoBundle 'tpope/vim-fugitive'            " Git integration inside vim
+NeoBundle 'junegunn/gv.vim'               " A git commit browser
 " NeoBundle 'nelstrom/vim-markdown-folding' " Folding to markdown files
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kchmck/vim-coffee-script'      " Coffee Script Highlighting
