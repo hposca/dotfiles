@@ -372,6 +372,8 @@ runtime macros/matchit.vim " match the opening/closing html tag when pressing '%
 """""""
 " Changing cursor-line to make it more recognizable
 hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkred guifg=white
+hi CursorColumn ctermfg=White ctermbg=darkgray cterm=bold guifg=white guibg=yellow gui=bold
+map <F3> :set cursorcolumn!<Bar>set cursorline!<CR>
 
 if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
