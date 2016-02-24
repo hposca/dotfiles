@@ -104,6 +104,9 @@ command! -bang Qa qa<bang>
 command! -bang W w<bang>
 command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" Help from http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
 
 """""""""""""
 " Vim options
