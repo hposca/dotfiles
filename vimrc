@@ -423,6 +423,11 @@ let g:indentLine_noConcealCursor=""
 """"""""""""""""
 " Custom keymaps
 """"""""""""""""
+" <leader>x to close current buffer
+nmap <silent> <leader>x :bd<CR>
+" <leader>a to closse all buffers
+nmap <silent> <leader>a :bufdo! bd<CR>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -466,7 +471,6 @@ nnoremap <silent> ]B :blast<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
-
 
 " Vim multicursor
 let g:multi_cursor_start_key='<F6>'
