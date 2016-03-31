@@ -157,6 +157,7 @@ alias dcps="docker-compose ps"
 alias dcrm="docker-compose rm -f"
 alias dcup="docker-compose up"
 alias dcupd="docker-compose up -d"
+alias dcrwb="docker-compose run --service-ports web /bin/bash"
 alias dewb="docker exec -ti \$(docker-compose ps -q web) bash"
 alias dclw="docker-compose logs web"
 
