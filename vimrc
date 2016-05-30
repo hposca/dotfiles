@@ -43,6 +43,7 @@ NeoBundle 'tpope/vim-dispatch'            " Kick off builds and test suites
 NeoBundle 'vim-airline/vim-airline'       " Powerline like statusline
 NeoBundle 'vim-airline/vim-airline-themes' " Airline themes
 NeoBundle 'trapd00r/neverland-vim-theme'  " Neverland colorscheme
+NeoBundle 'morhetz/gruvbox'
 NeoBundle 'junegunn/vim-easy-align'       " Easy alignment
 NeoBundle 'majutsushi/tagbar'             " Tag bar
 NeoBundle 'scrooloose/syntastic'          " Linter
@@ -247,7 +248,7 @@ autocmd VimResized * :wincmd =
 " Colorscheme
 """""""""""""
 set background=dark
-colorscheme neverland-darker
+colorscheme gruvbox
 
 """"""""""""""""""""""""
 "  RainbowParenthesis  "
