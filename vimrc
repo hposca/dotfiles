@@ -505,6 +505,8 @@ set laststatus=2                                " Always show the status line
 """"""""""""""""""""""""""""""
 " Specific files Configuration
 """"""""""""""""""""""""""""""
+au FileType python setlocal ts=4 sts=4 sw=4
+
 au BufRead,BufNewFile *.md set filetype=markdown
 au FileType markdown setlocal ts=4 sts=4 sw=4
 
