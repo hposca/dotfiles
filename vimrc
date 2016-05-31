@@ -27,7 +27,7 @@ NeoBundle 'sirver/ultisnips'
 NeoBundle 'tomtom/tcomment_vim'           " Comment like a boss
 NeoBundle 'raimondi/delimitmate'          " If you miss IDE features like character closing
 NeoBundle 'tpope/vim-endwise'             " If you miss IDE features like block closing
-NeoBundle 'kien/ctrlp.vim'                " Fuzzyfinder, yes vim has and has more than one
+NeoBundle 'ctrlpvim/ctrlp.vim'            " Fuzzyfinder, yes vim has and has more than one
 NeoBundle 'scrooloose/nerdtree'           " A file explorer
 NeoBundle 'othree/html5.vim'              " Improves vim html5 syntax and indentation
 NeoBundle 'vim-scripts/HTML-AutoCloseTag' " Close tags automatically
@@ -43,6 +43,7 @@ NeoBundle 'tpope/vim-dispatch'            " Kick off builds and test suites
 NeoBundle 'vim-airline/vim-airline'       " Powerline like statusline
 NeoBundle 'vim-airline/vim-airline-themes' " Airline themes
 NeoBundle 'trapd00r/neverland-vim-theme'  " Neverland colorscheme
+NeoBundle 'morhetz/gruvbox'
 NeoBundle 'junegunn/vim-easy-align'       " Easy alignment
 NeoBundle 'majutsushi/tagbar'             " Tag bar
 NeoBundle 'scrooloose/syntastic'          " Linter
@@ -247,7 +248,7 @@ autocmd VimResized * :wincmd =
 " Colorscheme
 """""""""""""
 set background=dark
-colorscheme neverland-darker
+colorscheme gruvbox
 
 """"""""""""""""""""""""
 "  RainbowParenthesis  "
@@ -321,6 +322,8 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
+let g:airline_powerline_fonts = 1
+
 """"""""""
 " NERDTree
 """"""""""
@@ -377,6 +380,7 @@ runtime macros/matchit.vim " match the opening/closing html tag when pressing '%
 hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkred guifg=white
 hi CursorColumn ctermfg=White ctermbg=darkgray cterm=bold guifg=white guibg=yellow gui=bold
 map <F3> :set cursorcolumn!<Bar>set cursorline!<CR>
+let g:ctrlp_match_window = 'results:99'
 
 if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
@@ -408,6 +412,7 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+nnoremap <leader>t :CtrlPTag<cr>
 """"""""
 " Ag-vim
 """"""""

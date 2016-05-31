@@ -105,12 +105,14 @@ export EDITOR='vim'
 ##############
 alias lsd='ls -p | grep /$'
 alias hist='history'
-alias today='date +%Y%m%d'
+alias isotoday='date +%Y%m%d'
+alias today='date +%d/%m/%Y'
 alias hour='date +%H:%M:%S'
 alias ff='find . -type f'
 alias fd='find . -type d'
 alias sl='ls'
 alias kaw='ps aux | grep wine | awk '"'"'{print $2}'"'"' | xargs kill'
+alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 
 ###############
 # Git aliases #
@@ -157,6 +159,7 @@ alias dcps="docker-compose ps"
 alias dcrm="docker-compose rm -f"
 alias dcup="docker-compose up"
 alias dcupd="docker-compose up -d"
+alias dcrwb="docker-compose run --service-ports web /bin/bash"
 alias dewb="docker exec -ti \$(docker-compose ps -q web) bash"
 alias dclw="docker-compose logs web"
 
