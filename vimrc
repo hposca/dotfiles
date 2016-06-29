@@ -373,6 +373,12 @@ augroup end
 
 runtime macros/matchit.vim " match the opening/closing html tag when pressing '%'
 
+" Search for visually selected text - Vim Tips Wiki - Wikia
+" http://vim.wikia.com/wiki/Search_for_visually_selected_text
+" To use the mapping, visually select the characters that are wanted in the
+" search, then type // to search for next occurrence of the selected text.
+vnoremap // y/<C-R>"<CR>
+
 """""""
 " CtrlP
 """""""
