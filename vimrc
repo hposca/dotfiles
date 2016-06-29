@@ -523,6 +523,9 @@ au FileType markdown setlocal ts=4 sts=4 sw=4
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null " http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 
+au FileType scss.css setlocal foldmethod=marker
+au FileType scss.css setlocal foldmarker={,}
+
 """"""""""""""
 " LaTeX things
 """"""""""""""
