@@ -66,6 +66,7 @@ NeoBundle 'terryma/vim-multiple-cursors'   " Multiple cursors
 NeoBundle 'elzr/vim-json' " JSON Highlighting
 " NeoBundle 'Yggdroot/indentLine' " Indent line guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'hashivim/vim-terraform.git'
 
 """"""""""""""""""
 " Python support "
@@ -355,6 +356,11 @@ let g:syntastic_check_on_wq = 0
 " vim-fugitive
 """"""""""""""
 autocmd QuickFixCmdPost *grep* cwindow
+
+"""""""""""
+" Terraform
+"""""""""""
+let g:terraform_fmt_on_save = 1
 
 """"""""""""""""""""""
 " Custom configuration
