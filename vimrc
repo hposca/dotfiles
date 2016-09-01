@@ -36,7 +36,7 @@ NeoBundle 'vim-ruby/vim-ruby'             " look for an IDE again
 NeoBundle 'ecomba/vim-ruby-refactoring'   " IDE refactorings in Vim
 NeoBundle 'drslump/vim-syntax-js'         " Improves vim js syntax and indentation
 NeoBundle 'vim-scripts/JavaScript-Indent'
-NeoBundle 'gundo'                         " Gundo - Undo, in small pieces
+NeoBundle 'simnalamburt/vim-mundo'        " Vim undo tree visualizer
 " NeoBundle 'minibufexpl.vim'             " Mini-buffer explorer
 NeoBundle "vim-scripts/TaskList.vim"      " Better Organize your TODOs
 NeoBundle 'tpope/vim-dispatch'            " Kick off builds and test suites
@@ -457,8 +457,9 @@ nnoremap <C-h> :NERDTreeFind<CR>
 " Ctrl-t opens the TaskList inside a file
 map <C-t> <Plug>TaskList
 
-" Ctrl-g opens Gundo
-map <C-g> :GundoToggle<CR>
+" Ctrl-g opens Mundo
+let g:mundo_prefer_python3 = 1
+map <C-g> :MundoToggle<CR>
 
 " Map jk to always advance a screen line
 nnoremap j gj
