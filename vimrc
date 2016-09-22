@@ -146,6 +146,7 @@ set noswapfile " Don't create swap files
 
 set undofile
 set undodir=$HOME/.vim/undo
+silent !mkdir $HOME/.vim/undo > /dev/null 2>&1
 set undolevels=1000
 set undoreload=10000
 
