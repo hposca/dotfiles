@@ -67,6 +67,7 @@ NeoBundle 'elzr/vim-json' " JSON Highlighting
 " NeoBundle 'Yggdroot/indentLine' " Indent line guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'hashivim/vim-terraform.git'
+NeoBundle 'itchyny/vim-cursorword'
 
 """"""""""""""""""
 " Python support "
