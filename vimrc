@@ -37,7 +37,6 @@ NeoBundle 'ecomba/vim-ruby-refactoring'   " IDE refactorings in Vim
 NeoBundle 'drslump/vim-syntax-js'         " Improves vim js syntax and indentation
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'simnalamburt/vim-mundo'        " Vim undo tree visualizer
-" NeoBundle 'minibufexpl.vim'             " Mini-buffer explorer
 NeoBundle "vim-scripts/TaskList.vim"      " Better Organize your TODOs
 NeoBundle 'tpope/vim-dispatch'            " Kick off builds and test suites
 NeoBundle 'vim-airline/vim-airline'       " Powerline like statusline
@@ -51,7 +50,6 @@ NeoBundle 'rking/ag.vim'                  " The silver searcher
                                           " It needs a: sudo apt-get install -y silversearcher-ag
 NeoBundle 'tpope/vim-fugitive'            " Git integration inside vim
 NeoBundle 'junegunn/gv.vim'               " A git commit browser
-" NeoBundle 'nelstrom/vim-markdown-folding' " Folding to markdown files
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kchmck/vim-coffee-script'      " Coffee Script Highlighting
 NeoBundle 'digitaltoad/vim-jade'          " Jade Highlighting
@@ -64,8 +62,6 @@ NeoBundle 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 NeoBundle 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 NeoBundle 'terryma/vim-multiple-cursors'   " Multiple cursors
 NeoBundle 'elzr/vim-json' " JSON Highlighting
-" NeoBundle 'Yggdroot/indentLine' " Indent line guides
-" NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'hashivim/vim-terraform.git'
 NeoBundle 'itchyny/vim-cursorword'
 
