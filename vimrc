@@ -68,21 +68,19 @@ NeoBundle 'itchyny/vim-cursorword'
 """"""""""""""""""
 " Python support "
 """"""""""""""""""
-NeoBundle 'davidhalter/jedi-vim'
-
 " To install YouCompleteMe we need to configure the environment:
-"   sudo apt-get update && sudo apt-get install -y cmake g++ python-dev clang
-" then update this link for the library:
-"   cd /usr/lib/llvm-3.4/lib/ && sudo ln -s libclang.so.1 libclang.so
-" then, inside the YouCompleteMe directory:
-"   ./install.sh --clang-completer --system-libclang --omnisharp-completer
-"
-" NeoBundle 'Valloric/YouCompleteMe', {
-"       \ 'build' : {
-"       \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"       \   }
-"       \ }
+"   sudo apt-get update && sudo apt-get install -y build-essential cmake python-dev python3-dev
+"   pip install --upgrade autopep8
+" Then install it:
+"   cd ~/.vim/bundle/YouCompleteMe
+"   ./install.py
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'ervandew/supertab'
+NeoBundle 'nvie/vim-flake8'
+NeoBundle 'tmhedberg/SimpylFold'
+NeoBundle 'vim-scripts/indentpython.vim'
 
 call neobundle#end()
 filetype plugin indent on " required
@@ -257,21 +255,25 @@ augroup rainbow_lisp
   autocmd FileType * RainbowParentheses
 augroup END
 
-"""""""""""
+""""""""""""""""
+" Python Editing
+""""""""""""""""
+
 " Jedi-vim
-"""""""""""
+
 let g:jedi#use_tabs_not_buffers = 0
 " let g:jedi#popup_on_dot = 1
 " let g:jedi#popup_select_first = 1
 let g:jedi#show_call_signatures = "2"
 let g:jedi#completions_enabled=0
 
-"""""""""""""""
+
 " YouCompleteMe
-"""""""""""""""
+
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -280,6 +282,13 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 nnoremap <leader>d :YcmCompleter GoTo<CR>
+
+let g:SimpylFold_docstring_preview=1
+let python_highlight_all=1
+
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
 """""""""
 " airline
