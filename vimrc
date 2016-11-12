@@ -491,8 +491,9 @@ nmap <F8> :TagbarToggle<CR>
 " Vim multicursor
 let g:multi_cursor_start_key='<F6>'
 
-" Python format JSON
-map <Leader>j !python -m json.tool<CR>
+" Format JSON
+" map <Leader>j !python -m json.tool<CR>
+map <Leader>j !jq '.'<CR>
 
 """""""""""""""""""""""""""""""""
 " Vim and CSS
