@@ -160,6 +160,9 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Insert only one space when joining lines
 set nojoinspaces
 
+" Disables automatically breaking lines with newlines
+set formatoptions-=t
+
 "================ Scrolling ========================
 
 set scrolloff=4         "Start scrolling when we're 8 lines away from margins
