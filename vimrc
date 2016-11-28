@@ -64,6 +64,7 @@ NeoBundle 'terryma/vim-multiple-cursors'   " Multiple cursors
 NeoBundle 'elzr/vim-json' " JSON Highlighting
 NeoBundle 'hashivim/vim-terraform.git'
 NeoBundle 'itchyny/vim-cursorword'
+NeoBundle 'cwood/ultisnips-terraform-snippets'
 
 """"""""""""""""""
 " Python support "
