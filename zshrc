@@ -191,9 +191,6 @@ alias gpg='gpg --no-use-agent'
 
 alias tmux='tmux -2'
 
-export ANDROID_HOME=/home/hugo/android-sdk-linux-digitalOcean
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
 ###############
 # Some tweaks #
 ###############
