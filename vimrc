@@ -517,6 +517,11 @@ map <Leader>j !jq '.'<CR>
 autocmd BufNewFile,BufRead *.scss set ft=scss.css
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+""""""""
+" Docker
+""""""""
+autocmd BufRead,BufNewFile Rockerfile set ft=Dockerfile
+
 """""""""""""""""""""""""""""""""""""""""""
 " Custom status line (overriden by airline)
 """""""""""""""""""""""""""""""""""""""""""
