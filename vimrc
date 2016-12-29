@@ -379,7 +379,7 @@ let g:terraform_fmt_on_save = 0
 """"""""""""""""""""""
 " set foldmethod=indent
 " set foldnestmax=20
-" set foldlevelstart=20 "http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+set foldlevelstart=20 "http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 
 set modeline " Load modelines when file opens, i.e.: # vim: set ts=2 :
              " http://vim.wikia.com/wiki/Modeline_magic
