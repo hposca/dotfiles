@@ -152,7 +152,7 @@ alias drm="docker rm"
 alias drma="docker ps -aq | xargs docker stop; docker ps -aq | xargs docker rm"
 alias drmi="docker rmi"
 alias dclean="docker rm -v \$(docker ps -a -q -f status=exited) ; docker rmi \$(docker images -f "dangling=true" -q)"
-alias dcv="docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes"
+alias dcv="docker volume ls -q -f dangling=true | xargs docker volume rm"
 
 alias dc="docker-compose"
 alias dcbu="docker-compose build"
