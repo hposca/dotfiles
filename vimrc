@@ -523,6 +523,14 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 """"""""
 autocmd BufRead,BufNewFile Rockerfile set ft=Dockerfile
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Avoiding the Ctrl-U 'feature' of deleting your text and not allowing you to
+" undo this deletion
+" With the help of http://vim.wikia.com/wiki/Recover_from_accidental_Ctrl-U
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
 """""""""""""""""""""""""""""""""""""""""""
 " Custom status line (overriden by airline)
 """""""""""""""""""""""""""""""""""""""""""
