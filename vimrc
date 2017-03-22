@@ -65,7 +65,7 @@ NeoBundle 'elzr/vim-json' " JSON Highlighting
 NeoBundle 'hashivim/vim-terraform.git'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'hposca/ultisnips-terraform-snippets'
-NeoBundle 'vimwiki/vimwiki' "Personal Wiki for Vim http://vimwiki.github.io/
+NeoBundle 'mzlogin/vim-markdown-toc'
 
 """"""""""""""""""
 " Python support "
