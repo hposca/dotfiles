@@ -66,6 +66,8 @@ NeoBundle 'hashivim/vim-terraform.git'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'hposca/ultisnips-terraform-snippets'
 NeoBundle 'mzlogin/vim-markdown-toc'
+NeoBundle 'fatih/vim-hclfmt' " To install it, first: go get github.com/fatih/hclfmt
+NeoBundle 'b4b4r07/vim-hcl'
 
 """"""""""""""""""
 " Python support "
