@@ -57,7 +57,7 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(git vagrant aws colored-man-pages tmux colorize terraform zsh-syntax-highlighting)
+plugins=(git vagrant aws colored-man-pages tmux colorize terraform zsh-syntax-highlighting docker)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
@@ -194,6 +194,8 @@ alias gpg='gpg --no-use-agent'
 
 alias tmux='tmux -2'
 
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 ###############
 # Some tweaks #
 ###############
@@ -228,6 +230,11 @@ preexec () {
     else
         echo -e "${RDATE}"
     fi
+}
+
+vim() {
+  [ -t 1 ] || { echo "Not starting vim without stdout to TTY!" >&2; return 1; }
+  command vim "$@"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
