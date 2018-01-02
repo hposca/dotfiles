@@ -375,6 +375,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " Terraform
 """""""""""
 let g:terraform_fmt_on_save = 1
+autocmd BufNewFile,BufRead *.tf set ft=terraform
 
 """"""""""""""""""""""
 " Custom configuration
