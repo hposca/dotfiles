@@ -70,6 +70,7 @@ export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
 
 export EDITOR='vim'
 # Preferred editor for local and remote sessions
@@ -115,6 +116,7 @@ alias fd='find . -type d'
 alias sl='ls'
 alias kaw='ps aux | grep wine | awk '"'"'{print $2}'"'"' | xargs kill'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
+alias ag='ag --hidden'
 
 ###############
 # Git aliases #
@@ -164,8 +166,8 @@ alias dcps="docker-compose ps"
 alias dcrm="docker-compose rm -f"
 alias dcup="docker-compose up"
 alias dcupd="docker-compose up -d"
-alias dcrwb="docker-compose run --service-ports web /bin/bash"
-alias dewb="docker exec -ti \$(docker-compose ps -q web) bash"
+alias dcrwb="docker-compose run --service-ports web /bin/sh"
+alias dewb="docker exec -ti \$(docker-compose ps -q web) /bin/sh"
 alias dclw="docker-compose logs web"
 
 # Directory stack configuration
