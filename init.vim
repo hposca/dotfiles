@@ -11,15 +11,15 @@ Plug 'vim-airline/vim-airline'        " Powerline like statusline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 
 " Generic edition improvements
-Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'             " Git integration inside vim
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tomtom/tcomment_vim'            " Comment like a boss
-Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
-Plug 'tpope/vim-surround'             " Ease surrounding
-Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
 Plug 'AndrewRadev/switch.vim'         " Switch segments of text with predefined replacements
+Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
+Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'            " Comment like a boss
+Plug 'tpope/vim-fugitive'             " Git integration inside vim
+Plug 'tpope/vim-surround'             " Ease surrounding
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
