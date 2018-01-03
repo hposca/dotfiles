@@ -273,3 +273,12 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Switch
 """"""""
 let g:switch_mapping = "-"
+
+"""""""""
+" Hints "
+"""""""""
+" How to see all mapped keys
+" :nmap for normal mode mappings
+" :vmap for visual mode mappings
+" :imap for insert mode mappings
+" :mkexrc Write current key mappings and changed options to [file]
