@@ -19,6 +19,7 @@ Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
 Plug 'tpope/vim-surround'             " Ease surrounding
 Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
+Plug 'AndrewRadev/switch.vim'         " Switch segments of text with predefined replacements
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
@@ -268,3 +269,7 @@ let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Switch
+""""""""
+let g:switch_mapping = "-"
