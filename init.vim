@@ -11,11 +11,14 @@ Plug 'vim-airline/vim-airline'        " Powerline like statusline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 
 " Generic edition improvements
-Plug 'AndrewRadev/switch.vim'         " Switch segments of text with predefined replacements
+Plug 'andrewradev/switch.vim'         " Switch segments of text with predefined replacements
+Plug 'beloglazov/vim-online-thesaurus' " An online thesaurus
 Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
+Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
@@ -140,6 +143,9 @@ augroup BeforeExit
   autocmd BufWritePre * :%s/\s\+$//e
 augroup end
 
+" Specific files configuration
+au FileType markdown setlocal ts=4 sts=4 sw=4
+
 """""""""""""""
 " Colorscheme "
 """""""""""""""
@@ -214,6 +220,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " Allows to change to buffers using leader + number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#tabmode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -273,6 +280,21 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Switch
 """"""""
 let g:switch_mapping = "-"
+
+" vim-markdown
+""""""""""""""
+let g:vim_markdown_folding_disabled = 1
+
+"  RainbowParenthesis
+"""""""""""""""""""""
+
+augroup rainbow
+  autocmd!
+  autocmd FileType * RainbowParentheses
+augroup END
+
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 
 """""""""
 " Hints "
