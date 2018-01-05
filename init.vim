@@ -27,6 +27,10 @@ Plug 'tpope/vim-surround'             " Ease surrounding
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
 Plug 'junegunn/gv.vim'                " A git commit browser
 
+" Programming specific
+Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
+Plug 'vim-ruby/vim-ruby'              " Ruby on Rails Power tools from Tim Pope
+
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
