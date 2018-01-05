@@ -21,8 +21,11 @@ Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an 
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
-Plug 'tpope/vim-fugitive'             " Git integration inside vim
 Plug 'tpope/vim-surround'             " Ease surrounding
+
+" Git integration
+Plug 'tpope/vim-fugitive'             " Git integration inside vim
+Plug 'junegunn/gv.vim'                " A git commit browser
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
