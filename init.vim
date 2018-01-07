@@ -15,6 +15,7 @@ Plug 'andrewradev/switch.vim'         " Switch segments of text with predefined 
 Plug 'beloglazov/vim-online-thesaurus' " An online thesaurus
 Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
 Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
 Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
