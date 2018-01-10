@@ -16,10 +16,10 @@ Plug 'beloglazov/vim-online-thesaurus' " An online thesaurus
 Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
-Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
 Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
+Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-surround'             " Ease surrounding
@@ -31,6 +31,8 @@ Plug 'junegunn/gv.vim'                " A git commit browser
 " Programming specific
 Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
 Plug 'vim-ruby/vim-ruby'              " Ruby on Rails Power tools from Tim Pope
+Plug 'tpope/vim-endwise'              " wisely add 'end' in ruby
+Plug 'ecomba/vim-ruby-refactoring'    " Ruby Refactoring Tool for Vim
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
