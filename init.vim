@@ -232,7 +232,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " Allows to change to buffers using leader + number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#tabmode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
