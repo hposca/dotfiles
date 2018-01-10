@@ -21,8 +21,10 @@ Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an 
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
 Plug 'scrooloose/nerdtree'
+Plug 'simnalamburt/vim-mundo'         " Vim undo tree visualizer
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-surround'             " Ease surrounding
+
 
 " Git integration
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
@@ -305,6 +307,12 @@ augroup END
 
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
+
+
+" Vim-Mundo
+"""""""""""
+let g:mundo_prefer_python3 = 1
+map <C-g> :MundoToggle<CR>
 
 """""""""
 " Hints "
