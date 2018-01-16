@@ -239,4 +239,17 @@ vim() {
   command vim "$@"
 }
 
+# Ctrl-Space to expand aliases
+# Based on http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
+globalias() {
+  zle _expand_alias
+  zle expand-word
+}
+
+zle -N globalias
+
+bindkey "^ " globalias             # Ctrl-space to activate expansion
+bindkey " " magic-space            # normal space
+bindkey -M isearch " " magic-space # normal space during searches
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
