@@ -31,6 +31,8 @@ Plug 'tpope/vim-fugitive'             " Git integration inside vim
 Plug 'junegunn/gv.vim'                " A git commit browser
 
 " Programming specific
+Plug 'vim-syntastic/syntastic'        "  Syntax checking hacks for vim
+
 Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
 Plug 'vim-ruby/vim-ruby'              " Ruby on Rails Power tools from Tim Pope
 Plug 'tpope/vim-endwise'              " wisely add 'end' in ruby
@@ -208,9 +210,13 @@ nnoremap <C-h> :NERDTreeFind<CR>
 """""""""
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline_theme = 'bubblegum'
 let g:airline_enable_branch = 1
 let g:airline_powerline_fonts = 1
+let g:airline_enable_syntastic  = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -252,6 +258,7 @@ let g:tmux_navigator_save_on_switch = 1
 """""""
 
 nnoremap <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_show_hidden = 1 " Show hidden files
 
 " TComment
 """"""""""
