@@ -23,6 +23,7 @@ Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brac
 Plug 'scrooloose/nerdtree'
 Plug 'simnalamburt/vim-mundo'         " Vim undo tree visualizer
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
+Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
 
 
