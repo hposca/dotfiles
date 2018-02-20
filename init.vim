@@ -18,6 +18,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
 Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
+Plug 'mzlogin/vim-markdown-toc'       " Automatic Table of Contents generation for Markdown
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
 Plug 'scrooloose/nerdtree'
