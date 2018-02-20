@@ -23,6 +23,7 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
 Plug 'scrooloose/nerdtree'
 Plug 'simnalamburt/vim-mundo'         " Vim undo tree visualizer
+Plug 'skywind3000/asyncrun.vim'       " Run Async shell commands
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
@@ -249,6 +250,10 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+
+" AsyncRun
+""""""""""
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 " tmux-navigator
 """"""""""""""""
