@@ -17,6 +17,7 @@ Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
 Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
+Plug 'junegunn/vim-easy-align'        " A Vim alignment plugin
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
 Plug 'mzlogin/vim-markdown-toc'       " Automatic Table of Contents generation for Markdown
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
@@ -326,6 +327,11 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 """""""""""
 let g:mundo_prefer_python3 = 1
 map <C-g> :MundoToggle<CR>
+
+" Vim-Easy-Align
+""""""""""""""""
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 """""""""
 " Hints "
