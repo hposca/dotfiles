@@ -253,3 +253,5 @@ bindkey " " magic-space            # normal space
 bindkey -M isearch " " magic-space # normal space during searches
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source <(awless completion zsh)
