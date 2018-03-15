@@ -57,6 +57,12 @@ call plug#end()
 " Custom Configuration
 """"""""""""""""""""""
 
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+
 " kj as ESC
 inoremap kj <esc>
 cnoremap kj <esc>
