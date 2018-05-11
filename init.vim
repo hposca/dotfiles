@@ -28,6 +28,7 @@ Plug 'skywind3000/asyncrun.vim'       " Run Async shell commands
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
+Plug 'majutsushi/tagbar'              " Class outline viewer
 
 
 " Git integration
@@ -83,6 +84,9 @@ nnoremap <C-k> m`O<Esc>``
 nmap <silent> <leader>x :bd<CR>
 " <leader>a to closse all buffers
 nmap <silent> <leader>a :bufdo! bd<CR>
+
+" Tagbar Toggle
+nmap <silent> <leader>t :TagbarToggle<CR>
 
 " Format JSON
 map <Leader>j !jq '.'<CR>
