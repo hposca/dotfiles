@@ -87,6 +87,15 @@ nmap <silent> <leader>x :bd<CR>
 " <leader>a to closse all buffers
 nmap <silent> <leader>a :bufdo! bd<CR>
 
+" Copy current filename into paste buffer
+" :echo expand("%:p")    " absolute path
+" :echo expand("%:p:h")  " absolute path dirname
+" :echo expand("%:p:h:h")" absolute path dirname dirname
+" :echo expand("%:.")    " relative path
+" :echo expand("%:.:h")  " relative path dirname
+" :echo expand("%:.:h:h")" relative path dirname dirname
+nmap <silent> <leader>p :let @+ = expand('%:p')<CR>
+
 " Tagbar Toggle
 nmap <silent> <leader>t :TagbarToggle<CR>
 
