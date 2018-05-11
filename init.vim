@@ -28,6 +28,7 @@ Plug 'skywind3000/asyncrun.vim'       " Run Async shell commands
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
+Plug 'salsifis/vim-transpose'         " Transpose matrices of text
 Plug 'majutsushi/tagbar'              " Class outline viewer
 
 
@@ -42,6 +43,7 @@ Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
 Plug 'vim-ruby/vim-ruby'              " Ruby on Rails Power tools from Tim Pope
 Plug 'tpope/vim-endwise'              " wisely add 'end' in ruby
 Plug 'ecomba/vim-ruby-refactoring'    " Ruby Refactoring Tool for Vim
+Plug 'adelarsq/vim-matchit'           " Extended power for the '%' operator, required by vim-ruby-refactoring
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
