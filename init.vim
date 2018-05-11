@@ -273,6 +273,7 @@ let g:tmux_navigator_save_on_switch = 1
 
 nnoremap <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_show_hidden = 1 " Show hidden files
+let g:ctrlp_match_window = 'results:0'
 
 " TComment
 """"""""""
