@@ -130,6 +130,7 @@ alias gs='gss'
 alias gstsa="git stash save --all --include-untracked"
 alias gmnff="git merge --no-ff --log"
 alias gblame="git log -p -M --follow --stat --" # http://blog.andrewray.me/a-better-git-blame/
+alias grhm="git reset --hard origin/master" # Useful to move the pointer to the newest master after fetching
 
 ###################
 # Vagrant aliases #
