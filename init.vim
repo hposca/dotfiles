@@ -149,7 +149,12 @@ set undolevels=1000
 set undoreload=10000
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·,extends:#
+" set listchars=tab:→\ ,trail:·,precedes:«,extends:»,eol:¶
+" set listchars=tab:→\ ,trail:␣,extends:…,eol:⏎
+" set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:¬
+" set listchars=tab:>-,trail:.,precedes:<,extends:>,eol:$
+set listchars=tab:→\ ,trail:␣,extends:…,eol:$,space:.
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
 set rnu
