@@ -78,6 +78,9 @@ nnoremap k gk
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" Insert date and time at current line
+nmap <silent> <leader>d "=strftime('%F %H:%M')<CR>Po<esc>
+
 " Ctrl J/K add blank lines above and below
 nnoremap <C-j> m`o<Esc>``
 nnoremap <C-k> m`O<Esc>``
