@@ -78,6 +78,10 @@ nnoremap k gk
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" Convenient copy & paste into system clipboard
+noremap <leader>Y "+y
+noremap <leader>P "+p
+
 " Insert date and time at current line
 nmap <silent> <leader>d "=strftime('%F %H:%M')<CR>Po<esc>
 
