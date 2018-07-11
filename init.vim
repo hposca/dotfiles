@@ -50,6 +50,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'hashivim/vim-terraform'         " Terraform manipulation in Vim
 Plug 'hposca/ultisnips-terraform-snippets'
+" Need to `gem install json neovim` before using it
+" Still haven't figured out how to make it fully IDE-like as in the asciinema
+" demonstrations. But, at least using 'Ctrl-X Ctrl-O' works after some prefix.
+Plug 'juliosueiras/vim-terraform-completion'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'     " Deoplete for Ruby
@@ -313,6 +317,24 @@ vmap <silent> <leader>c :TComment<CR>
 """""""""""
 let g:terraform_fmt_on_save = 1
 autocmd BufNewFile,BufRead *.tf set ft=terraform
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+let g:deoplete#enable_at_startup = 1
+
 
 " Grepper
 """""""""
