@@ -171,6 +171,16 @@ alias dcrwb="docker-compose run --service-ports web /bin/sh"
 alias dewb="docker exec -ti \$(docker-compose ps -q web) /bin/sh"
 alias dclw="docker-compose logs web"
 
+#################
+# jq/yq aliases #
+#################
+# Alias to show all possible jq paths/hierarchy of a file
+# Extracted from https://github.com/stedolan/jq/issues/243#issuecomment-45460474 and https://github.com/stedolan/jq/issues/243#issuecomment-48470943
+alias jqh="jq -c 'path(..)|[.[]|tostring]|join(\"/\")'"
+alias jquh="jq '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
+alias yqh="yq -c 'path(..)|[.[]|tostring]|join(\"/\")'"
+alias yquh="yq '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
+
 # Directory stack configuration
 DIRSTACKSIZE=7
 setopt autopushd pushdminus pushdsilent pushdtohome
