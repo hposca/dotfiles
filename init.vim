@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline-themes' " Airline themes
 
 " Generic edition improvements
 Plug 'andrewradev/switch.vim'         " Switch segments of text with predefined replacements
-Plug 'beloglazov/vim-online-thesaurus' " An online thesaurus
+Plug 'ron89/thesaurus_query.vim'      " Multi-Language Thesaurus
 Plug 'christoomey/vim-tmux-navigator' " Vim integration with Tmux
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
