@@ -8,6 +8,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'             " Sensible vim defaults
 
 Plug 'junegunn/seoul256.vim'          " Colorscheme
+Plug 'mhinz/vim-janah'                " Colorscheme
 Plug 'vim-airline/vim-airline'        " Powerline like statusline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 
@@ -31,11 +32,13 @@ Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
 Plug 'salsifis/vim-transpose'         " Transpose matrices of text
 Plug 'majutsushi/tagbar'              " Class outline viewer
+Plug 'mhinz/vim-startify'             " Start screen for Vim
 
 
 " Git integration
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
 Plug 'junegunn/gv.vim'                " A git commit browser
+Plug 'mhinz/vim-signify'              " Uses the sign column to indicate added, modified and removed lines
 
 " Programming specific
 Plug 'vim-syntastic/syntastic'        "  Syntax checking hacks for vim
@@ -208,6 +211,8 @@ au FileType markdown setlocal ts=4 sts=4 sw=4
 let g:seoul256_background = 236
 let g:seoul256_srgb = 1
 colorscheme seoul256
+" autocmd ColorScheme janah highlight Normal ctermbg=235
+" colorscheme janah
 set background=dark
 
 """""""""""""""""""""""""""""""
