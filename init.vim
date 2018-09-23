@@ -59,8 +59,14 @@ Plug 'hposca/ultisnips-terraform-snippets'
 " demonstrations. But, at least using 'Ctrl-X Ctrl-O' works after some prefix.
 Plug 'juliosueiras/vim-terraform-completion'
 
+" Need to make sure that neovim-python APIs are installed:
+" pip2 install --user neovim
+" pip3 install --user neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'     " Deoplete for Ruby
+Plug 'zchee/deoplete-jedi'          " Deoplete for Python
+" Need to install jedi:
+" pip install --user jedi
 
 call plug#end()
 
