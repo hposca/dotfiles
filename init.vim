@@ -64,9 +64,10 @@ Plug 'juliosueiras/vim-terraform-completion'
 " pip3 install --user neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'     " Deoplete for Ruby
+" Requires jedi to be installed: `pip install --user jedi`
 Plug 'zchee/deoplete-jedi'          " Deoplete for Python
-" Need to install jedi:
-" pip install --user jedi
+" Requires gocode to be installed: `go get -u github.com/mdempsky/gocode`
+Plug 'zchee/deoplete-go', { 'do': 'make' } " Deoplete for Golang
 
 call plug#end()
 
