@@ -1,0 +1,24 @@
+[user]
+# Please modify these lines
+#	email = your_email@provider
+#	name = Your Name Here
+[push]
+	default = simple
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[url "git@github.com:"]
+	insteadOf = https://github.com/
