@@ -22,3 +22,5 @@
 	whitespace = red reverse
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[alias]
+  addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
