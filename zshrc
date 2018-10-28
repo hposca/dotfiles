@@ -137,7 +137,7 @@ alias ag='ag --hidden'
 # 'Git Branch Hierarchy'
 alias gbh="git log --graph --simplify-by-decoration --pretty=format:'%d' --all"
 alias gbt="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gdv="git difftool --tool=vimdiff"
+# alias gdv="git difftool --tool=vimdiff"
 alias gs='gss'
 alias gstsa="git stash save --all --include-untracked"
 alias gmnff="git merge --no-ff --log"
