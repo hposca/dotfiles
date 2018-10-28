@@ -282,3 +282,7 @@ if [[ ! -f ~/.awless_completion ]] && [[ $(type awless) ]]; then
 fi
 source ~/.awless_completion
 
+if [[ ! -f ~/.minikube_completion ]] && [[ $(type minikube) ]]; then
+  minikube completion zsh > ~/.minikube_completion
+fi
+source ~/.minikube_completion
