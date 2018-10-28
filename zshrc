@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 if [[ $(uname -s) == "Linux" ]]; then
-  . /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
+  source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
