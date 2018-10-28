@@ -277,7 +277,7 @@ bindkey -M isearch " " magic-space # normal space during searches
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ ! -f ~/.awless_completion ]]; then
+if [[ ! -f ~/.awless_completion ]] && [[ $(type awless) ]]; then
   awless completion zsh > ~/.awless_completion
 fi
 source ~/.awless_completion
