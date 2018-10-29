@@ -277,12 +277,14 @@ bindkey -M isearch " " magic-space # normal space during searches
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ ! -f ~/.awless_completion ]] && [[ $(type awless) ]]; then
+touch ~/.awless_completion
+if [[ ! -f ~/.awless_completion ]] && type awless > /dev/null ; then
   awless completion zsh > ~/.awless_completion
 fi
 source ~/.awless_completion
 
-if [[ ! -f ~/.minikube_completion ]] && [[ $(type minikube) ]]; then
+touch ~/.minikube_completion
+if [[ ! -f ~/.minikube_completion ]] && type minikube > /dev/null ;  then
   minikube completion zsh > ~/.minikube_completion
 fi
 source ~/.minikube_completion
