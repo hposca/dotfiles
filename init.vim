@@ -21,6 +21,7 @@ Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
 Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'junegunn/vim-easy-align'        " A Vim alignment plugin
 Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
+Plug 'skwp/greplace.vim'              " VIM Plugin for doing a search and replace across many files
 Plug 'mzlogin/vim-markdown-toc'       " Automatic Table of Contents generation for Markdown
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
@@ -33,6 +34,7 @@ Plug 'tpope/vim-surround'             " Ease surrounding
 Plug 'salsifis/vim-transpose'         " Transpose matrices of text
 Plug 'majutsushi/tagbar'              " Class outline viewer
 Plug 'mhinz/vim-startify'             " Start screen for Vim
+Plug 'vim-scripts/AnsiEsc.vim'        " Color from terminal redirected output
 
 
 " Git integration
@@ -41,17 +43,20 @@ Plug 'junegunn/gv.vim'                " A git commit browser
 Plug 'mhinz/vim-signify'              " Uses the sign column to indicate added, modified and removed lines
 
 " Programming specific
-Plug 'vim-syntastic/syntastic'        "  Syntax checking hacks for vim
 
-Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
+" https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
 Plug 'vim-ruby/vim-ruby'              " Ruby on Rails Power tools from Tim Pope
+Plug 'tpope/vim-rails'                " Ruby on Rails Power tools from Tim Pope
 Plug 'tpope/vim-endwise'              " wisely add 'end' in ruby
+Plug 'tpope/vim-bundler'              " Lightweight support for Ruby's Bundler
+
 Plug 'ecomba/vim-ruby-refactoring'    " Ruby Refactoring Tool for Vim
 Plug 'adelarsq/vim-matchit'           " Extended power for the '%' operator, required by vim-ruby-refactoring
 
 " Better AutoCompletion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'vim-syntastic/syntastic'        " Syntax checking hacks for vim
 Plug 'hashivim/vim-terraform'         " Terraform manipulation in Vim
 Plug 'hposca/ultisnips-terraform-snippets'
 " Need to `gem install json neovim` before using it
@@ -326,10 +331,17 @@ let g:ctrlp_match_window = 'results:20'
 nmap <silent> <leader>c :TComment<CR>
 vmap <silent> <leader>c :TComment<CR>
 
+" Docker
+""""""""
+autocmd BufNewFile,BufRead Dockerfile* set ft=Dockerfile
+
 " Terraform
 """""""""""
-let g:terraform_fmt_on_save = 1
 autocmd BufNewFile,BufRead *.tf set ft=terraform
+let g:terraform_fmt_on_save = 1
+let g:terraform_completion_keys = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 
 " (Optional)Hide Info(Preview) window after completions
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -360,10 +372,15 @@ let g:grepper.highlight = 1
 let g:grepper.dir = 'repo,file,cwd'
 let g:grepper.rg.grepprg .= ' --smart-case'
 
+" Greplace
+""""""""""
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 " Deoplete
 """"""""""
-
 let g:deoplete#enable_at_startup = 1
+call deoplete#initialize()
 
 " UltiSnips
 """""""""""
