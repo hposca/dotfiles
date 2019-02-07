@@ -364,10 +364,6 @@ let g:terraform_completion_keys = 1
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 let g:terraform_registry_module_completion = 0
 
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
-let g:deoplete#enable_at_startup = 1
-
 
 " Grepper
 """""""""
@@ -390,9 +386,11 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 let g:deoplete#enable_at_startup = 1
 
 " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " TAB is currently being used by UltiSnips
-call deoplete#custom#source('_', 'converters', ['converter_auto_paren']) " https://github.com/Shougo/deoplete.nvim/issues/608
+
+" Adds parenthesis automatically when completing functions
+" call deoplete#custom#source('_', 'converters', ['converter_auto_paren']) " https://github.com/Shougo/deoplete.nvim/issues/608
 
 " Deoplete - Golang
 """"""""""
