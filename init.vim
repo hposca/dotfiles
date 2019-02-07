@@ -64,15 +64,23 @@ Plug 'hposca/ultisnips-terraform-snippets'
 " demonstrations. But, at least using 'Ctrl-X Ctrl-O' works after some prefix.
 Plug 'juliosueiras/vim-terraform-completion'
 
+
 " Need to make sure that neovim-python APIs are installed:
 " pip2 install --user neovim
 " pip3 install --user neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'fishbullet/deoplete-ruby'     " Deoplete for Ruby
 " Requires jedi to be installed: `pip install --user jedi`
 Plug 'zchee/deoplete-jedi'          " Deoplete for Python
-" Requires gocode to be installed: `go get -u github.com/mdempsky/gocode`
-Plug 'zchee/deoplete-go', { 'do': 'make' } " Deoplete for Golang
+
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
+Plug 'godoctor/godoctor.vim' " Some refactoring tools
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}} " Requires gocode to be installed: `go get -u github.com/mdempsky/gocode`
+Plug 'jodosha/vim-godebug' " Debugger integration via delve
+" Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
 
 call plug#end()
 
@@ -380,7 +388,29 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 " Deoplete
 """"""""""
 let g:deoplete#enable_at_startup = 1
-call deoplete#initialize()
+
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" TAB is currently being used by UltiSnips
+call deoplete#custom#source('_', 'converters', ['converter_auto_paren']) " https://github.com/Shougo/deoplete.nvim/issues/608
+
+" Deoplete - Golang
+""""""""""
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
+
+" Path to python interpreter for neovim
+let g:python3_host_prog  = '/home/linuxbrew/.linuxbrew/bin/python3'
+" pip3 install neovim
+" Skip the check of neovim module
+let g:python3_host_skip_check = 1
+
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#pointer = 1
 
 " UltiSnips
 """""""""""
