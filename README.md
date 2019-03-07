@@ -4,6 +4,7 @@
 ln -s $(readlink -f tmux.conf) ~/.tmux.conf
 ln -s $(readlink -f vimrc) ~/.vimrc
 ln -s $(readlink -f init.vim) ~/.config/nvim/init.vim
+ln -s $(readlink -f vimrcs) ~/.config/nvim/vimrcs
 ln -s $(readlink -f zshrc) ~/.zshrc
 ln -s $(readlink -f gitconfig) ~/.gitconfig
 ln -s $(readlink -f git-commit-template.txt) ~/.git-commit-template.txt
