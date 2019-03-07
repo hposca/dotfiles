@@ -63,6 +63,7 @@ Plug 'hposca/ultisnips-terraform-snippets'
 " Still haven't figured out how to make it fully IDE-like as in the asciinema
 " demonstrations. But, at least using 'Ctrl-X Ctrl-O' works after some prefix.
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'ekalinin/Dockerfile.vim'
 
 
 " Need to make sure that neovim-python APIs are installed:
@@ -74,12 +75,14 @@ Plug 'fishbullet/deoplete-ruby'     " Deoplete for Ruby
 " Requires jedi to be installed: `pip install --user jedi`
 Plug 'zchee/deoplete-jedi'          " Deoplete for Python
 
+Plug 'AndrewRadev/splitjoin.vim' " Easy transition between multiline and single-line code (gS, gJ)
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
 Plug 'godoctor/godoctor.vim' " Some refactoring tools
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}} " Requires gocode to be installed: `go get -u github.com/mdempsky/gocode`
-Plug 'jodosha/vim-godebug' " Debugger integration via delve
+" Plug 'jodosha/vim-godebug' " Debugger integration via delve
+Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 " Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
 
 call plug#end()
@@ -400,7 +403,7 @@ set completeopt+=noinsert
 set completeopt+=noselect
 
 " Path to python interpreter for neovim
-let g:python3_host_prog  = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python3_host_prog  = '/usr/bin/python3'
 " pip3 install neovim
 " Skip the check of neovim module
 let g:python3_host_skip_check = 1
@@ -409,6 +412,14 @@ let g:python3_host_skip_check = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#pointer = 1
+
+let g:go_fmt_command = "goimports"
+let g:go_syntastic_go_checkers = ['go', 'golint', 'errcheck']
+
+" Open go doc in vertical window, horizontal, or tab
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+" au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " UltiSnips
 """""""""""
