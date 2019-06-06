@@ -1,9 +1,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+BREW_PREFIX=$(brew --prefix)
 
 if [[ $(uname -s) == "Linux" ]]; then
   source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+  fpath=(${BREW_PREFIX}/share/zsh/site-functions $fpath)
+fi
+
+if [[ $(uname -s) == "Darwin" ]]; then
+  fpath=(${BREW_PREFIX}/share/zsh/site-functions $fpath)
+  source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source ${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ${BREW_PREFIX}/etc/profile.d/z.sh
 fi
 
 # Set name of the theme to load.
@@ -62,7 +70,13 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(git vagrant aws colored-man-pages tmux colorize terraform zsh-syntax-highlighting docker zsh-autosuggestions)
+# Because syntax highlighting and autosuggestions are used automatically on MacOS
+if [[ $(uname -s) == "Darwin" ]]; then
+  plugins=(git vagrant aws colored-man-pages tmux colorize terraform docker)
+else
+  plugins=(git vagrant aws colored-man-pages tmux colorize terraform docker zsh-syntax-highlighting zsh-autosuggestions)
+fi
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
@@ -77,6 +91,20 @@ if [[ $(uname -s) == "Linux" ]]; then
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
   export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
+
+# Configuring chruby
+chruby_files=(
+  $BREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+  $BREW_PREFIX/opt/chruby/share/chruby/auto.sh
+)
+
+for file in "${chruby_files[@]}"; do
+  if [[ -s "$file" ]] && [[ -r "$file" ]]; then
+    source "$file"
+  else
+    echo "Couldn't source $file"
+  fi
+done
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -288,3 +316,4 @@ if [[ ! -f ~/.minikube_completion ]] && type minikube > /dev/null ;  then
   minikube completion zsh > ~/.minikube_completion
 fi
 source ~/.minikube_completion
+
