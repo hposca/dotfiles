@@ -176,3 +176,13 @@ nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+
+"""""""""""""""""""""""""""""
+" Pandoc specific shortcuts "
+"""""""""""""""""""""""""""""
+" Convert markdown to html directly into the paste buffer
+" Thanks to
+" - https://vi.stackexchange.com/questions/5835/how-to-run-bash-command-over-current-file-and-replace-buffer-with-result#answer-5837
+" - https://superuser.com/questions/134148/mapping-a-piped-shell-command-in-vim#answer-134159
+" - https://stackoverflow.com/questions/26071935/how-to-ignore-error-in-vim-key-mapping-command-series#answer-26073091
+nnoremap <F9> :silent ! pandoc % -f markdown -t html \| xclip -selection clipboard<CR>
