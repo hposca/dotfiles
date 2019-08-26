@@ -287,7 +287,7 @@ preexec () {
 
 vim() {
   [ -t 1 ] || { echo "Not starting vim without stdout to TTY!" >&2; return 1; }
-  command vim "$@"
+  command nvim "$@"
 }
 
 # Ctrl-Space to expand aliases
@@ -302,6 +302,7 @@ zle -N globalias
 bindkey "^ " globalias             # Ctrl-space to activate expansion
 bindkey " " magic-space            # normal space
 bindkey -M isearch " " magic-space # normal space during searches
+bindkey \^U backward-kill-line     # Ctrl-U as delete from position to beginning of line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -25,7 +25,7 @@ noremap <leader>Y "+y
 noremap <leader>P "+p
 
 " Insert date and time at current line
-nmap <silent> <leader>d "=strftime('%F %H:%M')<CR>Po<esc>
+" nmap <silent> <leader>d "=strftime('%F %H:%M')<CR>Po<esc>
 
 " Ctrl J/K add blank lines above and below
 nnoremap <C-j> m`o<Esc>``

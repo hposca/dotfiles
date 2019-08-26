@@ -18,7 +18,8 @@ let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline_theme = 'bubblegum'
 let g:airline_enable_branch = 1
 let g:airline_powerline_fonts = 1
-let g:airline_enable_syntastic  = 1
+
+let g:airline#extensions#ale#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -51,7 +52,7 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 " AsyncRun
-let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+" let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 " tmux-navigator
 """"""""""""""""
@@ -138,3 +139,6 @@ map <C-g> :MundoToggle<CR>
 """"""""""""""""
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" ALE
+"""""

@@ -28,7 +28,7 @@ Plug 'junegunn/vim-easy-align'        " A Vim alignment plugin
 Plug 'raimondi/delimitmate'           " Auto-completion for quotes, parens, brackets
 Plug 'ron89/thesaurus_query.vim'      " Multi-Language Thesaurus
 Plug 'salsifis/vim-transpose'         " Transpose matrices of text
-Plug 'skywind3000/asyncrun.vim'       " Run Async shell commands
+" Plug 'skywind3000/asyncrun.vim'       " Run Async shell commands
 Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
@@ -51,11 +51,13 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'} " Markdown vim mode
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vim-syntastic/syntastic'        " Syntax checking hacks for vim
+" Plug 'vim-syntastic/syntastic'        " Syntax checking hacks for vim
+Plug 'dense-analysis/ale'
 " Need to make sure that neovim-python APIs are installed:
 " pip2 install --user neovim
 " pip3 install --user neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'davidhalter/jedi-vim'
 
 " Programming specific
 """"""""""""""""""""""
@@ -104,5 +106,11 @@ Plug 'deoplete-plugins/deoplete-go', {'do': 'make'} " Requires gocode to be inst
 " Plug 'jodosha/vim-godebug' " Debugger integration via delve
 Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 " Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
+Plug 'mustache/vim-mustache-handlebars' " Mustache (templating syntax) highlighter
+
+" Jenkinsfile
+"""""""""""""
+
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 call plug#end()
