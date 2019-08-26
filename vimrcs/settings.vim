@@ -189,6 +189,10 @@ nnoremap <F9> :silent ! pandoc % -f markdown -t html \| xclip -selection clipboa
 
 " Correcting spelling mistakes on the fly
 " [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
-setlocal spell
-set spelllang=en_ca
-inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
+autocmd Filetype markdown call FixableSpellings()
+function FixableSpellings()
+  autocmd!
+  setlocal spell
+  set spelllang=en_ca
+  inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
+endfunction
