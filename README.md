@@ -10,4 +10,5 @@ ln -s $(readlink -f gitconfig) ~/.gitconfig
 ln -s $(readlink -f git-commit-template.txt) ~/.git-commit-template.txt
 ln -s $(readlink -f quicktile-non-keypad.cfg) ~/.config/quicktile.cfg
 ln -s $(readlink -f philips.zsh-theme) ~/.oh-my-zsh/custom/philips.zsh-theme
+ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ```
