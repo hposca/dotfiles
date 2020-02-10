@@ -82,7 +82,7 @@ wtf:
         left: 3
         height: 2
         width: 1
-      refreshInterval: 1
+      refreshInterval: 5
     cmdrunner:
       args: ["-h"]
       cmd: "df"
@@ -93,6 +93,16 @@ wtf:
         height: 2
         width: 1
       refreshInterval: 30
+    calendar:
+      type: cmdrunner
+      cmd: "cal"
+      enabled: true
+      position:
+        top: 4
+        left: 3
+        height: 2
+        width: 1
+      refreshInterval: 28800
     uptime:
       type: cmdrunner
       args: [""]
@@ -123,7 +133,7 @@ wtf:
         left: 0
         height: 3
         width: 3
-      refreshInterval: 300
+      refreshInterval: 1800
       unit: "m"
       view: 2
       language: "en"
