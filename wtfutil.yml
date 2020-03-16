@@ -96,6 +96,7 @@ wtf:
     calendar:
       type: cmdrunner
       cmd: "cal"
+      args: ["-h"]
       enabled: true
       position:
         top: 4
