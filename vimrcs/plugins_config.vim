@@ -142,3 +142,10 @@ xmap ga <Plug>(EasyAlign)
 
 " ALE
 """""
+
+" Ruby/Rails
+""""""""""""
+" From https://chodounsky.com/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
+" And https://www.sitepoint.com/effective-rails-development-vim/
+set tags+=.tags
+nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
