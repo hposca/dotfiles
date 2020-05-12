@@ -85,6 +85,8 @@ source $ZSH/oh-my-zsh.sh
 
 export GOPATH=$HOME/go
 export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
+# Strange bins from gems
+export PATH=/usr/local/Cellar/tmuxinator/1.1.4/libexec/bin:$PATH
 if [[ $(uname -s) == "Linux" ]]; then
   export PATH=/home/linuxbrew/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH

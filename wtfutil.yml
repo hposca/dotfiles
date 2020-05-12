@@ -92,7 +92,7 @@ wtf:
         left: 3
         height: 2
         width: 1
-      refreshInterval: 30
+      refreshInterval: 300
     calendar:
       type: cmdrunner
       cmd: "cal"
@@ -114,7 +114,7 @@ wtf:
         left: 0
         height: 1
         width: 2
-      refreshInterval: 30
+      refreshInterval: 60
     ipinfo:
       colors:
         name: "lightblue"
@@ -134,7 +134,7 @@ wtf:
         left: 0
         height: 3
         width: 3
-      refreshInterval: 1800
+      refreshInterval: 3600
       unit: "m"
       view: 2
       language: "en"

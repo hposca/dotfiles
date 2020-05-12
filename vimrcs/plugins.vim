@@ -33,6 +33,7 @@ Plug 'tomtom/tcomment_vim'            " Comment like a boss
 Plug 'tpope/vim-rsi'                  " Readline Key Bindings
 Plug 'tpope/vim-surround'             " Ease surrounding
 Plug 'vim-scripts/AnsiEsc.vim'        " Color from terminal redirected output
+Plug 'rickhowe/spotdiff.vim'          " Diffthis for ranges
 
 
 " Git
