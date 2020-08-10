@@ -12,6 +12,7 @@ if [[ $(uname -s) == "Darwin" ]]; then
   source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source ${BREW_PREFIX}/etc/profile.d/z.sh
+  source /usr/local/Cellar/gh/0.8.0/share/zsh/site-functions/_gh
 fi
 
 # Set name of the theme to load.
