@@ -6,6 +6,9 @@ set cursorline
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
+" https://stackoverflow.com/questions/8674387/vim-how-to-reload-syntax-highlighting
+autocmd BufEnter,InsertLeave * :syntax sync fromstart
 highlight CursorLine guibg=#303000 ctermbg=234
 
 " kj as ESC
@@ -189,7 +192,7 @@ nnoremap <F9> :silent ! pandoc % -f markdown -t html \| xclip -selection clipboa
 
 " Correcting spelling mistakes on the fly
 " [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
-autocmd Filetype markdown call FixableSpellings()
+autocmd Filetype markdown,gitcommit call FixableSpellings()
 function FixableSpellings()
   autocmd!
   setlocal spell

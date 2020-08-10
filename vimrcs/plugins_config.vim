@@ -149,3 +149,12 @@ xmap ga <Plug>(EasyAlign)
 " And https://www.sitepoint.com/effective-rails-development-vim/
 set tags+=.tags
 nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
+
+" VimWiki
+"""""""""
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Git Messenger
+"""""""""""""""
+" https://github.com/rhysd/git-messenger.vim#variables
+let g:git_messenger_always_into_popup = v:true

@@ -41,6 +41,8 @@ Plug 'rickhowe/spotdiff.vim'          " Diffthis for ranges
 Plug 'junegunn/gv.vim'                " A git commit browser
 Plug 'mhinz/vim-signify'              " Uses the sign column to indicate added, modified and removed lines
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
+Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the cursor in popup window
+                                      " :GitMessenger or <Leader>gm
 
 " Markdown
 """"""""""
@@ -113,5 +115,29 @@ Plug 'mustache/vim-mustache-handlebars' " Mustache (templating syntax) highlight
 """""""""""""
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" VimWiki
+"""""""""
+Plug 'vimwiki/vimwiki' " https://github.com/vimwiki/vimwiki
+" :help vimwiki-global-mappings
+" Normal Mode
+"   <Leader>ww -- Open default wiki index file.
+"   <Leader>wt -- Open default wiki index file in a new tab.
+"   <Leader>ws -- Select and open wiki index file.
+"   <Leader>wd -- Delete wiki file you are in.
+"   <Leader>wr -- Rename wiki file you are in.
+"   <Enter> -- Follow/Create wiki link
+"   <Shift-Enter> -- Split and follow/create wiki link
+"   <Ctrl-Enter> -- Vertical split and follow/create wiki link
+"   <Backspace> -- Go back to parent(previous) wiki link
+"   <Tab> -- Find next wiki link
+"   <Shift-Tab> -- Find previous wiki link
+
+" Sorting Folds
+"""""""""""""""
+" Visually select the folds you'd like to sort
+" :call sortfolds#SortFolds()
+Plug 'brianrodri/vim-sort-folds'
+
 
 call plug#end()
