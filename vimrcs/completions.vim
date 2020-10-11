@@ -25,12 +25,8 @@ set completeopt+=noinsert
 set completeopt+=noselect
 
 " Path to python interpreter for neovim
-let g:python_host_prog  = '/home/linuxbrew/.linuxbrew/Cellar/python@2/2.7.16/bin/python2.7'
-" let g:python3_host_prog  = '/usr/bin/python3'
-let g:python3_host_prog  = '/usr/src/Python-3.7.5/python'
-" pip3 install neovim
-" Skip the check of neovim module
-let g:python3_host_skip_check = 1
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog  = '/usr/bin/python3'
 
 " deoplete-go plugin
 """"""""""""""""""""
