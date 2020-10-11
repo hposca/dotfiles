@@ -100,7 +100,6 @@ Plug 'zchee/deoplete-jedi'          " Deoplete for Python
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
 Plug 'godoctor/godoctor.vim' " Some refactoring tools
-Plug 'deoplete-plugins/deoplete-go', {'do': 'make'} " Requires gocode to be installed: `go get -u github.com/stamblerre/gocode`
 " Plug 'jodosha/vim-godebug' " Debugger integration via delve
 Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 " Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
