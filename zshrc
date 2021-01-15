@@ -12,7 +12,6 @@ if [[ $(uname -s) == "Darwin" ]]; then
   source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source ${BREW_PREFIX}/etc/profile.d/z.sh
-  source /usr/local/Cellar/gh/0.8.0/share/zsh/site-functions/_gh
 fi
 
 # Set name of the theme to load.
@@ -94,20 +93,6 @@ if [[ $(uname -s) == "Linux" ]]; then
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
   export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
-
-# Configuring chruby
-chruby_files=(
-  $BREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-  $BREW_PREFIX/opt/chruby/share/chruby/auto.sh
-)
-
-for file in "${chruby_files[@]}"; do
-  if [[ -s "$file" ]] && [[ -r "$file" ]]; then
-    source "$file"
-  else
-    echo "Couldn't source $file"
-  fi
-done
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -158,3 +158,9 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 """""""""""""""
 " https://github.com/rhysd/git-messenger.vim#variables
 let g:git_messenger_always_into_popup = v:true
+
+" Signify (Git indicator)
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+nmap ]c <plug>(signify-next-hunk)
+nmap [c <plug>(signify-prev-hunk)

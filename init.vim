@@ -1,4 +1,5 @@
-let mapleader = ","
+" let mapleader = ","
+let mapleader = " "
 let $VTE_VERSION="100"
 
 if filereadable(expand("~/.vimrc.experiment")) " We can do some experiments
