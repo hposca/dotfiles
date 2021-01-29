@@ -24,5 +24,3 @@
 	insteadOf = https://github.com/
 [alias]
   addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
-[commit]
-  template = ~/.git-commit-template.txt
