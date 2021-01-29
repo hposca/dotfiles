@@ -1,10 +1,11 @@
 # Path to your oh-my-zsh installation.
+#
 export ZSH=$HOME/.oh-my-zsh
 
-if [[ $(uname -s) == "Linux" ]]; then
-  source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fi
+# if [[ $(uname -s) == "Linux" ]]; then
+#   # source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
+#   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+# fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -69,14 +70,21 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export GOPATH=$HOME/go
-export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
-if [[ $(uname -s) == "Linux" ]]; then
-  export PATH=/home/linuxbrew/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
-  export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
-  export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
-  export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
-fi
+# if [[ $(uname -s) == "Linux" ]]; then
+#   export PATH=/home/linuxbrew/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
+#   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
+#   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
+#   export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
+#   # source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
+#   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+#   export GOROOT=/home/linuxbrew/.linuxbrew/opt/go/
+# fi
+
+# Download golang tar.gz from https://golang.org/dl/
+# Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/src/go
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

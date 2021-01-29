@@ -1,7 +1,7 @@
 [user]
 # Please modify these lines
-#	email = your_email@provider
-#	name = Your Name Here
+	email = hugo.posca@gmail.com
+	name = Hugo Posca
 [push]
 	default = simple
 [core]
@@ -24,5 +24,3 @@
 	insteadOf = https://github.com/
 [alias]
   addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
-[commit]
-  template = ~/.git-commit-template.txt

@@ -104,4 +104,8 @@ Plug 'godoctor/godoctor.vim' " Some refactoring tools
 Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 " Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
 
+" Testing
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'wannesm/wmgraphviz.vim'
 call plug#end()
