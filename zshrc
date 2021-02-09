@@ -63,7 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(git vagrant aws colored-man-pages tmux colorize terraform zsh-syntax-highlighting docker zsh-autosuggestions)
+plugins=(git vagrant aws colored-man-pages tmux colorize terraform docker zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
