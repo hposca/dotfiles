@@ -40,6 +40,8 @@ Plug 'vim-scripts/AnsiEsc.vim'        " Color from terminal redirected output
 Plug 'junegunn/gv.vim'                " A git commit browser
 Plug 'mhinz/vim-signify'              " Uses the sign column to indicate added, modified and removed lines
 Plug 'tpope/vim-fugitive'             " Git integration inside vim
+Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the cursor in popup window
+                                      " :GitMessenger or <Leader>gm
 
 " Markdown
 """"""""""
