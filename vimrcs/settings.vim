@@ -6,6 +6,9 @@ set cursorline
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
+" https://stackoverflow.com/questions/8674387/vim-how-to-reload-syntax-highlighting
+autocmd BufEnter,InsertLeave * :syntax sync fromstart
 highlight CursorLine guibg=#303000 ctermbg=234
 
 " kj as ESC
