@@ -1,0 +1,103 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+$FZF_DEFAULT_COMMAND	fzf.vim	/^let $FZF_DEFAULT_COMMAND="rg --files --hidden"$/;"	v
+$FZF_DEFAULT_OPTS	fzf.vim	/^let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'$/;"	v
+<C-L>	mappings.vim	/^  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>$/;"	m
+<C-f>	fzf.vim	/^map <C-f> :Files<CR>$/;"	m
+<C-h>	nerdtree.vim	/^nnoremap <C-h> :NERDTreeFind<CR>$/;"	m
+<C-j>	mappings.vim	/^nnoremap <C-j> m`o<Esc>``$/;"	m
+<C-k>	mappings.vim	/^nnoremap <C-k> m`O<Esc>``$/;"	m
+<C-n>	nerdtree.vim	/^nnoremap <C-n> :NERDTreeToggle<CR>$/;"	m
+<Down>	mappings.vim	/^nnoremap <silent> <Down> :resize -5<cr>$/;"	m
+<Left>	mappings.vim	/^nnoremap <silent> <Left> :vertical resize -5<cr>$/;"	m
+<M-h>	tmux-navigator.vim	/^nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>$/;"	m
+<M-j>	tmux-navigator.vim	/^nnoremap <silent> <M-j> :TmuxNavigateDown<cr>$/;"	m
+<M-k>	tmux-navigator.vim	/^nnoremap <silent> <M-k> :TmuxNavigateUp<cr>$/;"	m
+<M-l>	tmux-navigator.vim	/^nnoremap <silent> <M-l> :TmuxNavigateRight<cr>$/;"	m
+<Right>	mappings.vim	/^nnoremap <silent> <Right> :vertical resize +5<cr>$/;"	m
+<Space>	mappings.vim	/^nnoremap <Space> <Nop>$/;"	m
+<Up>	mappings.vim	/^nnoremap <silent> <Up> :resize +5<cr>$/;"	m
+<leader>-	mappings.vim	/^nnoremap <leader>- :wincmd _<cr>:wincmd \\|<cr>$/;"	m
+<leader>1	airline.vim	/^nmap <leader>1 <Plug>AirlineSelectTab1$/;"	m
+<leader>2	airline.vim	/^nmap <leader>2 <Plug>AirlineSelectTab2$/;"	m
+<leader>3	airline.vim	/^nmap <leader>3 <Plug>AirlineSelectTab3$/;"	m
+<leader>4	airline.vim	/^nmap <leader>4 <Plug>AirlineSelectTab4$/;"	m
+<leader>5	airline.vim	/^nmap <leader>5 <Plug>AirlineSelectTab5$/;"	m
+<leader>6	airline.vim	/^nmap <leader>6 <Plug>AirlineSelectTab6$/;"	m
+<leader>7	airline.vim	/^nmap <leader>7 <Plug>AirlineSelectTab7$/;"	m
+<leader>8	airline.vim	/^nmap <leader>8 <Plug>AirlineSelectTab8$/;"	m
+<leader>9	airline.vim	/^nmap <leader>9 <Plug>AirlineSelectTab9$/;"	m
+<leader>=	mappings.vim	/^nnoremap <leader>= :wincmd =<cr>$/;"	m
+<leader>b	fzf.vim	/^map <leader>b :Buffers<CR>$/;"	m
+<leader>c	tcomment.vim	/^nmap <silent> <leader>c :TComment<CR>$/;"	m
+<leader>c	tcomment.vim	/^vmap <silent> <leader>c :TComment<CR>$/;"	m
+<leader>ev	mappings.vim	/^nmap <silent> <leader>ev :e $MYVIMRC<CR>$/;"	m
+<leader>g	fzf.vim	/^nnoremap <leader>g :Rg<CR>$/;"	m
+<leader>m	fzf.vim	/^nnoremap <leader>m :Marks<CR>$/;"	m
+<leader>sv	mappings.vim	/^nmap <silent> <leader>sv :so $MYVIMRC<CR>$/;"	m
+<leader>t	fzf.vim	/^nnoremap <leader>t :Tags<CR>$/;"	m
+<space>r	ranger.vim	/^nmap <space>r :RnvimrToggle<CR>$/;"	m
+BeforeExit	settings.vim	/^augroup BeforeExit$/;"	a
+Files	fzf.vim	/^command! -bang -nargs=? -complete=dir Files$/;"	c
+FixableSpellings	settings.vim	/^function FixableSpellings()$/;"	f
+GGrep	fzf.vim	/^command! -bang -nargs=* GGrep$/;"	c
+Q	settings.vim	/^command! -bang Q q<bang>$/;"	c
+QA	settings.vim	/^command! -bang QA qa<bang>$/;"	c
+Qa	settings.vim	/^command! -bang Qa qa<bang>$/;"	c
+RG	fzf.vim	/^command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)$/;"	c
+Rg	fzf.vim	/^command! -bang -nargs=* Rg$/;"	c
+RipgrepFzf	fzf.vim	/^function! RipgrepFzf(query, fullscreen)$/;"	f
+ToggleNumbersOn	settings.vim	/^function! ToggleNumbersOn()$/;"	f
+ToggleRelativeOn	settings.vim	/^function! ToggleRelativeOn()$/;"	f
+W	settings.vim	/^command! -bang W w<bang>$/;"	c
+WQ	settings.vim	/^command! -bang WQ wq<bang>$/;"	c
+Wq	settings.vim	/^command! -bang Wq wq<bang>$/;"	c
+[B	mappings.vim	/^nnoremap <silent> [B :bfirst<CR>$/;"	m
+[b	mappings.vim	/^nnoremap <silent> [b :bprevious<CR>$/;"	m
+]B	mappings.vim	/^nnoremap <silent> ]B :blast<CR>$/;"	m
+]b	mappings.vim	/^nnoremap <silent> ]b :bnext<CR>$/;"	m
+g:airline#extensions#tabline#buffer_idx_mode	airline.vim	/^let g:airline#extensions#tabline#buffer_idx_mode = 1$/;"	v
+g:airline#extensions#tabline#enabled	airline.vim	/^let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#fnamemod	airline.vim	/^let g:airline#extensions#tabline#fnamemod = ':t'$/;"	v
+g:airline#extensions#tabline#show_tabs	airline.vim	/^let g:airline#extensions#tabline#show_tabs = 0$/;"	v
+g:airline#extensions#tabline#switch_buffers_and_tabs	airline.vim	/^let g:airline#extensions#tabline#switch_buffers_and_tabs = 1$/;"	v
+g:airline_enable_branch	airline.vim	/^let g:airline_enable_branch = 1$/;"	v
+g:airline_enable_syntastic	airline.vim	/^let g:airline_enable_syntastic  = 1$/;"	v
+g:airline_left_sep	airline.vim	/^let g:airline_left_sep = '»'$/;"	v
+g:airline_left_sep	airline.vim	/^let g:airline_left_sep = '▶'$/;"	v
+g:airline_powerline_fonts	airline.vim	/^let g:airline_powerline_fonts = 1$/;"	v
+g:airline_right_sep	airline.vim	/^let g:airline_right_sep = '«'$/;"	v
+g:airline_right_sep	airline.vim	/^let g:airline_right_sep = '◀'$/;"	v
+g:airline_symbols	airline.vim	/^  let g:airline_symbols = {}$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.branch = '⎇'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.linenr = '¶'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.linenr = '␊'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.linenr = '␤'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.paste = 'Þ'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.paste = 'ρ'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.paste = '∥'$/;"	v
+g:airline_symbols	airline.vim	/^let g:airline_symbols.whitespace = 'Ξ'$/;"	v
+g:airline_theme	airline.vim	/^let g:airline_theme = 'bubblegum'$/;"	v
+g:fzf_action	fzf.vim	/^let g:fzf_action = {$/;"	v
+g:fzf_colors	fzf.vim	/^let g:fzf_colors =$/;"	v
+g:fzf_history_dir	fzf.vim	/^let g:fzf_history_dir = '~\/.local\/share\/fzf-history'$/;"	v
+g:fzf_layout	fzf.vim	/^let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }$/;"	v
+g:fzf_tags_command	fzf.vim	/^let g:fzf_tags_command = 'ctags -R'$/;"	v
+g:rainbow#max_level	rainbow_parenthesis.vim	/^let g:rainbow#max_level = 16$/;"	v
+g:rainbow#pairs	rainbow_parenthesis.vim	/^let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]$/;"	v
+g:rnvimr_ex_enable	ranger.vim	/^let g:rnvimr_ex_enable = 1$/;"	v
+g:seoul256_background	settings.vim	/^let g:seoul256_background = 236$/;"	v
+g:seoul256_srgb	settings.vim	/^let g:seoul256_srgb = 1$/;"	v
+g:tmux_navigator_disable_when_zoomed	tmux-navigator.vim	/^let g:tmux_navigator_disable_when_zoomed = 1$/;"	v
+g:tmux_navigator_no_mappings	tmux-navigator.vim	/^let g:tmux_navigator_no_mappings = 1$/;"	v
+g:tmux_navigator_save_on_switch	tmux-navigator.vim	/^let g:tmux_navigator_save_on_switch = 1$/;"	v
+j	mappings.vim	/^nnoremap j gj$/;"	m
+k	mappings.vim	/^nnoremap k gk$/;"	m
+kj	mappings.vim	/^cnoremap kj <esc>$/;"	m
+kj	mappings.vim	/^inoremap kj <esc>$/;"	m
+mapleader	mappings.vim	/^let mapleader="\\<Space>"$/;"	v
+w!!	mappings.vim	/^cmap w!! w !sudo tee > \/dev\/null %$/;"	m
