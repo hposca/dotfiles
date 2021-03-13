@@ -25,10 +25,13 @@ Plug 'tomtom/tcomment_vim'              " Comment like a boss
 Plug 'tpope/vim-repeat'                 " Enable repeating supported pluging maps with .
 Plug 'tpope/vim-rsi'                    " Readline Key Bindings
 Plug 'tpope/vim-surround'               " Ease surrounding
+Plug 'liuchengxu/vim-which-key'         " shows keybindings in popup
 
 " Syntax and Completion
 Plug 'sheerun/vim-polyglot'                     " Better Syntax Support
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Stable version of coc
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Git integration
 Plug 'mhinz/vim-signify'
@@ -37,5 +40,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
 " COC extensions
+" GO111MODULE=on go get golang.org/x/tools/gopls@latest
 Plug 'josa42/coc-go'
 call plug#end()

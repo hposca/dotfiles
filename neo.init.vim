@@ -17,6 +17,9 @@ source ~/.config/nvim/plug-config/ranger.vim
 source ~/.config/nvim/plug-config/tcomment.vim
 source ~/.config/nvim/plug-config/tmux-navigator.vim
 source ~/.config/nvim/plug-config/signify.vim
+source ~/.config/nvim/plug-config/which-key.vim
+source ~/.config/nvim/plug-config/coc.vim
+source ~/.config/nvim/plug-config/coc-snippets.vim
 
 """""""""
 " Hints "
