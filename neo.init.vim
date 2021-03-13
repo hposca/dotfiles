@@ -16,6 +16,7 @@ source ~/.config/nvim/plug-config/rainbow_parenthesis.vim
 source ~/.config/nvim/plug-config/ranger.vim
 source ~/.config/nvim/plug-config/tcomment.vim
 source ~/.config/nvim/plug-config/tmux-navigator.vim
+source ~/.config/nvim/plug-config/signify.vim
 
 """""""""
 " Hints "
