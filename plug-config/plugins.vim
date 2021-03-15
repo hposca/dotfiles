@@ -39,7 +39,4 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
-" COC extensions
-" GO111MODULE=on go get golang.org/x/tools/gopls@latest
-Plug 'josa42/coc-go'
 call plug#end()

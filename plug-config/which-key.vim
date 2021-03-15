@@ -3,14 +3,12 @@ nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 " By default timeoutlen is 1000 ms
-set timeoutlen=500
+set timeoutlen=300
 
 " Create map to add keys to
 let g:which_key_map =  {}
 " Define a separator
 let g:which_key_sep = '→'
-" set timeoutlen=100
-
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
