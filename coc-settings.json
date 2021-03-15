@@ -1,17 +1,95 @@
 {
-  "snippets.ultisnips.directories":
-  [
+  "coc.preferences.formatOnSaveFiletypes": [
+    "sh",
+    "go",
+    "json",
+    "python"
+  ],
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+  // python
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.linting.pylintEnabled": true,
+  // python - jedi
+  "jedi.completion.disableSnippets": false,
+  "jedi.completion.resolveEagerly": false,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didSave": true,
+  "jedi.diagnostics.enable": true,
+  "jedi.enable": true,
+  "jedi.executable.args": [],
+  "jedi.executable.command": "jedi-language-server",
+  "jedi.jediSettings.autoImportModules": [],
+  "jedi.markupKindPreferred": "plaintext",
+  "jedi.startupMessage": false,
+  "jedi.trace.server": "off",
+  "jedi.workspace.extraPaths": [],
+  "jedi.workspace.symbols.maxSymbols": 20,
+  "jedi.workspace.symbols.ignoreFolders": [
+    ".nox",
+    ".tox",
+    ".venv",
+    "__pycache__",
+    "venv"
+  ],
+  "snippets.ultisnips.directories": [
     "UltiSnips",
     "~/.config/nvim/utils/snips"
   ],
   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    },
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
+      "rootPatterns": [
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "filetypes": [
+        "go"
+      ],
       "initializationOptions": {
         "usePlaceholders": true
       }
+    },
+    "python": {
+      "command": "jedi-language-server",
+      "filetypes": [
+        "python"
+      ],
+      "settings": {
+        "linting": {
+          "enabled": true
+        }
+      }
     }
+  },
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "go": ["golangci-lint"],
+    "markdown": [ "markdownlint" ],
+    "python": [ "pylint" ],
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": [ "black" ],
+    "sh": "shfmt"
   }
 }
