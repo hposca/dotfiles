@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'   " Airline themes
 " Navigation and finding
 Plug 'christoomey/vim-tmux-navigator'           " Vim integration with Tmux
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} " Ranger in vim
+Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an asynchronous search
 
 " Generic editing improvements
 Plug 'airblade/vim-rooter'              " Changes Vim working directory to project root
@@ -25,7 +26,8 @@ Plug 'tomtom/tcomment_vim'              " Comment like a boss
 Plug 'tpope/vim-repeat'                 " Enable repeating supported pluging maps with .
 Plug 'tpope/vim-rsi'                    " Readline Key Bindings
 Plug 'tpope/vim-surround'               " Ease surrounding
-Plug 'liuchengxu/vim-which-key'         " shows keybindings in popup
+Plug 'liuchengxu/vim-which-key'         " Shows keybindings in popup
+Plug 'andrewradev/switch.vim'           " Switch segments of text with predefined replacements
 
 " Syntax and Completion
 Plug 'sheerun/vim-polyglot'                     " Better Syntax Support
@@ -34,9 +36,11 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Git integration
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-signify'              " Uses the sign column to indicate added, modified and removed lines
+Plug 'tpope/vim-fugitive'             " Git integration inside vim
+Plug 'tpope/vim-rhubarb'              " :GBrowse from to open GitHub URLs. Omni-complete on commit messages
+Plug 'junegunn/gv.vim'                " A Git commit browser
+Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the cursor in popup window
+                                      " :GitMessenger or <Leader>gm
 
 call plug#end()
