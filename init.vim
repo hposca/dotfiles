@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = "\<Space>"
 let $VTE_VERSION="100"
 
 if filereadable(expand("~/.vimrc.experiment")) " We can do some experiments
@@ -19,4 +19,3 @@ endif
 " :vmap for visual mode mappings
 " :imap for insert mode mappings
 " :mkexrc [file] - Write current key mappings and changed options to [file]
-
