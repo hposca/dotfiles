@@ -101,7 +101,22 @@ Plug 'zchee/deoplete-jedi'          " Deoplete for Python
 """"""""
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
-Plug 'godoctor/godoctor.vim' " Some refactoring tools
+Plug 'godoctor/godoctor.vim', { 'do': 'GoDoctorInstall' } " Some refactoring tools
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+function! DoctorScopeFunc()
+  let l:gp = $GOPATH
+  if l:gp == ""
+    return ""
+  endif
+
+  let l:gp = l:gp."/src/"
+  let l:gr = s:find_git_root()
+
+  return substitute(l:gr, l:gp, "", "")
+endfunction
 " Plug 'jodosha/vim-godebug' " Debugger integration via delve
 Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 " Plug 'Shougo/neopairs' " https://github.com/Shougo/deoplete.nvim/issues/608
@@ -110,4 +125,5 @@ Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'wannesm/wmgraphviz.vim'
+Plug 'airblade/vim-rooter'
 call plug#end()
