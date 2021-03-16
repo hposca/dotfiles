@@ -20,6 +20,12 @@ source ~/.config/nvim/plug-config/signify.vim
 source ~/.config/nvim/plug-config/which-key.vim
 source ~/.config/nvim/plug-config/coc.vim
 source ~/.config/nvim/plug-config/coc-snippets.vim
+source ~/.config/nvim/plug-config/grepper.vim
+source ~/.config/nvim/plug-config/easy-align.vim
+source ~/.config/nvim/plug-config/fugitive.vim
+source ~/.config/nvim/plug-config/mundo.vim
+source ~/.config/nvim/plug-config/switch.vim
+source ~/.config/nvim/plug-config/git-messenger.vim
 
 """""""""
 " Hints "
