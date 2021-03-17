@@ -17,7 +17,6 @@ Plug 'mhinz/vim-grepper'              " Use your favorite grep tool to start an 
 
 " Generic editing improvements
 Plug 'airblade/vim-rooter'              " Changes Vim working directory to project root
-Plug 'itchyny/vim-cursorword'           " Underlines the word under the cursor
 Plug 'jiangmiao/auto-pairs'             " Auto pairs for '(' '[' '{'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
