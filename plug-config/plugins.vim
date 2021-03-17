@@ -42,5 +42,9 @@ Plug 'tpope/vim-rhubarb'              " :GBrowse from to open GitHub URLs. Omni-
 Plug 'junegunn/gv.vim'                " A Git commit browser
 Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the cursor in popup window
                                       " :GitMessenger or <Leader>gm
+" Programming languages specific
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
+Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 
 call plug#end()
