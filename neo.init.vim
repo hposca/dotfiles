@@ -27,6 +27,7 @@ source ~/.config/nvim/plug-config/mundo.vim
 source ~/.config/nvim/plug-config/switch.vim
 source ~/.config/nvim/plug-config/git-messenger.vim
 source ~/.config/nvim/plug-config/vim-go.vim
+source ~/.config/nvim/plug-config/terraform.vim
 
 """""""""
 " Hints "

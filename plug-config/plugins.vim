@@ -42,8 +42,16 @@ Plug 'junegunn/gv.vim'                " A Git commit browser
 Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the cursor in popup window
                                       " :GitMessenger or <Leader>gm
 " Programming languages specific
+""""""""""""""""""""""""""""""""
+
 " Golang
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Amazing combination of features.
 Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
+
+" Terraform
+
+Plug 'hashivim/vim-terraform'         " Terraform manipulation in Vim
+Plug 'hposca/ultisnips-terraform-snippets'
 
 call plug#end()
