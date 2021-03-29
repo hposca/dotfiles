@@ -51,7 +51,7 @@ Plug 'sebdah/vim-delve' " Debugger integration via delve (Colored debugging)
 
 " Terraform
 
-Plug 'hashivim/vim-terraform'         " Terraform manipulation in Vim
+" Plug 'hashivim/vim-terraform'         " Terraform manipulation in Vim
 Plug 'hposca/ultisnips-terraform-snippets'
 
 call plug#end()
