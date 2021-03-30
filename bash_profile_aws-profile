@@ -19,7 +19,7 @@ function aws-profile() {
 
     # 認証情報取得・表示
     aws sts get-caller-identity |
-      highlight -S json -O xterm256 --style aiseered
+      highlight -S javascript -O xterm256 --style base16/ocean
   else
     # 設定されず
     echo "AWS_PROFILE not set." >&2
@@ -48,7 +48,7 @@ function select-aws-profile() {
                 puts config.gsub(\""${HOME}"\",\"~\")
                 puts \"----\"
                 puts File.read(config).split(/\n\n/).grep(/^\[(profile )?{}\]/)
-              ' | highlight -S toml -O xterm256 --style aiseered
+              ' | highlight -S toml -O xterm256 --style base16/codeschool
             " \
         --query="$__start_query" \
         --layout=reverse \
