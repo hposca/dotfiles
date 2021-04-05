@@ -5,7 +5,7 @@ Plug 'junegunn/rainbow_parentheses.vim' " Colored Parenthesis
 Plug 'junegunn/seoul256.vim'            " Colorscheme
 Plug 'majutsushi/tagbar'                " Class outline viewer
 Plug 'mhinz/vim-startify'               " Start screen for Vim
-Plug 'scrooloose/nerdtree'              " NERDTree
+Plug 'preservim/nerdtree'               " NERDTree
 Plug 'simnalamburt/vim-mundo'           " Vim undo tree visualizer
 Plug 'vim-airline/vim-airline'          " Powerline like statusline
 Plug 'vim-airline/vim-airline-themes'   " Airline themes
