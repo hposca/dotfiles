@@ -283,6 +283,10 @@ bindkey "^ " globalias             # Ctrl-space to activate expansion
 bindkey " " magic-space            # normal space
 bindkey -M isearch " " magic-space # normal space during searches
 
+# Ctrl-U as normal Ctrl-U
+# https://stackoverflow.com/questions/3483604/which-shortcut-in-zsh-does-the-same-as-ctrl-u-in-bash/3483679#3483679
+bindkey \^U backward-kill-line
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.bash_profile_aws-profile ]; then
