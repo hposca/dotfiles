@@ -292,3 +292,11 @@ bindkey \^U backward-kill-line
 if [ -f ~/.bash_profile_aws-profile ]; then
   . ~/.bash_profile_aws-profile
 fi
+
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
