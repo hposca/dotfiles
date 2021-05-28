@@ -42,6 +42,9 @@ wtf:
       enabled: true
       locations:
         Amsterdam: "Europe/Amsterdam"
+        Austin: "US/Central"
+        Berlin: "Europe/Berlin"
+        London: "Europe/London"
         São Paulo: "America/Sao_Paulo"
         Tokyo: "Asia/Tokyo"
         Toronto: "America/Toronto"
