@@ -229,6 +229,8 @@ alias tmux='tmux -2'
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
+alias tiga='tig --all'
+
 ###############
 # Some tweaks #
 ###############
