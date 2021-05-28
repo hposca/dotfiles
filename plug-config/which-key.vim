@@ -65,5 +65,7 @@ let g:which_key_map.s = {
       \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
+let g:which_key_map.w = { 'name': '+VimWiki' }
+
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")

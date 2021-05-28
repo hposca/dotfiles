@@ -125,3 +125,7 @@ function FixableSpellings()
   set spelllang=en_ca
   inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
 endfunction
+
+autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set filetype=markdown
+" https://www.reddit.com/r/vim/comments/esgog5/vimwiki_and_markdown_syntax/
+autocmd BufWinEnter *.md setlocal syntax=markdown
