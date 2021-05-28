@@ -48,7 +48,7 @@ set mouse=a                " Enable your mouse
 set splitbelow             " Horizontal splits will automatically be below
 set splitright             " Vertical splits will automatically be to the right
 
-set conceallevel=0         " So that I can see `` in markdown files
+" set conceallevel=0         " So that I can see `` in markdown files
 set laststatus=2           " Always display the status line
 set shortmess+=c           " Don't pass messages to |ins-completion-menu|.
 " set signcolumn=yes         " Always show the signcolumn, otherwise it would shift the text each time

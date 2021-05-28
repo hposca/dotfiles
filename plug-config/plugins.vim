@@ -27,6 +27,7 @@ Plug 'tpope/vim-rsi'                    " Readline Key Bindings
 Plug 'tpope/vim-surround'               " Ease surrounding
 Plug 'liuchengxu/vim-which-key'         " Shows keybindings in popup
 Plug 'andrewradev/switch.vim'           " Switch segments of text with predefined replacements
+Plug 'mzlogin/vim-markdown-toc'         " Generate Table of Contents for Markdown files
 
 " Syntax and Completion
 Plug 'sheerun/vim-polyglot'                     " Better Syntax Support
@@ -43,6 +44,11 @@ Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the c
                                       " :GitMessenger or <Leader>gm
 " Programming languages specific
 """"""""""""""""""""""""""""""""
+
+" Markdown
+
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown Vim Mode
+Plug 'godlygeek/tabular', { 'for': 'markdown' }       " Vim script for text filtering and alignment
 
 " Golang
 
