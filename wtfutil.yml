@@ -41,9 +41,6 @@ wtf:
           odd: "white"
       enabled: true
       locations:
-        Austin: "US/Central"
-        Berlin: "Europe/Berlin"
-        London: "Europe/London"
         Amsterdam: "Europe/Amsterdam"
         Austin: "US/Central"
         Berlin: "Europe/Berlin"
