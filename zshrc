@@ -11,7 +11,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="philips"
 ZSH_THEME="spaceship"
 
 # Installation instructions:
@@ -64,7 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(git vagrant aws colored-man-pages tmux colorize terraform docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aws colored-man-pages colorize docker gh git golang terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
@@ -230,6 +229,8 @@ alias tmux='tmux -2'
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
+alias tiga='tig --all'
+
 ###############
 # Some tweaks #
 ###############
@@ -284,16 +285,20 @@ bindkey "^ " globalias             # Ctrl-space to activate expansion
 bindkey " " magic-space            # normal space
 bindkey -M isearch " " magic-space # normal space during searches
 
+# Ctrl-U as normal Ctrl-U
+# https://stackoverflow.com/questions/3483604/which-shortcut-in-zsh-does-the-same-as-ctrl-u-in-bash/3483679#3483679
+bindkey \^U backward-kill-line
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-touch ~/.awless_completion
-if [[ ! -f ~/.awless_completion ]] && type awless > /dev/null ; then
-  awless completion zsh > ~/.awless_completion
+if [ -f ~/.bash_profile_aws-profile ]; then
+  . ~/.bash_profile_aws-profile
 fi
-source ~/.awless_completion
 
-touch ~/.minikube_completion
-if [[ ! -f ~/.minikube_completion ]] && type minikube > /dev/null ;  then
-  minikube completion zsh > ~/.minikube_completion
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi
-source ~/.minikube_completion

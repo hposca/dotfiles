@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# DEPENDENCY: bash (or zsh), aws-cli, ruby, fzf, highlight
+
+# AWS Profile Selector
+function aws-profile() {
+
+  # profile 名のリスト選択
+  local __profile=$(select-aws-profile $@)
+
+  if [ "$__profile" != "" ]; then
+    # 現在の環境変数設定のクリア
+    unset-aws-profile --silence
+
+    # 環境変数セット
+    export AWS_PROFILE=$__profile
+    export AWS_DEFAULT_PROFILE=$__profile
+    printf "export \e[93;1mAWS_PROFILE\e[m=\e[83;1m%s\e[m\n" "$AWS_PROFILE" >&2
+
+    # 認証情報取得・表示
+    aws sts get-caller-identity |
+      highlight -S javascript -O xterm256 --style base16/ocean
+  else
+    # 設定されず
+    echo "AWS_PROFILE not set." >&2
+  fi
+}
+
+# 設定済プロファイルのリストアップ
+function list-aws-profile() {
+  local __keyword="$2"
+  ruby -ne \
+    'puts $1 if /^\[(?:profile )?('${__keyword}'\S*)\]/' \
+    ${AWS_CONFIG_FILE:-$HOME/.aws/config}
+}
+
+# AWS Profile セレクター
+function select-aws-profile() {
+  # AWS Config ファイルのパス
+  local __AWS_CONFIG=${AWS_CONFIG_FILE:-$HOME/.aws/config}
+  local __start_query=$1
+
+  # profile 名のリスト選択
+  list-aws-profile |
+    fzf --preview="
+              ruby -e '
+                config = \""${__AWS_CONFIG}"\"
+                puts config.gsub(\""${HOME}"\",\"~\")
+                puts \"----\"
+                puts File.read(config).split(/\n\n/).grep(/^\[(profile )?{}\]/)
+              ' | highlight -S toml -O xterm256 --style base16/codeschool
+            " \
+        --query="$__start_query" \
+        --layout=reverse \
+        --height 15 --inline-info --border \
+        --select-1 \
+        --cycle --no-mouse
+}
+
+# AWS Credential 環境変数のクリア
+function unset-aws-profile() {
+  local __related_envs="$(echo '
+                            AWS_PROFILE AWS_DEFAULT_PROFILE
+                            AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+                            AWS_SESSION_TOKEN
+                            AWS_SESSION_EXPIRATION
+                            AWS_DEFAULT_REGION
+                          ' | xargs)"
+
+  # 関連環境変数のクリア
+  eval unset ${__related_envs}
+  case "$1" in
+  -s | --silence) ;;
+  *)
+    (
+      echo "Unset : ${__related_envs}"
+      echo ""
+    ) >&2
+    ;;
+  esac
+}
+
+# シェルタイプに応じて補完設定
+case "${BASH}${ZSH_NAME}${1}" in
+*bash*)
+  # BASH Completion
+  complete -C list-aws-profile aws-profile
+  ;;
+*zsh*)
+  # ZSH Completion
+  function _aws-profile() {
+    _arguments ':profile:($(list-aws-profile))'
+  }
+  compdef _aws-profile aws-profile
+  ;;
+esac
