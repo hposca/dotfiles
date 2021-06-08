@@ -12,4 +12,6 @@ ln -s $(readlink -f git-commit-template.txt) ~/.git-commit-template.txt
 ln -s $(readlink -f quicktile-non-keypad.cfg) ~/.config/quicktile.cfg
 ln -s $(readlink -f philips.zsh-theme) ~/.oh-my-zsh/custom/philips.zsh-theme
 ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
+ln -s $(readlink -f i3-config) ~/.config/i3/config
+ln -s $(readlink -f i3-bins) ~/.i3-bins
 ```
