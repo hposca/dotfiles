@@ -203,10 +203,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-}
+exec_always --no-startup-id $HOME/.i3-bins/i3-launch-polybar.sh
+# bar {
+#         status_command i3status
+#         position top
+# }
 
 # Set alternative keyboard layouts
 # [xorg - List all valid kbd layouts, variants and toggle options (to use with setxkbmap)](https://unix.stackexchange.com/a/298947):
@@ -221,7 +222,7 @@ exec_always --no-startup-id $HOME/.i3-bins/i3-caps_as_control.sh
 
 # Followed the PAM method to have gnome-keyring enabled. Without it `aws-vault` didn't work :/
 # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
-# exec_always --no-startup-id ~/.i3-bins/i3-gnome-keyring.sh
+# exec_always --no-startup-id $HOME/.i3-bins/i3-gnome-keyring.sh
 
 # Forcing workspaces to fixed monitors
 workspace 1 output DP-2
