@@ -14,4 +14,5 @@ ln -s $(readlink -f philips.zsh-theme) ~/.oh-my-zsh/custom/philips.zsh-theme
 ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ln -s $(readlink -f i3-config) ~/.config/i3/config
 ln -s $(readlink -f i3-bins) ~/.i3-bins
+ln -s $(readlink -f polybar-config) ~/.config/polybar/config
 ```
