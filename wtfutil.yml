@@ -35,6 +35,7 @@ wtf:
         width: 1
       refreshInterval: 3600
     clocks:
+      title: 🕗 World Clocks
       colors:
         rows:
           even: "lightblue"
@@ -119,6 +120,7 @@ wtf:
         width: 1
       refreshInterval: 300
     prettyweather:
+      title: ⛅ Pretty Weather
       enabled: true
       city: "vancouver"
       position:
@@ -130,3 +132,21 @@ wtf:
       unit: "m"
       view: 2
       language: "en"
+    exchangerates:
+      enabled: true
+      focusable: false
+      position:
+        top: 4
+        left: 3
+        height: 2
+        width: 1
+      precision: 4
+      rates:
+        CAD:
+          - "USD"
+          - "EUR"
+        USD:
+          - "CAD"
+        EUR:
+          - "CAD"
+      title: "💰 Rates"

@@ -254,3 +254,10 @@ for_window [class=zoom] floating enable
 
 # ranger file manager
 bindsym $mod+n exec --no-startup-id $terminal -e ranger && i3-msg "[id=$(xdotool getactivewindow)] floating enable"
+
+# With help from https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/
+# Screenshot with scrot
+bindsym --release Print exec scrot -e 'mv $f ~/Pictures/'
+# Screenshot with scrot - area selection
+bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/Pictures/'
+bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/'
