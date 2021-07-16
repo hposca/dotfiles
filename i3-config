@@ -250,6 +250,8 @@ bindsym $mod+minus scratchpad show
 
 popup_during_fullscreen leave_fullscreen
 
+for_window [class=Enpass] floating enable
+for_window [class=Gnome-calculator] floating enable
 for_window [class=zoom] floating enable
 
 # ranger file manager
