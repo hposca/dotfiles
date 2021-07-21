@@ -29,6 +29,7 @@ Plug 'liuchengxu/vim-which-key'         " Shows keybindings in popup
 Plug 'andrewradev/switch.vim'           " Switch segments of text with predefined replacements
 Plug 'mzlogin/vim-markdown-toc'         " Generate Table of Contents for Markdown files
 Plug 'vimwiki/vimwiki'                  " Personal Wiki for Vim
+Plug 'tools-life/taskwiki'              " Proper project management with Taskwarrior in vim (https://www.youtube.com/watch?v=UuHJloiDErM)
 
 " Syntax and Completion
 Plug 'sheerun/vim-polyglot'                     " Better Syntax Support
