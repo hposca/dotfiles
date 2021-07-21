@@ -65,6 +65,12 @@ let g:which_key_map.s = {
       \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
+" t is for TaskWiki
+let g:which_key_map.t = { 'name': '+TaskWiki' }
+let g:which_key_map.t.b = { 'name': '+Burndown' }
+let g:which_key_map.t.c = { 'name': '+Choose' }
+let g:which_key_map.t.G = { 'name': '+Ghistory' }
+let g:which_key_map.t.h = { 'name': '+History' }
 let g:which_key_map.w = { 'name': '+VimWiki' }
 
 " Register which key map
