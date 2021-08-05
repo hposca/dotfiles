@@ -265,10 +265,10 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
+date = " %Y-%m-%d (%a)"
 ; date-alt = " %Y-%m-%d"
 
-time = %H:%M
+time = "%H:%M"
 ; time-alt = %H:%M:%S
 
 format-prefix = " "
