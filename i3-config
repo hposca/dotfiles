@@ -250,9 +250,11 @@ bindsym $mod+minus scratchpad show
 
 popup_during_fullscreen leave_fullscreen
 
+# To get the class and instance of a window use `xprop | grep WM_CLASS`
 for_window [class=Enpass] floating enable
 for_window [class=Gnome-calculator] floating enable
 for_window [class=zoom] floating enable
+for_window [class="TigerVNC Viewer"] floating enable
 
 # ranger file manager
 bindsym $mod+n exec --no-startup-id $terminal -e ranger && i3-msg "[id=$(xdotool getactivewindow)] floating enable"
