@@ -84,6 +84,7 @@ set shiftwidth=2    " Configure tabs to two spaces
 set shiftround      " Configure tabs to two spaces
 set expandtab       " Insert white spaces when you press tab
 set wrap            " Break lines wider than the window width
+set nojoinspaces    " Insert only one space when joining lines
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
