@@ -108,7 +108,7 @@ wtf:
         height: 1
         width: 2
       refreshInterval: 30
-    ipinfo:
+    ipapi:
       colors:
         name: "lightblue"
         value: "white"
