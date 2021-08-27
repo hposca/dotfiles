@@ -44,6 +44,8 @@ set pumheight=10           " Makes popup menu smaller
 set ruler              		 " Show the cursor position all the time
 " set cmdheight=2            " More space for displaying messages
 set mouse=a                " Enable your mouse
+set scrolloff=8            " Screen lines to keep above and below the cursor
+set colorcolumn=100        " Column at 80 characters
 
 set splitbelow             " Horizontal splits will automatically be below
 set splitright             " Vertical splits will automatically be to the right
@@ -51,7 +53,7 @@ set splitright             " Vertical splits will automatically be to the right
 " set conceallevel=0         " So that I can see `` in markdown files
 set laststatus=2           " Always display the status line
 set shortmess+=c           " Don't pass messages to |ins-completion-menu|.
-" set signcolumn=yes         " Always show the signcolumn, otherwise it would shift the text each time
+set signcolumn=yes         " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=100         " Faster completion
 " set clipboard=unnamedplus  " Copy paste between vim and everything else
 set incsearch              " Incremental search
