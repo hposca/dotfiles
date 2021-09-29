@@ -18,8 +18,6 @@ source ~/.config/nvim/plug-config/tcomment.vim
 source ~/.config/nvim/plug-config/tmux-navigator.vim
 source ~/.config/nvim/plug-config/signify.vim
 source ~/.config/nvim/plug-config/which-key.vim
-" source ~/.config/nvim/plug-config/coc.vim
-" source ~/.config/nvim/plug-config/coc-snippets.vim
 source ~/.config/nvim/plug-config/nvim-cmp.lua
 source ~/.config/nvim/plug-config/nvim-cmp-settings.vim
 source ~/.config/nvim/plug-config/nvim-lint.lua
