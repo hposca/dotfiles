@@ -30,11 +30,11 @@ Plug 'andrewradev/switch.vim'           " Switch segments of text with predefine
 Plug 'mzlogin/vim-markdown-toc'         " Generate Table of Contents for Markdown files
 Plug 'vimwiki/vimwiki'                  " Personal Wiki for Vim
 Plug 'tools-life/taskwiki'              " Proper project management with Taskwarrior in vim (https://www.youtube.com/watch?v=UuHJloiDErM)
+Plug 'RRethy/vim-illuminate'            " Automatically highlighting other uses of the word under the cursor
 
 " Syntax and Completion
-Plug 'sheerun/vim-polyglot'                     " Better Syntax Support
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Stable version of coc
 Plug 'SirVer/ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'honza/vim-snippets'
 
 " Git integration
@@ -46,6 +46,12 @@ Plug 'rhysd/git-messenger.vim'        " Shows the history of commits under the c
                                       " :GitMessenger or <Leader>gm
 " Programming languages specific
 """"""""""""""""""""""""""""""""
+" NeoVim 0.5+ LSP integration
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 
 " Markdown
 
