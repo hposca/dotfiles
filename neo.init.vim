@@ -22,6 +22,9 @@ source ~/.config/nvim/plug-config/which-key.vim
 " source ~/.config/nvim/plug-config/coc-snippets.vim
 source ~/.config/nvim/plug-config/nvim-cmp.lua
 source ~/.config/nvim/plug-config/nvim-cmp-settings.vim
+source ~/.config/nvim/plug-config/nvim-lint.lua
+source ~/.config/nvim/plug-config/nvim-lint-settings.vim
+source ~/.config/nvim/plug-config/formatter.lua
 source ~/.config/nvim/plug-config/grepper.vim
 source ~/.config/nvim/plug-config/easy-align.vim
 source ~/.config/nvim/plug-config/fugitive.vim

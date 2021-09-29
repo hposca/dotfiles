@@ -52,6 +52,8 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'mfussenegger/nvim-lint'     " Linting
+Plug 'mhartington/formatter.nvim' " Formatter
 
 " Markdown
 
