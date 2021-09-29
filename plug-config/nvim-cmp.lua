@@ -44,23 +44,6 @@ cmp.setup({
   }
 })
 
--- Setup lspconfig.
--- Language servers for most languages: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-lspconfig = require 'lspconfig'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- npm i -g bash-language-server
-lspconfig.bashls.setup {
-  capabilities = capabilities
-}
--- :LspInstall python
-lspconfig.pyright.setup {
-  capabilities = capabilities
-}
--- https://github.com/golang/tools/tree/master/gopls
-lspconfig.gopls.setup {
-  capabilities = capabilities
-}
-
 -- LSP Install configs
 -- https://ka.codes/posts/nvim-lspinstall#nvim-lspinstall
 -- :echo stdpath("data") to find out which directory that is on your machine.
