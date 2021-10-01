@@ -1,10 +1,13 @@
 -- Setup nvim-cmp.
-local cmp = require'cmp'
 
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+local cmp = require'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
-    vim.fn["UltiSnips#Anon"](args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = {
@@ -18,8 +21,7 @@ cmp.setup({
     format = function(entry, item)
       --item.kind = lsp_symbols[item.kind] .. " " .. item.kind
       -- set a name for each source
-      item.menu =
-        ({
+      item.menu = ({
         buffer = "[Buffer]",
         calc = "[Calc]",
         cmp_tabnine = "[Tab9]",
@@ -43,23 +45,3 @@ cmp.setup({
     { name = 'spell' },
   }
 })
-
--- LSP Install configs
--- https://ka.codes/posts/nvim-lspinstall#nvim-lspinstall
--- :echo stdpath("data") to find out which directory that is on your machine.
-
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
-end
-
-setup_servers()
-
--- automatically setup servers again after `:LspInstall <server>`
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- makes sure the new server is setup in lspconfig
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end

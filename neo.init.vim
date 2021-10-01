@@ -19,7 +19,7 @@ source ~/.config/nvim/plug-config/tmux-navigator.vim
 source ~/.config/nvim/plug-config/signify.vim
 source ~/.config/nvim/plug-config/which-key.vim
 source ~/.config/nvim/plug-config/nvim-cmp.lua
-source ~/.config/nvim/plug-config/nvim-cmp-settings.vim
+source ~/.config/nvim/plug-config/nvim-lspconfig.lua
 source ~/.config/nvim/plug-config/nvim-lint.lua
 source ~/.config/nvim/plug-config/nvim-lint-settings.vim
 source ~/.config/nvim/plug-config/formatter.lua
