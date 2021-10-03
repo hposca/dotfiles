@@ -3,7 +3,7 @@ nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 " By default timeoutlen is 1000 ms
-set timeoutlen=100
+set timeoutlen=300
 
 " Create map to add keys to
 let g:which_key_map =  {}
