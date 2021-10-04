@@ -57,7 +57,7 @@ Plug 'mhartington/formatter.nvim' " Formatter
 
 " Markdown
 
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown Vim Mode
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'vimwiki'] } " Markdown Vim Mode
 Plug 'godlygeek/tabular', { 'for': 'markdown' }       " Vim script for text filtering and alignment
 
 " Golang
