@@ -54,6 +54,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'mfussenegger/nvim-lint'     " Linting
 Plug 'mhartington/formatter.nvim' " Formatter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " highlighting
+" TSInstall hcl
 
 " Markdown
 

@@ -1,4 +1,13 @@
 -- Setup nvim-lint
+-- require('lint').linters.tflint = {
+--   cmd = 'tflint',
+--   stdin = true,
+--   args = {},
+--   stream = nil,
+--   ignore_exitcode = false,
+--   env = nil,
+-- }
+
 -- https://github.com/mfussenegger/nvim-lint#available-linters
 require('lint').linters_by_ft = {
   go = {'golangcilint',},
@@ -12,5 +21,5 @@ require('lint').linters_by_ft = {
 
   sh = {'shellcheck',},
 
-  terraform = {'tflint',},
+  -- tf = {'tflint',},
 }

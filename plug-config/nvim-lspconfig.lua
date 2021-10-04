@@ -44,13 +44,29 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 end
 
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+  return {
+    -- enable snippet support
+    capabilities = capabilities,
+    -- map buffer local keybindings when the language server attaches
+    on_attach = on_attach,
+  }
+end
+
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{
-      on_attach = on_attach
-    }
+    local config = make_config()
+
+    if server == "terraform" then
+      config.filetypes = { "tf" }
+    end
+    require'lspconfig'[server].setup{config}
   end
 end
 
