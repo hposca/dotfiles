@@ -8,6 +8,14 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
+    "bash",
+    "dockerfile",
+    "go",
+    "gomod",
     "hcl",
+    "json",
+    "lua",
+    "python",
+    "yaml",
   },
 }

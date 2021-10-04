@@ -22,6 +22,7 @@ source ~/.config/nvim/plug-config/nvim-cmp.lua
 source ~/.config/nvim/plug-config/nvim-lspconfig.lua
 source ~/.config/nvim/plug-config/nvim-lint.lua
 source ~/.config/nvim/plug-config/nvim-lint-settings.vim
+source ~/.config/nvim/plug-config/treesitter.lua
 source ~/.config/nvim/plug-config/formatter.lua
 source ~/.config/nvim/plug-config/grepper.vim
 source ~/.config/nvim/plug-config/easy-align.vim
