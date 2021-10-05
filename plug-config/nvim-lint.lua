@@ -1,3 +1,6 @@
+-- au BufWritePost <buffer> lua require('lint').try_lint()
+vim.api.nvim_command [[autocmd BufWritePost <buffer> lua require('lint').try_lint()]]
+
 -- Setup nvim-lint
 -- require('lint').linters.tflint = {
 --   cmd = 'tflint',

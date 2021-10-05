@@ -58,6 +58,9 @@ set updatetime=100         " Faster completion
 " set clipboard=unnamedplus  " Copy paste between vim and everything else
 set incsearch              " Incremental search
 
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
+
 """""""""""""""
 " Colorscheme "
 """""""""""""""

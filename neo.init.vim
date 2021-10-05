@@ -17,13 +17,10 @@ source ~/.config/nvim/plug-config/ranger.vim
 source ~/.config/nvim/plug-config/tcomment.vim
 source ~/.config/nvim/plug-config/tmux-navigator.vim
 source ~/.config/nvim/plug-config/signify.vim
-source ~/.config/nvim/plug-config/which-key.vim
 source ~/.config/nvim/plug-config/nvim-cmp.lua
 source ~/.config/nvim/plug-config/nvim-lspconfig.lua
 source ~/.config/nvim/plug-config/nvim-lint.lua
-source ~/.config/nvim/plug-config/nvim-lint-settings.vim
 source ~/.config/nvim/plug-config/treesitter.lua
-source ~/.config/nvim/plug-config/formatter.lua
 source ~/.config/nvim/plug-config/grepper.vim
 source ~/.config/nvim/plug-config/easy-align.vim
 source ~/.config/nvim/plug-config/fugitive.vim
@@ -34,6 +31,7 @@ source ~/.config/nvim/plug-config/vim-go.vim
 source ~/.config/nvim/plug-config/terraform.vim
 source ~/.config/nvim/plug-config/vim-markdown.vim
 source ~/.config/nvim/plug-config/vimwiki.vim
+source ~/.config/nvim/plug-config/which-key.vim
 
 """""""""
 " Hints "
