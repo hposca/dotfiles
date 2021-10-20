@@ -228,9 +228,12 @@ exec_always --no-startup-id $HOME/.i3-bins/i3-caps_as_control.sh
 # exec_always --no-startup-id $HOME/.i3-bins/i3-gnome-keyring.sh
 
 # Forcing workspaces to fixed monitors
-workspace 1 output DP-2
-workspace 2 output DP-3
-workspace 3 output HDMI-0
+set $monleft DP-2
+set $moncenter DP-3
+set $monright HDMI-0
+workspace 1 output $monleft
+workspace 2 output $moncenter
+workspace 3 output $monright
 
 # Move workspaces to other monitors https://unix.stackexchange.com/a/397270
 bindsym $mod+Ctrl+greater move workspace to output right
