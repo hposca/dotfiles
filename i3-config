@@ -68,8 +68,8 @@ bindsym $mod+Shift+q kill
 
 # rofiinstallation:
 # apt-get install -y rofi
-bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#ssh -theme solarized -font "hack 10" -show combi
-bindsym $mod+g exec --no-startup-id rofi -show window
+bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#ssh -show combi -config /usr/share/rofi/themes/gruvbox-dark-hard.rasi -show-icons
+bindsym $mod+g exec --no-startup-id rofi -show window -config /usr/share/rofi/themes/gruvbox-dark-hard.rasi -show-icons
 
 # rofimoji installation:
 # pip3 install --user rofimoji
