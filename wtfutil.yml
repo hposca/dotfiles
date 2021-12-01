@@ -82,7 +82,7 @@ wtf:
     resourceusage:
       enabled: true
       position:
-        top: 0
+        top: 4
         left: 3
         height: 2
         width: 1
@@ -132,21 +132,34 @@ wtf:
       unit: "m"
       view: 2
       language: "en"
-    exchangerates:
+    gcal:
+      title: 📆 Calendar
+      colors:
+        eventTime: "lightblue"
+        description: "yellow"
+        highlights:
+          - ['1on1|1\/11', "green"]
+          - ["apple|google|aws", "blue"]
+          - ["interview|meet", "magenta"]
+          - ["lunch", "yellow"]
+        past: "gray"
+      calendarReadLevel: "reader"
+      conflictIcon: "🚨"
+      currentIcon: "💥"
+      displayResponseStatus: true
+      email: ""
       enabled: true
-      focusable: false
+      eventCount: 15
+      hourFormat: "24"
+      multiCalendar: true
       position:
-        top: 4
+        top: 0
         left: 3
         height: 2
         width: 1
-      precision: 4
-      rates:
-        CAD:
-          - "USD"
-          - "EUR"
-        USD:
-          - "CAD"
-        EUR:
-          - "CAD"
-      title: "💰 Rates"
+      refreshInterval: 5m
+      secretFile: "~/.config/wtf/gcal/client_secret.json"
+      showDeclined: true
+      showEndTime: true
+      timezone: "America/Vancouver"
+      withLocation: true
