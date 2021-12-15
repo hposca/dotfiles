@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/src/go
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
