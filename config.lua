@@ -156,6 +156,7 @@ lvim.builtin.which_key.vmappings["c"] = {
 }
 lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeFindFile<CR>", "ExploreFile" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>LuaSnipListAvailable<CR>", "Snippets" }
 lvim.builtin.which_key.mappings["s"]["w"] = { "<cmd>Telescope grep_string<CR>", "Word" }
 lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>Telescope file_browser<CR>", "File Browser" }
 lvim.builtin.which_key.mappings["t"] = {
@@ -255,6 +256,23 @@ linters.setup({
 	{ exe = "shellcheck", filetypes = { "sh" } },
 	{ exe = "selene", filetypes = { "lua" } },
 })
+
+-- Creating a new snippet based on the examples at https://github.com/L3MON4D3/LuaSnip/blob/8f2bf6b0e3/Examples/snippets.lua
+local ls = require("luasnip")
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+ls.snippets = {
+	sh = {
+		s({ trig = "sbash", dscr = "Safe bash mode" }, {
+			t({ "#!/usr/bin/env bash", "" }),
+			t({ "set -euo pipefail", "" }),
+			t({ "IFS=$'\\n\\t'", "" }),
+			t({ "", "" }), -- Linebreak
+			i(0),
+		}),
+	},
+}
 
 -- generic LSP settings
 
