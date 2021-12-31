@@ -234,7 +234,7 @@ vim.opt.relativenumber = true
 vim.opt.listchars = { eol = "$", tab = "→ ", trail = "␣", extends = "…" }
 -- vim.g["vimwiki_list"] = "[{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]"
 -- vim.g["vimwiki_ext2syntax"] =
--- 	"{ '.markdown': 'markdown', '.md': 'markdown', '.mdown': 'markdown', '.mdwn': 'markdown', '.mkd': 'markdown', '.mkdn': 'markdown', '.wiki': 'media' }"
+--  "{ '.markdown': 'markdown', '.md': 'markdown', '.mdown': 'markdown', '.mdwn': 'markdown', '.mkd': 'markdown', '.mkdn': 'markdown', '.wiki': 'media' }"
 -- -- Append wiki file extension to links in Markdown
 -- vim.g["vimwiki_markdown_link_ext"] = 1
 -- vim.g["vimwiki_global_ext"] = 0
@@ -244,7 +244,7 @@ local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ exe = "black", filetypes = { "python" } },
 	{ exe = "goimports", filetypes = { "go" } },
-	{ exe = "shfmt", filetypes = { "sh" } },
+	{ exe = "shfmt", filetypes = { "sh" }, args = { "-i", "2", "-ci" } },
 	{ exe = "stylua", filetypes = { "lua" } },
 })
 
