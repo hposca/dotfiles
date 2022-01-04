@@ -12,6 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
+#ZSH_THEME="philips"
 
 # Installation instructions:
 # First the fonts: https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation
@@ -85,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/src/go
 export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=/Users/hugo/src/eventus/eventus-setup/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -300,5 +302,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
 fi
+
+
+source "/Users/hugo/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
