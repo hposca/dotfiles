@@ -59,6 +59,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "seoul256"
+vim.opt.clipboard = ""
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -85,7 +86,7 @@ lvim.keys.normal_mode["<A-j>"] = ":TmuxNavigateDown<CR>"
 lvim.keys.normal_mode["<A-k>"] = ":TmuxNavigateUp<CR>"
 lvim.keys.normal_mode["<A-l>"] = ":TmuxNavigateRight<CR>"
 
-lvim.keys.normal_mode["<C-h>"] = false
+lvim.keys.normal_mode["<C-h>"] = "<cmd>NvimTreeFindFile<CR>"
 lvim.keys.normal_mode["<C-j>"] = "<Esc>o<Esc>"
 lvim.keys.normal_mode["<C-k>"] = "<Esc>O<Esc>"
 lvim.keys.normal_mode["<C-l>"] = "<cmd>nohlsearch<CR>"
@@ -154,6 +155,7 @@ lvim.builtin.which_key.vmappings["c"] = {
 	"<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
 	"Comment",
 }
+lvim.builtin.which_key.mappings["B"] = { "<cmd>Telescope buffers<cr>", "Open Buffers" }
 lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeFindFile<CR>", "ExploreFile" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>LuaSnipListAvailable<CR>", "Snippets" }
@@ -172,9 +174,10 @@ lvim.builtin.which_key.mappings["t"] = {
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
+lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
--- lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.dap.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -188,6 +191,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"lua",
 	"python",
 	"ruby",
+	"hcl",
 	"typescript",
 	"vim",
 	"yaml",
@@ -238,14 +242,19 @@ vim.opt.listchars = { eol = "$", tab = "→ ", trail = "␣", extends = "…" }
 -- -- Append wiki file extension to links in Markdown
 -- vim.g["vimwiki_markdown_link_ext"] = 1
 -- vim.g["vimwiki_global_ext"] = 0
+lvim.lsp.diagnostics.underline = false
 
 -- Look at https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting for available formatters
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ exe = "black", filetypes = { "python" } },
 	{ exe = "goimports", filetypes = { "go" } },
+	{ exe = "json_tool", filetypes = { "json" } },
 	{ exe = "shfmt", filetypes = { "sh" } },
 	{ exe = "stylua", filetypes = { "lua" } },
+	{ exe = "terraform_fmt", filetypes = { "terraform" } },
+	{ exe = "trim_newlines" },
+	{ exe = "trim_whitespace" },
 })
 
 -- Look at https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/ for available linters

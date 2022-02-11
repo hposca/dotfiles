@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+
 #
 export ZSH=$HOME/.oh-my-zsh
 
@@ -83,7 +84,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Download golang tar.gz from https://golang.org/dl/
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
-export GOROOT=/usr/local/go
+# export GOROOT=/usr/local/go
+# TODO: IF MACOS
+export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/src/go
 export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=/Users/hugo/src/eventus/eventus-setup/bin:$PATH
@@ -94,7 +97,7 @@ export PATH=/Users/hugo/src/eventus/eventus-setup/bin:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 
-export EDITOR='nvim'
+export EDITOR='lvim'
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -293,6 +296,10 @@ bindkey \^U backward-kill-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# https://dev.classmethod.jp/articles/my-perfect-aws_profile-environment/#toc-6
+# brew install fzf highlight 
+# cd ~
+# curl -fsSLO https://gist.githubusercontent.com/cm-watanabeseigo/0a103315529d502ce4a82d2a8aab6cd3/raw/8a2dcb80e4c5971551717062aa1d24e810538b37/.bash_profile_aws-profile
 if [ -f ~/.bash_profile_aws-profile ]; then
   . ~/.bash_profile_aws-profile
 fi
@@ -303,8 +310,11 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
+source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+source "$HOME/bin/.artifactory-credentials.sh"
 
-source "/Users/hugo/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+export PATH="$HOME/.poetry/bin:$PATH"
