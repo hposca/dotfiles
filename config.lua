@@ -250,7 +250,7 @@ formatters.setup({
 	{ exe = "black", filetypes = { "python" } },
 	{ exe = "goimports", filetypes = { "go" } },
 	{ exe = "json_tool", filetypes = { "json" } },
-	{ exe = "shfmt", filetypes = { "sh" } },
+	{ exe = "shfmt", filetypes = { "sh" }, args = { "-i", "4" } },
 	{ exe = "stylua", filetypes = { "lua" } },
 	{ exe = "terraform_fmt", filetypes = { "terraform" } },
 	{ exe = "trim_newlines" },
