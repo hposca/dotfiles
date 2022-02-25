@@ -60,6 +60,7 @@ lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "seoul256"
 vim.opt.clipboard = ""
+vim.opt.iskeyword = vim.opt.iskeyword + "-"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -229,6 +230,7 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
+	{ "preservim/tagbar" }, -- Tags
 }
 
 vim.g["seoul256_background"] = 236
