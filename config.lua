@@ -231,6 +231,7 @@ lvim.plugins = {
 		cmd = "TroubleToggle",
 	},
 	{ "preservim/tagbar" }, -- Tags
+	{ "nathanaelkane/vim-indent-guides" }, -- Indent Lines
 }
 
 vim.g["seoul256_background"] = 236
