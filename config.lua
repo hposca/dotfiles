@@ -71,8 +71,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
-lvim.keys.normal_mode["]b"] = ":BufferNext<CR>"
-lvim.keys.normal_mode["[b"] = ":BufferPrevious<CR>"
+lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["[b"] = ":BufferLineCyclePrev<CR>"
 
 -- Window movement
 vim.g["tmux_navigator_no_mappings"] = true -- Custom Key Bindings
