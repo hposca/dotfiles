@@ -286,6 +286,10 @@ ls.snippets = {
 	},
 }
 
+-- Making GBrowse work again
+-- https://www.reddit.com/r/neovim/comments/olq8dw/defining_the_browse_command_for_use_with/
+lvim.builtin.nvimtree.setup.disable_netrw = false
+
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
