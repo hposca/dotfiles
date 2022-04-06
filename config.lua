@@ -73,6 +73,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["[b"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["]t"] = ":tabnext<CR>"
+lvim.keys.normal_mode["[t"] = ":tabprevious<CR>"
 
 -- Window movement
 vim.g["tmux_navigator_no_mappings"] = true -- Custom Key Bindings

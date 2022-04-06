@@ -156,6 +156,7 @@ alias gstsa="git stash save --all --include-untracked"
 alias gmnff="git merge --no-ff --log"
 alias gblame="git log -p -M --follow --stat --" # http://blog.andrewray.me/a-better-git-blame/
 alias grhm="git reset --hard origin/master" # Useful to move the pointer to the newest master after fetching
+alias gvd='lvim -p $(git diff --name-only HEAD~1 HEAD) -c "tabdo :Gvdiffsplit HEAD~1"' # https://stackoverflow.com/a/18969472
 
 ###################
 # Vagrant aliases #
@@ -297,7 +298,7 @@ bindkey \^U backward-kill-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://dev.classmethod.jp/articles/my-perfect-aws_profile-environment/#toc-6
-# brew install fzf highlight 
+# brew install fzf highlight
 # cd ~
 # curl -fsSLO https://gist.githubusercontent.com/cm-watanabeseigo/0a103315529d502ce4a82d2a8aab6cd3/raw/8a2dcb80e4c5971551717062aa1d24e810538b37/.bash_profile_aws-profile
 if [ -f ~/.bash_profile_aws-profile ]; then
