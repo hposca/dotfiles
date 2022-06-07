@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 
 #
-export ZSH=$HOME/.oh-my-zsh
+#export ZSH=$HOME/.oh-my-zsh
+ZSH=/usr/share/oh-my-zsh/
 
 # if [[ $(uname -s) == "Linux" ]]; then
 #   # source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
@@ -12,8 +13,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="spaceship"
-#ZSH_THEME="philips"
+#ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 
 # Installation instructions:
 # First the fonts: https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation
@@ -65,10 +66,10 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(aws colored-man-pages colorize docker gh git golang terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aws colored-man-pages colorize docker git golang terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -84,12 +85,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Download golang tar.gz from https://golang.org/dl/
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
-# export GOROOT=/usr/local/go
-# TODO: IF MACOS
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/src/go
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
-export PATH=/Users/hugo/src/eventus/eventus-setup/bin:$PATH
+#export GOROOT=/usr/local/go
+#export GOPATH=$HOME/src/go
+#export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -125,7 +123,14 @@ export EDITOR='lvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# EDITOR='vim'
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 ##############
 # My aliases #
@@ -142,6 +147,7 @@ alias sl='ls'
 alias kaw='ps aux | grep wine | awk '"'"'{print $2}'"'"' | xargs kill'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias ag='ag --hidden'
+alias open=xdg-open
 
 ###############
 # Git aliases #
@@ -305,17 +311,10 @@ if [ -f ~/.bash_profile_aws-profile ]; then
   . ~/.bash_profile_aws-profile
 fi
 
-# pyenv configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
-source "$HOME/bin/.artifactory-credentials.sh"
-
-export PATH="$HOME/.poetry/bin:$PATH"
+## pyenv configuration
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
