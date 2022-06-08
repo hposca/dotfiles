@@ -16,4 +16,5 @@ ln -s $(readlink -f i3-config) ~/.config/i3/config
 ln -s $(readlink -f i3-bins) ~/.i3-bins
 ln -s $(readlink -f polybar-config) ~/.config/polybar/config
 ln -s $(readlink -f config.lua) ~/.config/lvim/config.lua
+ln -s $(readlink -f rc.conf) ~/.config/ranger/rc.conf
 ```
