@@ -109,18 +109,18 @@ vim.opt.scrolloff = 0 -- Required so L moves to the last line
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
-	-- for input mode
-	i = {
-		["<C-j>"] = actions.move_selection_next,
-		["<C-k>"] = actions.move_selection_previous,
-		["<C-n>"] = actions.cycle_history_next,
-		["<C-p>"] = actions.cycle_history_prev,
-	},
-	-- for normal mode
-	n = {
-		["<C-j>"] = actions.move_selection_next,
-		["<C-k>"] = actions.move_selection_previous,
-	},
+  -- for input mode
+  i = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+    ["<C-n>"] = actions.cycle_history_next,
+    ["<C-p>"] = actions.cycle_history_prev,
+  },
+  -- for normal mode
+  n = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+  },
 }
 
 vim.cmd([[
@@ -155,8 +155,8 @@ lvim.builtin.which_key.mappings["w"] = { name = "VimWiki" }
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["c"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" }
 lvim.builtin.which_key.vmappings["c"] = {
-	"<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
-	"Comment",
+  "<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
+  "Comment",
 }
 lvim.builtin.which_key.mappings["B"] = { "<cmd>Telescope buffers<cr>", "Open Buffers" }
 lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeFindFile<CR>", "ExploreFile" }
@@ -165,13 +165,13 @@ lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>LuaSnipListAvailable<CR>", "
 lvim.builtin.which_key.mappings["s"]["w"] = { "<cmd>Telescope grep_string<CR>", "Word" }
 lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>Telescope file_browser<CR>", "File Browser" }
 lvim.builtin.which_key.mappings["t"] = {
-	name = "+Trouble",
-	r = { "<cmd>Trouble lsp_references<cr>", "References" },
-	f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-	d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
-	q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-	w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -185,19 +185,19 @@ lvim.builtin.dap.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-	"bash",
-	"css",
-	"dockerfile",
-	"go",
-	"javascript",
-	"json",
-	"lua",
-	"python",
-	"ruby",
-	"hcl",
-	"typescript",
-	"vim",
-	"yaml",
+  "bash",
+  "css",
+  "dockerfile",
+  "go",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "ruby",
+  "hcl",
+  "typescript",
+  "vim",
+  "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -205,35 +205,36 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-	-- Colorscheme and look and feel
-	{ "junegunn/seoul256.vim" }, -- Colorscheme
-	{ "junegunn/rainbow_parentheses.vim" }, -- Colored Parenthesis
+  -- Colorscheme and look and feel
+  { "junegunn/seoul256.vim" }, -- Colorscheme
+  { "junegunn/rainbow_parentheses.vim" }, -- Colored Parenthesis
 
-	-- Navigation
-	{ "christoomey/vim-tmux-navigator" }, -- Vim integration with Tmux
+  -- Navigation
+  { "christoomey/vim-tmux-navigator" }, -- Vim integration with Tmux
 
-	-- Git integration
-	{ "tpope/vim-fugitive" }, -- Git integration inside vim
-	{ "tpope/vim-rhubarb" }, -- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
+  -- Git integration
+  { "tpope/vim-fugitive" }, -- Git integration inside vim
+  { "tpope/vim-rhubarb" }, -- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
 
-	-- Generic editing improvements
-	-- { "RRethy/vim-illuminate" }, -- Automatically highlighting other uses of the word under the cursor
-	{ "andrewradev/switch.vim" }, -- Switch segments of text with predefined replacements
-	{ "junegunn/vim-easy-align" }, -- A Vim alignment plugin
-	{ "mzlogin/vim-markdown-toc" }, -- Generate Table of Contents for Markdown files
-	{ "tpope/vim-repeat" }, -- Enable repeating supported pluging maps with .
-	{ "tpope/vim-rsi" }, -- Readline Key Bindings
-	{ "tpope/vim-surround" }, -- Ease surrounding
-	{ "vimwiki/vimwiki" }, -- Personal Wiki for Vim
-	-- {"tools-life/taskwiki"}, -- Proper project management with Taskwarrior in vim (https://www.youtube.com/watch?v=UuHJloiDErM)
+  -- Generic editing improvements
+  -- { "RRethy/vim-illuminate" }, -- Automatically highlighting other uses of the word under the cursor
+  { "andrewradev/switch.vim" }, -- Switch segments of text with predefined replacements
+  { "junegunn/vim-easy-align" }, -- A Vim alignment plugin
+  { "mzlogin/vim-markdown-toc" }, -- Generate Table of Contents for Markdown files
+  { "tpope/vim-repeat" }, -- Enable repeating supported pluging maps with .
+  { "tpope/vim-rsi" }, -- Readline Key Bindings
+  { "tpope/vim-surround" }, -- Ease surrounding
+  { "vimwiki/vimwiki" }, -- Personal Wiki for Vim
+  -- {"tools-life/taskwiki"}, -- Proper project management with Taskwarrior in vim (https://www.youtube.com/watch?v=UuHJloiDErM)
 
-	-- Development Experience Improvements
-	{
-		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-	},
-	{ "preservim/tagbar" }, -- Tags
-	{ "nathanaelkane/vim-indent-guides" }, -- Indent Lines
+  -- Development Experience Improvements
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { "preservim/tagbar" }, -- Tags
+  { "nathanaelkane/vim-indent-guides" }, -- Indent Lines
+  { "sheerun/vim-polyglot" }, -- highlighting in many languages
 }
 
 vim.g["seoul256_background"] = 236
@@ -252,23 +253,23 @@ lvim.lsp.diagnostics.underline = false
 -- Look at https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting for available formatters
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	{ exe = "black", filetypes = { "python" } },
-	{ exe = "goimports", filetypes = { "go" } },
-	{ exe = "json_tool", filetypes = { "json" } },
-	{ exe = "shfmt", filetypes = { "sh" }, args = { "-i", "4" } },
-	{ exe = "stylua", filetypes = { "lua" } },
-	{ exe = "terraform_fmt", filetypes = { "terraform" } },
-	{ exe = "trim_newlines" },
-	{ exe = "trim_whitespace" },
+  { exe = "black", filetypes = { "python" } },
+  { exe = "goimports", filetypes = { "go" } },
+  { exe = "json_tool", filetypes = { "json" } },
+  { exe = "shfmt", filetypes = { "sh" }, args = { "-i", "4" } },
+  { exe = "stylua", filetypes = { "lua" } },
+  { exe = "terraform_fmt", filetypes = { "terraform" } },
+  { exe = "trim_newlines" },
+  { exe = "trim_whitespace" },
 })
 
 -- Look at https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/ for available linters
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ exe = "golangci-lint", filetypes = { "go" } },
-	{ exe = "pylint", filetypes = { "python" } },
-	{ exe = "shellcheck", filetypes = { "sh" } },
-	{ exe = "selene", filetypes = { "lua" } },
+  { exe = "golangci-lint", filetypes = { "go" } },
+  { exe = "pylint", filetypes = { "python" } },
+  { exe = "shellcheck", filetypes = { "sh" } },
+  { exe = "selene", filetypes = { "lua" } },
 })
 
 -- Creating a new snippet based on the examples at https://github.com/L3MON4D3/LuaSnip/blob/8f2bf6b0e3/Examples/snippets.lua
@@ -277,15 +278,15 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 ls.snippets = {
-	sh = {
-		s({ trig = "sbash", dscr = "Safe bash mode" }, {
-			t({ "#!/usr/bin/env bash", "" }),
-			t({ "set -euo pipefail", "" }),
-			t({ "IFS=$'\\n\\t'", "" }),
-			t({ "", "" }), -- Linebreak
-			i(0),
-		}),
-	},
+  sh = {
+    s({ trig = "sbash", dscr = "Safe bash mode" }, {
+      t({ "#!/usr/bin/env bash", "" }),
+      t({ "set -euo pipefail", "" }),
+      t({ "IFS=$'\\n\\t'", "" }),
+      t({ "", "" }), -- Linebreak
+      i(0),
+    }),
+  },
 }
 
 -- Making GBrowse work again
