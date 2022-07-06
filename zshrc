@@ -317,5 +317,11 @@ fi
 
 source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 source "$HOME/bin/.artifactory-credentials.sh"
+source "$HOME/bin/.rundeck-credentials.sh"
+fpath=(/Users/hugo/src/github/sd $fpath)
 
+
+# Path for poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+# Path for macports - https://guide.macports.org/#installing.shell
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
