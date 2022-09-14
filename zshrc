@@ -302,3 +302,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+#######################
+# Ancillary functions #
+#######################
+
+function copy_file_path() {
+  _file="${1}"
+  readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
+}
