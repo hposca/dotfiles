@@ -311,3 +311,27 @@ function copy_file_path() {
   _file="${1}"
   readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
 }
+
+function uninstall_lunar_vim() {
+  _rc_file="${HOME}/.config/lvim/config.lua"
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+
+  echo "Will uninstall LunarVim..."
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
+
+  echo "LunarVim uninstalled."
+}
+
+function install_lunar_vim() {
+  _rc_file="${HOME}/.config/lvim/config.lua"
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+
+  echo "Will install LunarVim..."
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
+
+  echo "Linking config file..."
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+  ln -sf "${HOME}/src/hposca/dotfiles/config.lua" "${_rc_file}"
+
+  echo "LunarVim installed."
+}
