@@ -312,6 +312,16 @@ function copy_file_path() {
   readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
 }
 
+function copy_file_content() {
+  _file="${1}"
+  cat "${_file}" | xclip -selection clipboard
+}
+
+function open() {
+  _file="${1}"
+  xdg-open "${_file}" &
+}
+
 function uninstall_lunar_vim() {
   _rc_file="${HOME}/.config/lvim/config.lua"
   [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
