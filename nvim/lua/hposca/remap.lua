@@ -12,6 +12,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.cmd(':command! WQ wq')
+vim.cmd(':command! WQ wq')
+vim.cmd(':command! Wq wq')
+vim.cmd(':command! Wqa wqa')
+vim.cmd(':command! W w')
+vim.cmd(':command! Q q')
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 

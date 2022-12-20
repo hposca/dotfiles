@@ -67,4 +67,11 @@ return require('packer').startup(function(use)
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
     use 'christoomey/vim-tmux-navigator' -- Vim integration with Tmux
+
+    use 'tpope/vim-repeat' -- Enable repeating supported pluging maps with .
+    use 'tpope/vim-rsi' -- Readline Key Bindings
+    use 'tpope/vim-surround' -- Ease surrounding
+    use 'andrewradev/switch.vim' -- Switch segments of text with predefined replacements
+    use 'mzlogin/vim-markdown-toc' -- Generate Table of Contents for Markdown files
+
 end)
