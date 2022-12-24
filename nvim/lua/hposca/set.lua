@@ -1,4 +1,6 @@
-vim.opt.nu = true
+-- See `:help options`
+
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
@@ -30,3 +32,14 @@ vim.opt.colorcolumn = "80"
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
+
+-- Case insensitive searching UNLESS /C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Set highlight on search
+vim.o.hlsearch = false
+
+-- Standardizing splitting
+vim.o.splitbelow = true
+vim.o.splitright = true

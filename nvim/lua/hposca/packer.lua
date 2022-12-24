@@ -73,5 +73,14 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround' -- Ease surrounding
     use 'andrewradev/switch.vim' -- Switch segments of text with predefined replacements
     use 'mzlogin/vim-markdown-toc' -- Generate Table of Contents for Markdown files
+    use {
+        "windwp/nvim-autopairs",
+    }
 
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
 end)
