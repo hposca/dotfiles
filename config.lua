@@ -225,14 +225,7 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
-	{
-		"edluffy/hologram.nvim",
-	},
 }
-
-require("hologram").setup({
-	auto_display = true,
-})
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
