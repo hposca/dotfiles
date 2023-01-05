@@ -72,18 +72,14 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["]b"] = ":bnext<CR>"
 lvim.keys.normal_mode["[b"] = ":bprevious<CR>"
 
--- Window movement
-vim.g["tmux_navigator_no_mappings"] = true -- Custom Key Bindings
--- vim.g['tmux_navigator_save_on_switch'] = true -- Activate autoupdate on exit
--- vim.g['tmux_navigator_disable_when_zoomed'] = true -- Disable vim->tmux navigation when the Vim pane is zoomed in tmux
--- vim.g['tmux_navigator_preserve_zoom'] = true -- If the Vim pane is zoomed, stay zoomed when moving to another tmux pane
-
 vim.g["switch_mapping"] = "-"
 
-lvim.keys.normal_mode["<A-h>"] = ":TmuxNavigateLeft<CR>"
-lvim.keys.normal_mode["<A-j>"] = ":TmuxNavigateDown<CR>"
-lvim.keys.normal_mode["<A-k>"] = ":TmuxNavigateUp<CR>"
-lvim.keys.normal_mode["<A-l>"] = ":TmuxNavigateRight<CR>"
+-- Window movement
+lvim.keys.normal_mode["<A-h>"] = "<CMD>NavigatorLeft<CR>"
+lvim.keys.normal_mode["<A-l>"] = "<CMD>NavigatorRight<CR>"
+lvim.keys.normal_mode["<A-k>"] = "<CMD>NavigatorUp<CR>"
+lvim.keys.normal_mode["<A-j>"] = "<CMD>NavigatorDown<CR>"
+lvim.keys.normal_mode["<A-p>"] = "<CMD>NavigatorPrevious<CR>"
 
 lvim.keys.normal_mode["<C-h>"] = false
 lvim.keys.normal_mode["<C-j>"] = "<Esc>o<Esc>"
@@ -203,7 +199,7 @@ lvim.plugins = {
 	{ "junegunn/rainbow_parentheses.vim" }, -- Colored Parenthesis
 
 	-- Navigation
-	{ "christoomey/vim-tmux-navigator" }, -- Vim integration with Tmux
+	{ "numToStr/Navigator.nvim" },
 
 	-- Git integration
 	{ "tpope/vim-fugitive" }, -- Git integration inside vim
@@ -226,6 +222,8 @@ lvim.plugins = {
 		cmd = "TroubleToggle",
 	},
 }
+
+require("Navigator").setup()
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
