@@ -93,6 +93,13 @@ lvim.keys.normal_mode["<Down>"] = ":resize +2<CR>"
 lvim.keys.normal_mode["<Left>"] = ":vertical resize -2<CR>"
 lvim.keys.normal_mode["<Right>"] = ":vertical resize +2<CR>"
 
+-- quit insert mode
+lvim.keys.insert_mode["kj"] = "<ESC>"
+lvim.keys.insert_mode["jk"] = "<ESC>"
+
+-- move through wrapped lines
+lvim.keys.normal_mode["k"] = "gk"
+lvim.keys.normal_mode["j"] = "gj"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
