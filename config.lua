@@ -59,6 +59,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "seoul256"
+vim.opt.scrolloff = 0 -- Required so L moves to the last line
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -95,7 +96,6 @@ lvim.keys.normal_mode["<Right>"] = ":vertical resize +2<CR>"
 -- use the default vim behavior for H and L
 lvim.keys.normal_mode["<S-l>"] = false
 lvim.keys.normal_mode["<S-h>"] = false
-vim.opt.scrolloff = 0 -- Required so L moves to the last line
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
