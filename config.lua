@@ -263,7 +263,7 @@ linters.setup({
 	{ exe = "golangci-lint", filetypes = { "go" } },
 	{ exe = "pylint", filetypes = { "python" } },
 	{ exe = "shellcheck", filetypes = { "sh" } },
-	{ exe = "selene", filetypes = { "lua" } },
+	-- { exe = "selene", filetypes = { "lua" } },
 })
 
 -- Creating a new snippet based on the examples at https://github.com/L3MON4D3/LuaSnip/blob/8f2bf6b0e3/Examples/snippets.lua
