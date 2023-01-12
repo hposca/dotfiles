@@ -93,9 +93,6 @@ lvim.keys.normal_mode["<Down>"] = ":resize +2<CR>"
 lvim.keys.normal_mode["<Left>"] = ":vertical resize -2<CR>"
 lvim.keys.normal_mode["<Right>"] = ":vertical resize +2<CR>"
 
--- use the default vim behavior for H and L
-lvim.keys.normal_mode["<S-l>"] = false
-lvim.keys.normal_mode["<S-h>"] = false
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
