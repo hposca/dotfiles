@@ -70,9 +70,15 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
-lvim.keys.normal_mode["]b"] = ":bnext<CR>"
-lvim.keys.normal_mode["[b"] = ":bprevious<CR>"
+lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["[b"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["]B"] = ":BufferLineMoveNext<CR>"
+lvim.keys.normal_mode["[B"] = ":BufferLineMovePrev<CR>"
+lvim.keys.normal_mode["]g"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
+lvim.keys.normal_mode["[g"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
+-- Configuration for the "andrewradev/switch.vim" plugin
+-- Had to put it here so the configuration is loaded before the plugin
 vim.g["switch_mapping"] = "-"
 
 -- Window movement
