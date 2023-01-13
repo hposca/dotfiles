@@ -166,12 +166,36 @@ vim.cmd([[
   let g:vimwiki_global_ext = 0
 ]])
 
+-- Cellular Automaton Slide Animation
+local slide_animation = {
+	fps = 50,
+	name = "slide",
+}
+
+slide_animation.update = function(grid)
+	for i = 1, #grid do
+		local prev = grid[i][#grid[i]]
+		for j = 1, #grid[i] do
+			grid[i][j], prev = prev, grid[i][j]
+		end
+	end
+	return true
+end
+
+require("cellular-automaton").register_animation(slide_animation)
+
 -- Use which-key to add extra bindings with the leader-key prefix
 
 lvim.builtin.which_key.mappings["c"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" }
 lvim.builtin.which_key.vmappings["c"] = {
 	"<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
 	"Comment",
+}
+lvim.builtin.which_key.mappings["C"] = {
+	name = "+CellularAutomaton",
+	l = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of life" },
+	r = { "<cmd>CellularAutomaton make_it_rain<cr>", "Make it rain" },
+	s = { "<cmd>CellularAutomaton slide<cr>", "Slide" },
 }
 lvim.builtin.which_key.mappings["D"] = {
 	name = "+DiffView",
@@ -302,6 +326,9 @@ lvim.plugins = {
 
 	--  Draw ASCII diagrams in Neovim
 	{ "jbyuki/venn.nvim" },
+
+	-- The most must have useless plugin ever
+	{ "eandrju/cellular-automaton.nvim" },
 }
 
 -- Some plugins configuration
