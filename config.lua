@@ -248,6 +248,13 @@ lvim.plugins = {
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
+
+	-- git diff in a single tabpage
+	-- :help diffview.txt
+	{
+		"sindrets/diffview.nvim",
+		event = "BufRead",
+	},
 }
 
 -- Some plugins configuration
