@@ -238,11 +238,24 @@ lvim.plugins = {
 	{
 		"simrat39/symbols-outline.nvim",
 	},
+
+	-- navigate and highlight matching words (A more powerful % movement)
+	-- %, g%, ]%, [%
+	-- :help matchup.txt
+	{
+		"andymass/vim-matchup",
+		setup = function()
+			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		end,
+	},
 }
+
+-- Some plugins configuration
 
 require("Navigator").setup()
 require("symbols-outline").setup()
 lvim.keys.normal_mode[",s"] = "<CMD>SymbolsOutline<CR>"
+lvim.builtin.treesitter.matchup.enable = true
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
