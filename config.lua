@@ -153,6 +153,7 @@ vim.cmd([[
   let g:vimwiki_global_ext = 0
 ]])
 
+lvim.builtin.which_key.mappings["q"] = {}
 lvim.builtin.which_key.mappings["w"] = { name = "VimWiki" }
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["c"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" }
