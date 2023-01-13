@@ -180,6 +180,12 @@ lvim.builtin.which_key.mappings["D"] = {
 	c = { "<cmd>DiffviewClose<cr>", "Close" },
 	h = { "<cmd>DiffviewFileHistory<cr>", "File History" },
 }
+lvim.builtin.which_key.mappings["M"] = {
+	name = "+MarkdownPreview",
+	o = { "<cmd>MarkdownPreview<cr>", "Open" },
+	s = { "<cmd>MarkdownPreviewStop<cr>", "Stop" },
+	t = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -266,6 +272,16 @@ lvim.plugins = {
 	-- :help undotree.txt
 	{
 		"mbbill/undotree",
+	},
+
+	--  markdown preview plugin for (neo)vim
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		ft = "markdown",
+		config = function()
+			vim.g.mkdp_auto_start = 1
+		end,
 	},
 }
 
