@@ -64,7 +64,7 @@ vim.opt.scrolloff = 0 -- Required so L moves to the last line
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = false
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -106,6 +106,19 @@ lvim.keys.insert_mode["jk"] = "<ESC>"
 -- move through wrapped lines
 lvim.keys.normal_mode["k"] = "gk"
 lvim.keys.normal_mode["j"] = "gj"
+
+-- Correcting spelling mistakes on the fly
+-- [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "markdown", "gitcommit" },
+	callback = function()
+		vim.cmd([[
+      setlocal spell
+      set spelllang=en_ca
+      inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
+    ]])
+	end,
+})
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
