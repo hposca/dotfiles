@@ -174,6 +174,12 @@ lvim.builtin.which_key.mappings["t"] = {
 	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 	w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
+lvim.builtin.which_key.mappings["D"] = {
+	name = "+DiffView",
+	o = { "<cmd>DiffviewOpen<cr>", "Open" },
+	c = { "<cmd>DiffviewClose<cr>", "Close" },
+	h = { "<cmd>DiffviewFileHistory<cr>", "File History" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -261,7 +267,7 @@ lvim.plugins = {
 
 require("Navigator").setup()
 require("symbols-outline").setup()
-lvim.keys.normal_mode[",s"] = "<CMD>SymbolsOutline<CR>"
+lvim.keys.normal_mode["<leader>S"] = "<CMD>SymbolsOutline<CR>"
 lvim.builtin.treesitter.matchup.enable = true
 
 vim.g["seoul256_background"] = 236
