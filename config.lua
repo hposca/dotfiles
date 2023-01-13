@@ -232,9 +232,17 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
+
+	-- A tree-like view for symbols
+	-- :help symbols-outline.txt
+	{
+		"simrat39/symbols-outline.nvim",
+	},
 }
 
 require("Navigator").setup()
+require("symbols-outline").setup()
+lvim.keys.normal_mode[",s"] = "<CMD>SymbolsOutline<CR>"
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
