@@ -153,16 +153,28 @@ vim.cmd([[
   let g:vimwiki_global_ext = 0
 ]])
 
-lvim.builtin.which_key.mappings["q"] = {}
-lvim.builtin.which_key.mappings["w"] = { name = "VimWiki" }
 -- Use which-key to add extra bindings with the leader-key prefix
+
 lvim.builtin.which_key.mappings["c"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" }
 lvim.builtin.which_key.vmappings["c"] = {
 	"<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
 	"Comment",
 }
+lvim.builtin.which_key.mappings["D"] = {
+	name = "+DiffView",
+	o = { "<cmd>DiffviewOpen<cr>", "Open" },
+	c = { "<cmd>DiffviewClose<cr>", "Close" },
+	h = { "<cmd>DiffviewFileHistory<cr>", "File History" },
+}
 lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeFindFile<CR>", "ExploreFile" }
+lvim.builtin.which_key.mappings["M"] = {
+	name = "+MarkdownPreview",
+	o = { "<cmd>MarkdownPreview<cr>", "Open" },
+	s = { "<cmd>MarkdownPreviewStop<cr>", "Stop" },
+	t = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle" },
+}
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["q"] = {}
 lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>LuaSnipListAvailable<CR>", "Snippets" }
 lvim.builtin.which_key.mappings["s"]["w"] = { "<cmd>Telescope grep_string<CR>", "Word" }
 lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>Telescope file_browser<CR>", "File Browser" }
@@ -175,18 +187,8 @@ lvim.builtin.which_key.mappings["t"] = {
 	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 	w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
-lvim.builtin.which_key.mappings["D"] = {
-	name = "+DiffView",
-	o = { "<cmd>DiffviewOpen<cr>", "Open" },
-	c = { "<cmd>DiffviewClose<cr>", "Close" },
-	h = { "<cmd>DiffviewFileHistory<cr>", "File History" },
-}
-lvim.builtin.which_key.mappings["M"] = {
-	name = "+MarkdownPreview",
-	o = { "<cmd>MarkdownPreview<cr>", "Open" },
-	s = { "<cmd>MarkdownPreviewStop<cr>", "Stop" },
-	t = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle" },
-}
+lvim.builtin.which_key.mappings["V"] = { "<cmd>lua Toggle_venn()<CR>", "Toggle Venn" }
+lvim.builtin.which_key.mappings["w"] = { name = "VimWiki" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -369,8 +371,6 @@ function _G.Toggle_venn()
 		print("Venn Deactivated")
 	end
 end
--- toggle keymappings for venn using <leader>V
-lvim.builtin.which_key.mappings["V"] = { "<cmd>lua Toggle_venn()<CR>", "Toggle Venn" }
 
 -- generic LSP settings
 
