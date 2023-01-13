@@ -261,14 +261,24 @@ lvim.plugins = {
 		"sindrets/diffview.nvim",
 		event = "BufRead",
 	},
+
+	--  The undo history visualizer for VIM
+	-- :help undotree.txt
+	{
+		"mbbill/undotree",
+	},
 }
 
 -- Some plugins configuration
 
 require("Navigator").setup()
+
 require("symbols-outline").setup()
 lvim.keys.normal_mode["<leader>S"] = "<CMD>SymbolsOutline<CR>"
+
 lvim.builtin.treesitter.matchup.enable = true
+
+lvim.keys.normal_mode["<leader>u"] = "<CMD>UndotreeToggle<CR>"
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
