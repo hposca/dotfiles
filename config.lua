@@ -212,7 +212,7 @@ lvim.builtin.which_key.mappings["M"] = {
 }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["q"] = {}
-lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>LuaSnipListAvailable<CR>", "Snippets" }
+lvim.builtin.which_key.mappings["s"]["s"] = { "<cmd>Telescope luasnip<CR>", "Snippets" }
 lvim.builtin.which_key.mappings["s"]["w"] = { "<cmd>Telescope grep_string<CR>", "Word" }
 lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>Telescope file_browser<CR>", "File Browser" }
 lvim.builtin.which_key.mappings["t"] = {
@@ -329,6 +329,9 @@ lvim.plugins = {
 
 	-- The most must have useless plugin ever
 	{ "eandrju/cellular-automaton.nvim" },
+
+	-- Telescope.nvim extension that adds LuaSnip integration.
+	{ "benfowler/telescope-luasnip.nvim" },
 }
 
 -- Some plugins configuration
@@ -337,6 +340,8 @@ require("Navigator").setup()
 
 require("symbols-outline").setup()
 lvim.keys.normal_mode["<leader>S"] = "<CMD>SymbolsOutline<CR>"
+
+require("telescope").load_extension("luasnip")
 
 lvim.builtin.treesitter.matchup.enable = true
 
