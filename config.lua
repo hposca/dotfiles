@@ -272,6 +272,9 @@ lvim.plugins = {
 	-- { "RRethy/vim-illuminate" }, -- Automatically highlighting other uses of the word under the cursor
 	{ "andrewradev/switch.vim" }, -- Switch segments of text with predefined replacements
 	{ "junegunn/vim-easy-align" }, -- A Vim alignment plugin
+	-- Generate Table of Contents for Markdown files
+	-- :GenTocGFM -> For GitHub style
+	-- :GenTocMarked -> For MarkdownPreview style
 	{ "mzlogin/vim-markdown-toc" }, -- Generate Table of Contents for Markdown files
 	{ "tpope/vim-repeat" }, -- Enable repeating supported pluging maps with .
 	{ "tpope/vim-rsi" }, -- Readline Key Bindings
@@ -376,6 +379,7 @@ linters.setup({
 	{ exe = "pylint", filetypes = { "python" } },
 	{ exe = "shellcheck", filetypes = { "sh" } },
 	-- { exe = "selene", filetypes = { "lua" } },
+	-- { exe = "markdownlint", filetypes = { "vimwiki" } },
 })
 
 -- Creating a new snippet based on the examples at https://github.com/L3MON4D3/LuaSnip/blob/8f2bf6b0e3/Examples/snippets.lua
