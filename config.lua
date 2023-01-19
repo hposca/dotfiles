@@ -242,6 +242,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"css",
 	"dockerfile",
 	"go",
+	"hcl",
 	"javascript",
 	"json",
 	"lua",
@@ -382,6 +383,12 @@ linters.setup({
 	-- { exe = "markdownlint", filetypes = { "vimwiki" } },
 })
 
+-- Configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
+-- See the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
+-- Remove tflint from teh skipped_servers list
+lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+	return server ~= "tflint"
+end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
