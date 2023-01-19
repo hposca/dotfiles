@@ -382,22 +382,6 @@ linters.setup({
 	-- { exe = "markdownlint", filetypes = { "vimwiki" } },
 })
 
--- Creating a new snippet based on the examples at https://github.com/L3MON4D3/LuaSnip/blob/8f2bf6b0e3/Examples/snippets.lua
-local ls = require("luasnip")
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-ls.snippets = {
-	sh = {
-		s({ trig = "sbash", dscr = "Safe bash mode" }, {
-			t({ "#!/usr/bin/env bash", "" }),
-			t({ "set -euo pipefail", "" }),
-			t({ "IFS=$'\\n\\t'", "" }),
-			t({ "", "" }), -- Linebreak
-			i(0),
-		}),
-	},
-}
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
