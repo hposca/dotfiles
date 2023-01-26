@@ -186,11 +186,6 @@ require("cellular-automaton").register_animation(slide_animation)
 
 -- Use which-key to add extra bindings with the leader-key prefix
 
-lvim.builtin.which_key.mappings["c"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" }
-lvim.builtin.which_key.vmappings["c"] = {
-	"<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
-	"Comment",
-}
 lvim.builtin.which_key.mappings["C"] = {
 	name = "+CellularAutomaton",
 	l = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of life" },
