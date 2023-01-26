@@ -70,6 +70,10 @@ lvim.keys.normal_mode["<C-s>"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+-- Window Zooming
+lvim.keys.normal_mode["Zz"] = "<C-w>_|<C-w>|"
+lvim.keys.normal_mode["Zo"] = "<C-w>="
+
 lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["[b"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["]B"] = ":BufferLineMoveNext<CR>"
