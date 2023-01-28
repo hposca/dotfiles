@@ -103,13 +103,19 @@ lvim.keys.normal_mode["<Down>"] = ":resize +2<CR>"
 lvim.keys.normal_mode["<Left>"] = ":vertical resize -2<CR>"
 lvim.keys.normal_mode["<Right>"] = ":vertical resize +2<CR>"
 
--- quit insert mode
+-- Quit insert mode
 lvim.keys.insert_mode["kj"] = "<ESC>"
 lvim.keys.insert_mode["jk"] = "<ESC>"
 
--- move through wrapped lines
+-- Move through wrapped lines
 lvim.keys.normal_mode["k"] = "gk"
 lvim.keys.normal_mode["j"] = "gj"
+
+-- Centralize screen while scrolling and searching
+lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
+lvim.keys.normal_mode["n"] = "nzzzv"
+lvim.keys.normal_mode["N"] = "Nzzzv"
 
 -- Correcting spelling mistakes on the fly
 -- [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
@@ -365,6 +371,18 @@ require("telescope").load_extension("luasnip")
 lvim.builtin.treesitter.matchup.enable = true
 
 lvim.keys.normal_mode["<leader>u"] = "<CMD>UndotreeToggle<CR>"
+
+-- Copy and paste QOL improvements
+--
+-- Copy to + register, but still overwrites the " register :/
+lvim.keys.normal_mode["<leader>y"] = { '"+y' }
+lvim.keys.visual_mode["<leader>y"] = { '"+y' }
+lvim.keys.normal_mode["<leader>Y"] = { '"+Y' }
+lvim.keys.visual_mode["<leader>Y"] = { '"+Y' }
+--
+-- Do not lose the " register on paste
+lvim.keys.visual_mode["<leader>p"] = { '"_dP' }
+lvim.keys.visual_mode["<leader>p"] = { '"_dP' }
 
 vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
