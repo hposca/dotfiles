@@ -151,6 +151,8 @@ alias gstsa="git stash save --all --include-untracked"
 alias gmnff="git merge --no-ff --log"
 alias gblame="git log -p -M --follow --stat --" # http://blog.andrewray.me/a-better-git-blame/
 alias grhm="git reset --hard origin/master" # Useful to move the pointer to the newest master after fetching
+# List all files in a directory in a git repository by last commit date
+alias gfbd='git ls-tree --name-only HEAD ./ | while read filename; do echo "$(git log -1 --format="%ci " -- $filename) $filename"; done | sort -r'
 
 ###################
 # Vagrant aliases #
