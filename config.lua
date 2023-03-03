@@ -388,7 +388,7 @@ vim.g["seoul256_background"] = 236
 vim.g["seoul256_srgb"] = 1
 vim.opt.showmode = true
 vim.opt.relativenumber = true
-vim.opt.listchars = { eol = "$", tab = "→ ", trail = "␣", extends = "…" }
+vim.opt.listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" }
 vim.opt.clipboard = ""
 -- vim.g["vimwiki_list"] = "[{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]"
 -- vim.g["vimwiki_ext2syntax"] =
