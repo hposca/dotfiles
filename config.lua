@@ -360,6 +360,7 @@ lvim.plugins = {
 }
 
 -- Some plugins configuration
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/lvim/luasnippets" })
 
 require("Navigator").setup()
 
