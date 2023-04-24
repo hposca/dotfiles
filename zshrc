@@ -314,10 +314,14 @@ function copy_file_path() {
   readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
 }
 
+alias cfp="copy_file_path"
+
 function copy_file_content() {
   _file="${1}"
   cat "${_file}" | xclip -selection clipboard
 }
+
+alias cfc="copy_file_content"
 
 function open() {
   _file="${1}"
