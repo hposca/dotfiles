@@ -367,3 +367,40 @@ function md_to_html() {
   pandoc --from markdown --to html <(cat "${_file}") | xclip -selection clipboard -t text/html
   echo "HTML content stored in the clipboard"
 }
+
+###################
+# NeoVim Switcher #
+###################
+# From:
+# - https://www.youtube.com/watch?v=LkHjJlSgKZY
+# - https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+
+# The nvim configuration names should be directories in ~/.config
+# As an example, to install AstroNvim:
+# git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/AstroNvim
+# And for LazyVim:
+# git clone --depth 1 https://github.com/LazyVim/starter ~/.config/LazyVim
+# git clone --depth 1 https://github.com/NvChad/NvChad ~/.config/NvChad
+# git clone --depth 1 https://github.com/nvim-lua/kickstart.nvim ~/.config/kickstart
+# git clone --depth 1 https://github.com/CosmicNvim/CosmicNvim.git ~/.config/CosmicNvim
+# NOTE: The default configuraiton uses ~/.config/nvim/
+alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
+
+function nvims() {
+  # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
+  items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
+# bindkey -s ^a "nvims\n"
