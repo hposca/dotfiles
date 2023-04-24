@@ -351,3 +351,19 @@ function install_lunar_vim() {
 
   echo "LunarVim installed."
 }
+
+# Converts the clipboard contents to markdown
+function md_from_html() {
+  pandoc --from html --to markdown <(xclip -selection clipboard -t text/html -out)
+}
+
+# Copies a markdown to html, ready to be pasted as an email
+function md_to_html() {
+  _file="${1}"
+  if [ -z "${_file}" ]; then
+    echo "You need to provide a markdown file as argument"
+    return 1
+  fi
+  pandoc --from markdown --to html <(cat "${_file}") | xclip -selection clipboard -t text/html
+  echo "HTML content stored in the clipboard"
+}
