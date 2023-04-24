@@ -231,7 +231,6 @@ lvim.builtin.treesitter.ensure_installed = {
 	"go",
 	"gomod",
 	"hcl",
-	"help",
 	"html",
 	"javascript",
 	"json",
@@ -297,7 +296,7 @@ lvim.plugins = {
 	-- :help matchup.txt
 	{
 		"andymass/vim-matchup",
-		setup = function()
+		init = function()
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
@@ -318,7 +317,7 @@ lvim.plugins = {
 	--  markdown preview plugin for (neo)vim
 	{
 		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
+		build = "cd app && npm install",
 		ft = "markdown",
 		config = function()
 			vim.g.mkdp_auto_start = 1

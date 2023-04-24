@@ -343,7 +343,7 @@ function install_lunar_vim() {
   [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
 
   echo "Will install LunarVim..."
-  LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
+  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
 
   echo "Linking config file..."
   [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
