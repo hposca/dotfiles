@@ -262,7 +262,25 @@ lvim.plugins = {
 	{ "numToStr/Navigator.nvim" },
 
 	-- Git integration
-	{ "tpope/vim-fugitive" }, -- Git integration inside vim
+	{
+		"tpope/vim-fugitive",
+		cmd = {
+			"G",
+			"Git",
+			"Gdiffsplit",
+			"Gread",
+			"Gwrite",
+			"Ggrep",
+			"GMove",
+			"GDelete",
+			"GBrowse",
+			"GRemove",
+			"GRename",
+			"Glgrep",
+			"Gedit",
+		},
+		ft = { "fugitive" },
+	},
 	{ "tpope/vim-rhubarb" }, -- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
 
 	-- Generic editing improvements
