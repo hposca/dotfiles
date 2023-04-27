@@ -1,7 +1,7 @@
 # dotfiles
 
 ``` bash
-ln -s $(readlink -f tmux.conf) ~/.tmux.conf
+ln -s $(readlink -f tmux.conf) ~/.config/tmux/.tmux.conf
 ln -s $(readlink -f vimrc) ~/.vimrc
 ln -s $(readlink -f init.vim) ~/.config/nvim/init.vim
 ln -s $(readlink -f vimrcs) ~/.config/nvim/vimrcs
