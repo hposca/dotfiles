@@ -323,6 +323,15 @@ function copy_file_content() {
 
 alias cfc="copy_file_content"
 
+function paste_to_file() {
+  _file="${1}"
+  if [ -z "${_file}" ]; then
+    echo "You need to provide a file as an argument"
+    return 1
+  fi
+  xclip -selection clipboard -o > "${_file}"
+}
+
 function open() {
   _file="${1}"
   xdg-open "${_file}" &
