@@ -18,4 +18,5 @@ ln -s $(readlink -f polybar-config) ~/.config/polybar/config
 ln -s $(readlink -f config.lua) ~/.config/lvim/config.lua
 ln -s $(readlink -f luasnippets) ~/.config/lvim/
 ln -s $(readlink -f alacritty.yml) ~/.config/alacritty/alacritty.yml
+ln -s $(readlink -f LazyVim/lua) ~/.config/LazyVim/
 ```
