@@ -55,3 +55,7 @@ map("n", "<A-p>", "<CMD>NavigatorPrevious<CR>", { desc = "Go to previous window"
 
 -- Switch Plugin
 map("n", "-", "<Plug>(Switch)", { desc = "Switch" })
+
+-- Comment Plugin
+map("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Comment toggle current line" })
+map("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = "Comment toggle linewise (visual)" })
