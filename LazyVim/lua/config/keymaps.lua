@@ -52,3 +52,6 @@ map("n", "<A-j>", "<CMD>NavigatorDown<CR>", { desc = "Go to lower window" })
 map("n", "<A-k>", "<CMD>NavigatorUp<CR>", { desc = "Go to upper window" })
 map("n", "<A-l>", "<CMD>NavigatorRight<CR>", { desc = "Go to right window" })
 map("n", "<A-p>", "<CMD>NavigatorPrevious<CR>", { desc = "Go to previous window" })
+
+-- Switch Plugin
+map("n", "-", "<Plug>(Switch)", { desc = "Switch" })
