@@ -41,6 +41,12 @@ del("n", "<C-j>") -- "Go to lower window"
 del("n", "<C-k>") -- "Go to upper window"
 del("n", "<C-l>") -- "Go to right window"
 
+-- Deleting save file
+del("i", "<C-s>")
+del("v", "<C-s>")
+del("n", "<C-s>")
+-- del("s", "<C-s>")
+
 -- Redefining C- keys
 map("n", "<C-j>", "<Esc>o<Esc>", { desc = "Insert new line below" })
 map("n", "<C-k>", "<Esc>O<Esc>", { desc = "Insert new line above" })
