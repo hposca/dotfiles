@@ -59,3 +59,15 @@ map("n", "-", "<Plug>(Switch)", { desc = "Switch" })
 -- Comment Plugin
 map("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Comment toggle current line" })
 map("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = "Comment toggle linewise (visual)" })
+
+-- Buffer mappings
+map("n", "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", { desc = "Find" })
+map("n", "<leader>bj", "<cmd>BufferLinePick<cr>", { desc = "Jump" })
+-- map("n", "<leader>b<", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer to the left" })
+-- map("n", "<leader>b>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer to the right" })
+map("n", "<leader>bE", "<cmd>BufferLinePickClose<cr>", { desc = "Pick which buffer to close" })
+map("n", "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close all to the left" })
+map("n", "<leader>bL", "<cmd>BufferLineCloseRight<cr>", { desc = "Close all to the right" })
+map("n", "<leader>by", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by director[y]" })
+map("n", "<leader>bx", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by e[x]tension" })
+map("n", "<leader>bW", "<cmd>noautocmd w<cr>", { desc = "Save without formatting (noautocmd)" })
