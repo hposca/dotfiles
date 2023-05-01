@@ -92,3 +92,7 @@ map("n", "<leader>U", "<CMD>UndotreeToggle<CR>", { desc = "UndoTree Toggle" })
 map("n", "<leader>Mo", "<cmd>MarkdownPreview<cr>", { desc = "Open MarkdownPreview" })
 map("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "Stop MarkdownPreview" })
 map("n", "<leader>Mt", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle MarkdownPreview" })
+
+-- Vim-EasyAlign
+map("n", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
+map("x", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
