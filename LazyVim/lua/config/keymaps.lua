@@ -84,3 +84,6 @@ map("v", "<leader>y", '"+y', { desc = "Copy to the + register" })
 map("n", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
 map("v", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
 map("v", "<leader>p", '"_dP', { desc = 'Do not lose the " register on paste' })
+
+-- UndotreeToggle
+map("n", "<leader>U", "<CMD>UndotreeToggle<CR>", { desc = "UndoTree Toggle" })
