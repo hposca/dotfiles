@@ -77,3 +77,10 @@ map("n", "<leader>bL", "<cmd>BufferLineCloseRight<cr>", { desc = "Close all to t
 map("n", "<leader>by", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by director[y]" })
 map("n", "<leader>bx", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by e[x]tension" })
 map("n", "<leader>bW", "<cmd>noautocmd w<cr>", { desc = "Save without formatting (noautocmd)" })
+
+-- Copying improvements
+map("n", "<leader>y", '"+y', { desc = "Copy to the + register" })
+map("v", "<leader>y", '"+y', { desc = "Copy to the + register" })
+map("n", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
+map("v", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
+map("v", "<leader>p", '"_dP', { desc = 'Do not lose the " register on paste' })
