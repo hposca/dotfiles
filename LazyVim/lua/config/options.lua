@@ -14,6 +14,14 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- VimWiki options
 vim.cmd([[
+  " Fix common typos in command mode
+  command! -bang Q q<bang>
+  command! -bang QA qa<bang>
+  command! -bang Qa qa<bang>
+  command! -bang W w<bang>
+  command! -bang WQ wq<bang>
+  command! -bang Wq wq<bang>
+
   let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
   let g:vimwiki_ext2syntax = { '.markdown': 'markdown', '.md': 'markdown', '.mdown': 'markdown', '.mdwn': 'markdown', '.mkd': 'markdown', '.mkdn': 'markdown', '.wiki': 'media' }
   " Append wiki file extension to links in Markdown
