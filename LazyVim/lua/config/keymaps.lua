@@ -116,3 +116,28 @@ map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" }
 
 -- Search Snippets
 map("n", "<leader>fs", "<cmd>Telescope luasnip<CR>", { desc = "Search Snippets" })
+
+-- venn.nvim: enable or disable keymappings
+function _G.Toggle_venn()
+	local venn_enabled = vim.inspect(vim.b.venn_enabled)
+	if venn_enabled == "nil" then
+		vim.b.venn_enabled = true
+		vim.cmd([[setlocal ve=all]])
+		-- draw a line on HJKL keystokes
+		vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+		-- draw a box by pressing "f" with visual selection
+		vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+		print("Venn Activated -- Don't forget to select text with blockwise-visual (Ctrl-v)")
+	else
+		vim.cmd([[setlocal ve=]])
+		vim.cmd([[mapclear <buffer>]])
+		vim.b.venn_enabled = nil
+		print("Venn Deactivated")
+	end
+end
+
+-- Toggle Venn
+map("n", "<leader>V", "<cmd>lua Toggle_venn()<CR>", { desc = "Toggle Venn" })
