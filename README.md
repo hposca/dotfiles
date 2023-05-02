@@ -17,4 +17,5 @@ ln -s $(readlink -f i3-bins) ~/.i3-bins
 ln -s $(readlink -f polybar-config) ~/.config/polybar/config
 ln -s $(readlink -f config.lua) ~/.config/lvim/config.lua
 ln -s $(readlink -f luasnippets) ~/.config/lvim/
+ln -s $(readlink -f alacritty.yml) ~/.config/alacritty/alacritty.yml
 ```
