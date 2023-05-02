@@ -398,6 +398,8 @@ alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
+alias lavim="NVIM_APPNAME=LazyVim nvim"
+alias luvim="lvim"
 
 function nvims() {
   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
