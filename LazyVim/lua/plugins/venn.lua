@@ -1,2 +1,2 @@
--- Personal Wiki for Vim
-return { "vimwiki/vimwiki" }
+--  Draw ASCII diagrams in Neovim
+return { "jbyuki/venn.nvim" }
