@@ -3,8 +3,9 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			diagnostics = {
-				-- Disable virtual_text since it's redundant due to lsp_lines.
-				virtual_text = false,
+				-- Disable by default, let the user choose which style is prefered, same line as default
+				virtual_text = true,
+				virtual_lines = false,
 			},
 		},
 	},

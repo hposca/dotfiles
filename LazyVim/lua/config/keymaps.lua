@@ -156,7 +156,7 @@ map("n", "<leader>V", "<cmd>lua Toggle_venn()<CR>", { desc = "Toggle Venn" })
 
 -- Toggle diagnostic style, either below or on the same line
 -- NOTE: Sometimes it causes issues with toggling the diagnostics in general
-local below = true
+local below = false
 function Toggle_diagnostics_text()
 	below = not below
 	if below then
