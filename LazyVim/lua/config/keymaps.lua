@@ -107,6 +107,12 @@ map("n", "<leader>Wd", "<C-W>c", { desc = "Delete window" })
 map("n", "<leader>W-", "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>W|", "<C-W>v", { desc = "Split window right" })
 
+-- More windows mappings
+map("n", "Zz", "<C-w>_|<C-w>|", { desc = "Maximize windows" })
+map("n", "Zo", "<C-w>=", { desc = "Restore windows sizes" })
+map("n", "<leader>Wz", "<C-w>_|<C-w>|", { desc = "Maximize window" })
+map("n", "<leader>Wo", "<C-w>=", { desc = "Restore windows sizes" })
+
 -- Improved Code Folding
 map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
 map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
