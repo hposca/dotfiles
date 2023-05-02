@@ -1,0 +1,3 @@
+return {
+	"andrewradev/switch.vim",
+}
