@@ -96,3 +96,13 @@ map("n", "<leader>Mt", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle Markdo
 -- Vim-EasyAlign
 map("n", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
 map("x", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
+
+-- Redefining default windows mappings to upper case w
+del("n", "<leader>ww")
+del("n", "<leader>wd")
+del("n", "<leader>w-")
+del("n", "<leader>w|")
+map("n", "<leader>Ww", "<C-W>p", { desc = "Other window" })
+map("n", "<leader>Wd", "<C-W>c", { desc = "Delete window" })
+map("n", "<leader>W-", "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>W|", "<C-W>v", { desc = "Split window right" })
