@@ -6,6 +6,12 @@ local opt = vim.opt
 
 opt.clipboard = ""
 
+opt.foldenable = true -- enable fold for nvim-ufo
+opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
+opt.foldlevelstart = 99 -- start with all code unfolded
+opt.foldcolumn = "1"
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
 -- VimWiki options
 vim.cmd([[
   let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]

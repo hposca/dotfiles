@@ -106,3 +106,10 @@ map("n", "<leader>Ww", "<C-W>p", { desc = "Other window" })
 map("n", "<leader>Wd", "<C-W>c", { desc = "Delete window" })
 map("n", "<leader>W-", "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>W|", "<C-W>v", { desc = "Split window right" })
+
+-- Improved Code Folding
+map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Fold less" })
+map("n", "zm", require("ufo").closeFoldsWith, { desc = "Fold more" })
+map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" })
