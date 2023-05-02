@@ -113,3 +113,6 @@ map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
 map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Fold less" })
 map("n", "zm", require("ufo").closeFoldsWith, { desc = "Fold more" })
 map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" })
+
+-- Search Snippets
+map("n", "<leader>fs", "<cmd>Telescope luasnip<CR>", { desc = "Search Snippets" })
