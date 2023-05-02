@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/src/go
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -151,6 +151,8 @@ alias gstsa="git stash save --all --include-untracked"
 alias gmnff="git merge --no-ff --log"
 alias gblame="git log -p -M --follow --stat --" # http://blog.andrewray.me/a-better-git-blame/
 alias grhm="git reset --hard origin/master" # Useful to move the pointer to the newest master after fetching
+# List all files in a directory in a git repository by last commit date
+alias gfbd='git ls-tree --name-only HEAD ./ | while read filename; do echo "$(git log -1 --format="%ci " -- $filename) $filename"; done | sort -r'
 
 ###################
 # Vagrant aliases #
@@ -302,3 +304,112 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+#######################
+# Ancillary functions #
+#######################
+
+function copy_file_path() {
+  _file="${1}"
+  readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
+}
+
+alias cfp="copy_file_path"
+
+function copy_file_content() {
+  _file="${1}"
+  cat "${_file}" | xclip -selection clipboard
+}
+
+alias cfc="copy_file_content"
+
+function paste_to_file() {
+  _file="${1}"
+  if [ -z "${_file}" ]; then
+    echo "You need to provide a file as an argument"
+    return 1
+  fi
+  xclip -selection clipboard -o > "${_file}"
+}
+
+function open() {
+  _file="${1}"
+  xdg-open "${_file}" &
+}
+
+function uninstall_lunar_vim() {
+  _rc_file="${HOME}/.config/lvim/config.lua"
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+
+  echo "Will uninstall LunarVim..."
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
+
+  echo "LunarVim uninstalled."
+}
+
+function install_lunar_vim() {
+  _rc_file="${HOME}/.config/lvim/config.lua"
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+
+  echo "Will install LunarVim..."
+  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
+
+  echo "Linking config file..."
+  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
+  ln -sf "${HOME}/src/hposca/dotfiles/config.lua" "${_rc_file}"
+
+  echo "LunarVim installed."
+}
+
+# Converts the clipboard contents to markdown
+function md_from_html() {
+  pandoc --from html --to markdown <(xclip -selection clipboard -t text/html -out)
+}
+
+# Copies a markdown to html, ready to be pasted as an email
+function md_to_html() {
+  _file="${1}"
+  if [ -z "${_file}" ]; then
+    echo "You need to provide a markdown file as argument"
+    return 1
+  fi
+  pandoc --from markdown --to html <(cat "${_file}") | xclip -selection clipboard -t text/html
+  echo "HTML content stored in the clipboard"
+}
+
+###################
+# NeoVim Switcher #
+###################
+# From:
+# - https://www.youtube.com/watch?v=LkHjJlSgKZY
+# - https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+
+# The nvim configuration names should be directories in ~/.config
+# As an example, to install AstroNvim:
+# git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/AstroNvim
+# And for LazyVim:
+# git clone --depth 1 https://github.com/LazyVim/starter ~/.config/LazyVim
+# git clone --depth 1 https://github.com/NvChad/NvChad ~/.config/NvChad
+# git clone --depth 1 https://github.com/nvim-lua/kickstart.nvim ~/.config/kickstart
+# git clone --depth 1 https://github.com/CosmicNvim/CosmicNvim.git ~/.config/CosmicNvim
+# NOTE: The default configuraiton uses ~/.config/nvim/
+alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
+
+function nvims() {
+  # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
+  items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
+# bindkey -s ^a "nvims\n"

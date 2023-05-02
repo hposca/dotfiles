@@ -1,7 +1,7 @@
 # dotfiles
 
 ``` bash
-ln -s $(readlink -f tmux.conf) ~/.tmux.conf
+ln -s $(readlink -f tmux.conf) ~/.config/tmux/.tmux.conf
 ln -s $(readlink -f vimrc) ~/.vimrc
 ln -s $(readlink -f init.vim) ~/.config/nvim/init.vim
 ln -s $(readlink -f vimrcs) ~/.config/nvim/vimrcs
@@ -15,4 +15,6 @@ ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ln -s $(readlink -f i3-config) ~/.config/i3/config
 ln -s $(readlink -f i3-bins) ~/.i3-bins
 ln -s $(readlink -f polybar-config) ~/.config/polybar/config
+ln -s $(readlink -f config.lua) ~/.config/lvim/config.lua
+ln -s $(readlink -f luasnippets) ~/.config/lvim/
 ```

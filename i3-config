@@ -38,7 +38,7 @@ exec --no-startup-id nm-applet
 
 # Hides your X mouse cursor when you do not need it
 # https://wiki.archlinux.org/title/Unclutter
-exec --no-startup-id unclutter
+# exec --no-startup-id unclutter
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -234,10 +234,10 @@ exec_always --no-startup-id $HOME/.i3-bins/i3-caps_as_control.sh
 # Forcing workspaces to fixed monitors
 set $monleft DP-2
 set $moncenter DP-3
-set $monright HDMI-0
+# set $monright HDMI-0
 workspace 1 output $monleft
 workspace 2 output $moncenter
-workspace 3 output $monright
+# workspace 3 output $monright
 
 # Move workspaces to other monitors https://unix.stackexchange.com/a/397270
 bindsym $mod+Ctrl+greater move workspace to output right
@@ -265,6 +265,8 @@ for_window [class=Enpass] floating enable
 for_window [class=Gnome-calculator] floating enable
 for_window [class=Steam] floating enable
 for_window [class=zoom] floating enable
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
 
 # ranger file manager
 bindsym $mod+n exec --no-startup-id $terminal -e ranger && i3-msg "[id=$(xdotool getactivewindow)] floating enable"
