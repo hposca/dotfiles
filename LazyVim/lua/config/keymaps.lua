@@ -147,3 +147,24 @@ end
 
 -- Toggle Venn
 map("n", "<leader>V", "<cmd>lua Toggle_venn()<CR>", { desc = "Toggle Venn" })
+
+-- Toggle diagnostic style, either below or on the same line
+-- NOTE: Sometimes it causes issues with toggling the diagnostics in general
+local below = true
+function Toggle_diagnostics_text()
+	below = not below
+	if below then
+		vim.diagnostic.config({
+			virtual_lines = true, -- Virtual lines appear below the issue
+			virtual_text = false, -- Diagnostic line do not appear on the same line as the issue
+		})
+		print("Diagnostic appears on the line below the issue")
+	else
+		vim.diagnostic.config({
+			virtual_lines = false, -- Virtual lines do not appear below the issue
+			virtual_text = true, -- Diagnostic line appears on the same line as the issue
+		})
+		print("Diagnostic appears on the same line as issue")
+	end
+end
+map("n", "<leader>uD", "<cmd>lua Toggle_diagnostics_text()<CR>", { desc = "Toggle Diagnostics virtual text" })
