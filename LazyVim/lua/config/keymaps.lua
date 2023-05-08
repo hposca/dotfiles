@@ -123,12 +123,6 @@ map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" }
 -- Search Snippets
 map("n", "<leader>fs", "<cmd>Telescope luasnip<CR>", { desc = "Search Snippets" })
 
--- Cleaning leap.nvim mappings to use surround
--- Now we can use "S" to surround a visual selection
-del("n", "S")
-del("o", "S")
--- del("x", "S")
-
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
 	local venn_enabled = vim.inspect(vim.b.venn_enabled)
