@@ -1,3 +1,4 @@
+-- Another alternative: https://github.com/olexsmir/gopher.nvim
 return {
 	-- "ray-x/go.nvim",
 	-- dependencies = { -- optional packages
