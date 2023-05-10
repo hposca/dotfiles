@@ -31,6 +31,29 @@ script_extension="${script_fullname##*.}"
 # 	exit 1
 # fi
 
+# NOTE: Powerful version of the command checking:
+# function check_installed() {
+# 	commands=("$@")
+#
+# 	fine=0
+# 	for cmd in "${commands[@]}"; do
+# 		if [[ ! "$(command -v "${cmd}")" ]]; then
+# 			# echo "You do not have ${cmd} installed"
+# 			fine=1
+# 		fi
+# 	done
+#
+# 	return "${fine}"
+# }
+#
+# programs=(git go aws node jq python)
+# if ! check_installed "${programs[@]}"; then
+# 	echo "You don't have all the required programs installed."
+# 	echo "Please make sure that you have installed:"
+# 	echo "${programs[*]}" | sort
+# 	exit 1
+# fi
+
 # ---
 # Colors
 # ---
