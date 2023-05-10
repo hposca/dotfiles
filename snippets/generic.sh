@@ -9,6 +9,29 @@ script_name="${script_fullname%.*}"
 script_extension="${script_fullname##*.}"
 
 # ---
+# Initial checks
+# ---
+
+# NOTE: Use this `if` if you want your script to be sourced, not executed
+# if [ "${BASH_SOURCE[0]}" -ef "$0" ]
+# then
+#     echo "Hey, you should source this script, not execute it!"
+#     exit 1
+# fi
+
+# NOTE: Use this `if` if you want to force the script to be run with superuser capabilities
+# if [[ "$(id -u)" -ne 0 ]]; then
+# 	echo "You should run this program as root"
+# 	exit 1
+# fi
+
+# NOTE: Use this `if` to check that required commands are installed
+# if [[ ! "$(command -v git)" ]]; then
+# 	echo "You do not have git installed"
+# 	exit 1
+# fi
+
+# ---
 # Colors
 # ---
 MNORMAL='\e[0;'
