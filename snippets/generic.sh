@@ -109,12 +109,6 @@ function spin() {
 	printf "\r"
 }
 
-# ---
-
-function version() {
-	printf '%s %s\n' "${APP_NAME}" "${APP_VERSION}"
-}
-
 function abort() {
 	local print_usage=1
 	if [[ ${1:-} == --no-print-usage ]]; then
@@ -128,12 +122,18 @@ function abort() {
 	exit 1
 }
 
-function usage() {
-	local cmd="${0##*/}"
+# ---
+# Script functions
+# ---
 
+function version() {
+	printf '%s %s\n' "${APP_NAME}" "${APP_VERSION}"
+}
+
+function usage() {
 	cat <<HELP_TEXT_HEADER
-Usage: ${cmd} [OPTIONS] <path>
-       ${cmd} [-h | -v]
+Usage: ${script_fullname} [OPTIONS] <path>
+       ${script_fullname} [-h | -v]
 
 HELP_TEXT_HEADER
 
