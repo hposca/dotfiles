@@ -253,35 +253,43 @@ function parse_params() {
 # ---
 # main
 # ---
-parse_params "${@}"
+function main() {
+	parse_params "${@}"
 
-if [[ "${#filenames[@]}" -eq 0 ]]; then
-	abort 'Must specify at least one <path>'
-fi
-
-if [[ "${DRYRUN}" ]]; then
-	warn "Dry Run set"
-fi
-
-for filename in "${filenames[@]}"; do
-	if [[ ! -e "${filename}" ]]; then
-		abort "File named '${filename}' do not exist"
+	if [[ "${#filenames[@]}" -eq 0 ]]; then
+		abort 'Must specify at least one <path>'
 	fi
-done
 
-info "This is BASEDIR: ${BASEDIR}"
-info "This is script full name: ${script_fullname}"
-info "This is script name: ${script_name}"
-info "This is script extension: ${script_extension}"
-info ""
-info "This is the chosen validator: ${validator}"
-info "This is the thing: ${thing}"
-info "These are the remaining filenames: ${filenames[*]}"
+	if [[ "${DRYRUN}" ]]; then
+		warn "Dry Run set"
+	fi
 
-info "Running long command"
+	for filename in "${filenames[@]}"; do
+		if [[ ! -e "${filename}" ]]; then
+			abort "File named '${filename}' do not exist"
+		fi
+	done
 
-SECONDS=0
-sleep 5 &
-spin $!
-duration=$SECONDS
-note "Took $((duration / 60)) minutes and $((duration % 60)) seconds to run."
+	info "This is BASEDIR: ${BASEDIR}"
+	info "This is script full name: ${script_fullname}"
+	info "This is script name: ${script_name}"
+	info "This is script extension: ${script_extension}"
+	info ""
+	info "This is the chosen validator: ${validator}"
+	info "This is the thing: ${thing}"
+	info "These are the remaining filenames: ${filenames[*]}"
+
+	info "Running long command"
+
+	SECONDS=0
+	sleep 5 &
+	spin $!
+	duration=$SECONDS
+	note "Took $((duration / 60)) minutes and $((duration % 60)) seconds to run."
+}
+
+# Invoke main with args if not sourced
+# Approach via: https://stackoverflow.com/a/28776166/8787985
+if ! (return 0 2>/dev/null); then
+	main "$@"
+fi
