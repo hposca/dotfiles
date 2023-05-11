@@ -207,45 +207,54 @@ HELP_TEXT_BODY
 # Arguments parsing
 # ---
 
-while [[ "$#" -ne 0 ]]; do
-	case "$1" in
-	-h | --help)
-		version
-		usage
-		exit 0
-		;;
-	-v | --version)
-		version
-		exit 0
-		;;
-	-d | --dryrun | --dry-run) # A boolean variable
-		DRYRUN=1
-		;;
-	-t | --thing) # A variable with a default value
+function parse_params() {
+	local param
+
+	while [[ "$#" -ne 0 ]]; do
+		param="${1}"
+
+		case "${param}" in
+		-h | --help)
+			version
+			usage
+			exit 0
+			;;
+		-v | --version)
+			version
+			exit 0
+			;;
+		-d | --dryrun | --dry-run) # A boolean variable
+			DRYRUN=1
+			;;
+		-t | --thing) # A variable with a default value
+			shift
+			thing="${1}"
+			;;
+		-V | --validator) # A variable with a range of valid options
+			shift
+			if [[ ${1} =~ ^(one|two|three)$ ]]; then
+				validator="$1"
+			else
+				abort "Unknown validator '${1}', valid options are: ${AVAILABLE_VALIDATORS}"
+			fi
+			;;
+		-*)
+			abort "Bad command line option '${1}'"
+			;;
+		*)
+			filenames+=("${1}")
+			;;
+		esac
+
 		shift
-		thing="${1}"
-		;;
-	-V | --validator) # A variable with a range of valid options
-		shift
-		if [[ ${1} =~ ^(one|two|three)$ ]]; then
-			validator="$1"
-		else
-			abort "Unknown validator '${1}', valid options are: ${AVAILABLE_VALIDATORS}"
-		fi
-		;;
-	-*)
-		abort "Bad command line option '${1}'"
-		;;
-	*)
-		filenames+=("${1}")
-		;;
-	esac
-	shift
-done
+	done
+
+}
 
 # ---
 # main
 # ---
+parse_params "${@}"
 
 if [[ "${#filenames[@]}" -eq 0 ]]; then
 	abort 'Must specify at least one <path>'
