@@ -231,10 +231,10 @@ function parse_params() {
 			;;
 		-V | --validator) # A variable with a range of valid options
 			shift
-			if [[ ${1} =~ ^(one|two|three)$ ]]; then
+			if [[ ${1:-} =~ ^(one|two|three)$ ]]; then
 				validator="$1"
 			else
-				abort "Unknown validator '${1}', valid options are: ${AVAILABLE_VALIDATORS}"
+				abort "Unknown validator '${1:-}', valid options are: ${AVAILABLE_VALIDATORS}"
 			fi
 			;;
 		-*)
