@@ -54,6 +54,16 @@ script_extension="${script_fullname##*.}"
 # 	exit 1
 # fi
 
+# NOTE: This is a simple map implementation
+# NOTE: If a key is not found it throws a `unbound variable`
+# declare -A map
+# map+=(
+# 	["one"]=1
+# 	["two"]=2
+# )
+# key="two"
+# echo "${map[${key}]}"
+
 # ---
 # Colors
 # ---
