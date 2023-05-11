@@ -29,6 +29,28 @@
 -- local t = ls.text_node
 -- local types = require("luasnip.util.types")
 
+-- Current script path
+local function script_path()
+	local str = debug.getinfo(2, "S").source:sub(2)
+	return str:match("(.*/)")
+end
+
+-- Loads the content from the given file
+local function from_file(filename)
+	local lines = {}
+
+	local filepath = script_path() .. filename
+	local file = io.open(filepath, "r")
+	local text = file:read("*a")
+	file:close()
+
+	for s in text:gmatch("([^\n]*)\n?") do
+		table.insert(lines, s)
+	end
+
+	return lines
+end
+
 return {
 	s({ trig = "sbash", dscr = "Safe bash mode" }, {
 		t({
@@ -39,5 +61,9 @@ return {
 			"", -- Linebreak
 		}),
 		i(0),
+	}),
+	s({ trig = "generic", dscr = "Creates a generic bash script" }, {
+		t(from_file("generic.sh")),
+		t({ "", "" }),
 	}),
 }
