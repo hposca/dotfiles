@@ -29,42 +29,28 @@
 -- local t = ls.text_node
 -- local types = require("luasnip.util.types")
 
-package.path = os.getenv("HOME") .. "/.config/LazyVim/snippets/helpers.lua" .. ";" .. package.path
+local M = {}
 
-local h = require("helpers")
+-- Current script path
+local function script_path()
+	local str = debug.getinfo(2, "S").source:sub(2)
+	return str:match("(.*/)")
+end
 
-return {
-	s({ trig = "sbash", dscr = "Safe bash mode" }, {
-		t({
-			"#!/usr/bin/env bash",
-			"set -euo pipefail",
-			"IFS=$'\\n\\t'",
-			"",
-			"", -- Linebreak
-		}),
-		i(0),
-	}),
-	s({ trig = "generic", dscr = "Creates a generic bash script" }, {
-		t(h.from_file("generic.sh")),
-		t({ "", "" }),
-	}),
-	s({ trig = "ff", dscr = "Function definition" }, {
-		t("function "),
-		i(1, "function_name"),
-		t("() {"),
-		t({ "", "" }), -- Linebreak
-		t("  "),
-		i(0),
-		t({ "", "" }), --Linebreak
-		t("}"),
-	}),
-	s({ trig = "arr", dscr = "Declares an array" }, {
-		t("declare -a "),
-		i(1, "array_name"),
-		t({ "", "" }), -- Linebreak
-		rep(1),
-		t("=("),
-		i(0),
-		t(")"),
-	}),
-}
+-- Loads the content from the given file
+function M.from_file(filename)
+	local lines = {}
+
+	local filepath = script_path() .. filename
+	local file = io.open(filepath, "r")
+	local text = file:read("*a")
+	file:close()
+
+	for s in text:gmatch("([^\n]*)\n?") do
+		table.insert(lines, s)
+	end
+
+	return lines
+end
+
+return M
