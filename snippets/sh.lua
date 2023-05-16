@@ -66,4 +66,23 @@ return {
 		t(from_file("generic.sh")),
 		t({ "", "" }),
 	}),
+	s({ trig = "ff", dscr = "Function definition" }, {
+		t("function "),
+		i(1, "function_name"),
+		t("() {"),
+		t({ "", "" }), -- Linebreak
+		t("  "),
+		i(0),
+		t({ "", "" }), --Linebreak
+		t("}"),
+	}),
+	s({ trig = "arr", dscr = "Declares an array" }, {
+		t("declare -a "),
+		i(1, "array_name"),
+		t({ "", "" }), -- Linebreak
+		rep(1),
+		t("=("),
+		i(0),
+		t(")"),
+	}),
 }
