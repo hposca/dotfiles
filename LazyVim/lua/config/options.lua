@@ -28,3 +28,6 @@ vim.cmd([[
   let g:vimwiki_markdown_link_ext = 1
   let g:vimwiki_global_ext = 0
 ]])
+
+vim.opt.listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" }
+vim.opt.list = false
