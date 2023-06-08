@@ -88,6 +88,14 @@ map("n", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
 map("v", "<leader>Y", '"+Y', { desc = "Copy to the + register" })
 map("v", "<leader>p", '"_dP', { desc = 'Do not lose the " register on paste' })
 
+-- Centralize screen while scrolling and searching
+map("n", "<C-f>", "<C-f>zz") -- not working (LazyVim config, Probably)
+map("n", "<C-b>", "<C-b>zz") -- not working (LazyVim config, Probably)
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
 -- UndotreeToggle
 map("n", "<leader>U", "<CMD>UndotreeToggle<CR>", { desc = "UndoTree Toggle" })
 
