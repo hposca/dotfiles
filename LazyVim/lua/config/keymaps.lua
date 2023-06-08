@@ -175,3 +175,15 @@ map("n", "<leader>uD", "<cmd>lua Toggle_diagnostics_text()<CR>", { desc = "Toggl
 -- Remapping for VimwikiIndex
 -- Probably due to the loading order the deletion of the default `ww` causes an issue with it
 map("n", "<leader>ww", "<cmd>VimwikiIndex<CR>", { desc = "Vimwiki Index" })
+
+-- NeoTree toggle Focus
+-- Based on AstroVim's
+function Toggle_NeoTree_Focus()
+	if vim.bo.filetype == "neo-tree" then
+		vim.cmd.wincmd("p")
+	else
+		vim.cmd.Neotree("focus")
+	end
+end
+-- map("n", "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
+map("n", "<C-h>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
