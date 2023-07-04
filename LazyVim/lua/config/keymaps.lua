@@ -48,8 +48,8 @@ del("n", "<C-s>")
 -- del("s", "<C-s>")
 
 -- Redefining C- keys
-map("n", "<C-j>", "<Esc>o<Esc>", { desc = "Insert new line below" })
-map("n", "<C-k>", "<Esc>O<Esc>", { desc = "Insert new line above" })
+map("n", "<C-j>", "<Esc>o<Esc>k", { desc = "Insert new line below" })
+map("n", "<C-k>", "<Esc>O<Esc>j", { desc = "Insert new line above" })
 map("n", "<C-l>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight search" })
 
 -- Navigating through windows
