@@ -1,3 +1,4 @@
+SHELL:=/bin/bash
 # Displays the help with `make`
 .DEFAULT_GOAL := help
 
