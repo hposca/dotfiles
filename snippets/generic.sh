@@ -63,6 +63,22 @@ script_extension="${script_fullname##*.}"
 # key="two"
 # echo "${map[${key}]}"
 
+# NOTE Simple array implementation
+#
+# Iterating over the items
+#
+# list=("a" "list" "with" "elements")
+# for item in "${list[@]}"; do
+#   echo "This is the item: ${item}"
+# done
+#
+# Iterating over the index
+#
+# list=("a" "list" "with" "elements")
+# for i in "${!list[@]}"; do
+# 	echo "This is the item: ${list[${i}]}"
+# done
+
 # ---
 # Colors
 # ---
