@@ -154,6 +154,14 @@ alias grhm="git reset --hard origin/master" # Useful to move the pointer to the 
 # List all files in a directory in a git repository by last commit date
 alias gfbd='git ls-tree --name-only HEAD ./ | while read filename; do echo "$(git log -1 --format="%ci " -- $filename) $filename"; done | sort -r'
 
+##################
+# GitHub Aliases #
+##################
+gh_prs_open() {gh search prs --author '@me' --sort=created --state=open --json=url | jq -r '.[].url'}
+gh_prs_open_md() {gh search prs --author '@me' --sort=created --state=open --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
+gh_prs_all() {gh search prs --author '@me' --sort=created --json=url | jq -r '.[].url'}
+gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
+
 ###################
 # Vagrant aliases #
 ###################
