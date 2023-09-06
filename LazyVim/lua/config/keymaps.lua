@@ -195,3 +195,7 @@ function Toggle_NeoTree_Focus()
 end
 -- map("n", "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
 map("n", "<C-h>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
+
+-- Tab switching
+map("n", "]T", "<cmd>tabnext<CR>", { desc = "Tab Next" })
+map("n", "[T", "<cmd>tabprevious<CR>", { desc = "Tab Next" })
