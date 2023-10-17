@@ -435,3 +435,16 @@ function update_lazy_vim() {
   NVIM_APPNAME=LazyVim nvim --headless "+Lazy! sync" +qa
   echo "LazyVim updated!"
 }
+
+function full_reinstall_lazy_vim() {
+  echo "Will purge LazyVim loaded packages..."
+
+  echo "Size of LazyVim packages:"
+  du -hs "${HOME}/.local/share/LazyVim"
+
+  rm -rf "${HOME}/.local/share/LazyVim"
+  update_lazy_vim
+
+  echo "Size of LazyVim packages:"
+  du -hs "${HOME}/.local/share/LazyVim"
+}
