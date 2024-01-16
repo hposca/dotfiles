@@ -21,4 +21,5 @@ ln -s $(readlink -f zshrc) ~/.zshrc
 ln -s $(readlink -f alacritty.yml) ~/.config/alacritty/alacritty.yml
 ln -s $(readlink -f LazyVim/lua) ~/.config/LazyVim/
 ln -s $(readlink -f snippets) ~/.config/LazyVim/
+ln -s $(readlink -f i3blocks.conf) ~/.config/i3/i3blocks.conf
 ```
