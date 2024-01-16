@@ -1,0 +1,55 @@
+live_config_reload = true
+
+[colors]
+transparent_background_colors = true
+
+[colors.bright]
+black = "#554444"
+blue = "#87ceeb"
+cyan = "#b0c4de"
+green = "#88aa22"
+magenta = "#996600"
+red = "#cc5533"
+white = "#ddccbb"
+yellow = "#ffa75d"
+
+[colors.normal]
+black = "#3d352a"
+blue = "#6495ed"
+cyan = "#b0c4de"
+green = "#86af80"
+magenta = "#deb887"
+red = "#cd5c5c"
+white = "#bbaa99"
+yellow = "#e8ae5b"
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#ddeedd"
+
+[font]
+size = 9
+
+[font.bold]
+family = "RobotoMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "RobotoMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "RobotoMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "RobotoMono Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Alt"
+
+[window]
+opacity = 0.99
