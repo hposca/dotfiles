@@ -82,7 +82,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Download golang tar.gz from https://golang.org/dl/
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
-export GOROOT=/usr/local/go
+# export GOROOT=/usr/local/go
+export GOROOT=/usr/lib/go
 export GOPATH=$HOME/src/go
 export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
