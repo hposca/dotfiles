@@ -184,6 +184,8 @@ bindsym $mod+Ctrl+less move workspace to output left
 # Select other monitors
 bindsym $mod+greater focus output right
 bindsym $mod+less focus output left
+# Creates a new workspace
+bindsym $mod+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
 
 # Switch to workspaces on the same monitor
 bindsym $mod+Tab workspace next_on_output
@@ -329,7 +331,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 ## App shortcuts
 bindsym $mod+o exec --no-startup-id /usr/bin/firefox
-bindsym $mod+n exec --no-startup-id /usr/bin/thunar
+bindsym $mod+m exec --no-startup-id /usr/bin/thunar
 bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
