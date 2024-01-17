@@ -192,6 +192,7 @@ bindsym $mod+b workspace back_and_forth
 # Mouse behaviour #
 ###################
 focus_follows_mouse no
+mouse_warping none
 
 ##############
 # Scratchpad #
@@ -276,7 +277,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -314,16 +315,17 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightnes
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
-bindsym XF86AudioPlay exec --no-startup-id playerctl play
-bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# bindsym XF86AudioPlay exec --no-startup-id playerctl play
+# bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Redirect sound to headphones
-bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
+# bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+o exec --no-startup-id /usr/bin/firefox
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
@@ -432,6 +434,7 @@ exec_always --no-startup-id "setxkbmap -layout ca,us -variant eng,intl -option g
 
 exec_always --no-startup-id ~/.config/i3/scripts/i3-inverted_mouse.sh
 exec_always --no-startup-id ~/.config/i3/scripts/i3-caps_as_control.sh
+exec_always --no-startup-id gkrellm
 
 # start conky:
 #exec_always --no-startup-id conky
@@ -633,7 +636,7 @@ bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec --no-startup-id rofi -show window \
+bindsym $mod+w exec --no-startup-id rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec --no-startup-id rofi -show window \
