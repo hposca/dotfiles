@@ -181,6 +181,9 @@ workspace $ws3 output $monright
 # Move workspaces to other monitors https://unix.stackexchange.com/a/397270
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
+# Select other monitors
+bindsym $mod+greater focus output right
+bindsym $mod+less focus output left
 
 # Switch to workspaces on the same monitor
 bindsym $mod+Tab workspace next_on_output
