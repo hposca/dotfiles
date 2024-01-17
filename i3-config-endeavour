@@ -48,14 +48,14 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+default_border pixel 3
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 3
+gaps inner 1
+gaps outer 1
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -538,24 +538,27 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+set $darkbluetrans #08052be6
+set $darkblue      #08052b
+set $lightblue     #5294e2
+set $urgentred     #e53935
+set $azureblue     #4853a0
+set $white         #ffffff
+set $black         #000000
+set $red           #ff0000
+set $purple        #e345ff
+set $darkgrey      #383c4a
+set $grey          #b0b5bd
+set $mediumgrey    #8b8b8b
+set $yellowbrown   #e1b700
+set $mediumgreen   #007115
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+#class                  border     bground    text   indicator    child_border
+client.focused          $lightblue $azureblue $white $mediumgreen $mediumgreen
+client.unfocused        $darkblue  $darkblue  $grey  $darkgrey    $darkgrey
+client.focused_inactive $darkblue  $darkblue  $grey  $black       $black
+client.urgent           $urgentred $urgentred $white $yellowbrown $yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -564,30 +567,30 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-		font pango: Noto Sans Regular 10
+		font pango: Noto Sans Regular 7
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
-#	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
-		    tray_padding 0
+    position bottom
+    i3bar_command i3bar --transparency
+    # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+    # reference: https://i3wm.org/docs/userguide.html#_tray_output
+    #tray_output primary
+    tray_padding 0
 
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
-##strip_workspace_name no
+    # When strip_workspace_numbers is set to yes,
+    # any workspace that has a name of the form
+    # “[n][:][NAME]” will display only the name.
+    strip_workspace_numbers yes
+    ##strip_workspace_name no
 
-		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+    colors {
+      separator          $purple
+      background         $darkgrey
+      statusline         $white
+      #                  border      bg         txt       indicator
+      focused_workspace  $lightblue $azureblue  $grey     $purple
+      active_workspace   $grey      $mediumgrey $darkgrey $purple
+      inactive_workspace $darkgrey  $darkgrey   $grey     $purple
+      urgent_workspace   $urgentred $urgentred  $white    $purple
 	}
 }
 
