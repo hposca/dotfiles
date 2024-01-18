@@ -18,6 +18,7 @@ ZSH_THEME="spaceship"
 # Or add an sleep in `async.zsh`'s `_async_job()` as suggested in
 # https://github.com/spaceship-prompt/spaceship-prompt/issues/1193#issuecomment-1722579999
 # In my case, adding `sleep 0.03` was enough
+SPACESHIP_KUBECTL_SHOW=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -62,7 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(aws colored-man-pages colorize docker gh git golang terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aws colored-man-pages colorize docker gh git golang helm kind kube-ps1 kubectl kubectx terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
