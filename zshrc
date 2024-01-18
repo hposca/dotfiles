@@ -13,6 +13,12 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 
+# https://github.com/spaceship-prompt/spaceship-prompt/issues/1193
+# SPACESHIP_PROMPT_ASYNC=false
+# Or add an sleep in `async.zsh`'s `_async_job()` as suggested in
+# https://github.com/spaceship-prompt/spaceship-prompt/issues/1193#issuecomment-1722579999
+# In my case, adding `sleep 0.03` was enough
+
 # Installation instructions:
 # First the fonts: https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation
 # Then the theme: https://github.com/bhilburn/powerlevel9k
