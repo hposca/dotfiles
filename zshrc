@@ -19,13 +19,6 @@ ZSH_THEME="spaceship"
 # https://github.com/spaceship-prompt/spaceship-prompt/issues/1193#issuecomment-1722579999
 # In my case, adding `sleep 0.03` was enough
 
-# Installation instructions:
-# First the fonts: https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation
-# Then the theme: https://github.com/bhilburn/powerlevel9k
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(longstatus time)
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -76,24 +69,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# if [[ $(uname -s) == "Linux" ]]; then
-#   export PATH=/home/linuxbrew/.linuxbrew/opt/go/libexec/bin:/home/linuxbrew/.linuxbrew/bin:$PATH
-#   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
-#   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
-#   export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
-#   # source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
-#   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-#   export GOROOT=/home/linuxbrew/.linuxbrew/opt/go/
-# fi
-
 # Download golang tar.gz from https://golang.org/dl/
 # Then `tar -xvf the.tar.gz && sudo mv go /usr/local`
 # export GOROOT=/usr/local/go
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/src/go
 export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -126,8 +107,6 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# EDITOR='vim'
 
 ##############
 # My aliases #
@@ -237,57 +216,12 @@ setopt EXTENDED_HISTORY # saves timestamps on history
 ######################################
 # Application specific configuration #
 ######################################
-export ANSIBLE_NOCOWS=1
-
-# No password window for gpg
-alias gpg='gpg --no-use-agent'
-
 alias tmux='tmux -2'
-
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
 alias tiga='tig --all'
 
 ###############
 # Some tweaks #
 ###############
-#
-# Update prompt with current time when a command is started
-# http://stackoverflow.com/questions/13125825/zsh-update-prompt-with-current-time-when-a-command-is-started
-#
-strlen () {
-    FOO=$1
-    local zero='%([BSUbfksu]|([FB]|){*})'
-    LEN=${#${(S%%)FOO//$~zero/}}
-    echo $LEN
-}
-
-# show right prompt with date ONLY when command is executed
-preexec () {
-    DATE=$( date +"[%H:%M:%S]" )
-    local len_right=$( strlen "$DATE" )
-    len_right=$(( $len_right+1 ))
-    local right_start=$(($COLUMNS - $len_right))
-
-    local len_cmd=$( strlen "$@" )
-    local len_prompt=$(strlen "$PROMPT" )
-    local len_left=$(($len_cmd+$len_prompt))
-
-    RDATE="\033[${right_start}C ${DATE}"
-
-    if [ $len_left -lt $right_start ]; then
-        # command does not overwrite right prompt
-        # ok to move up one line
-        echo -e "\033[1A${RDATE}"
-    else
-        echo -e "${RDATE}"
-    fi
-}
-
-vim() {
-  [ -t 1 ] || { echo "Not starting vim without stdout to TTY!" >&2; return 1; }
-  command vim "$@"
-}
 
 # Ctrl-Space to expand aliases
 # Based on http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
@@ -308,17 +242,28 @@ bindkey \^U backward-kill-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -f ~/.bash_profile_aws-profile ]; then
-  . ~/.bash_profile_aws-profile
-fi
+# If you want to have a cool aws profile picker
+# https://gist.github.com/cm-watanabeseigo/0a103315529d502ce4a82d2a8aab6cd3
+# https://dev.classmethod.jp/articles/201912-aws-profiler-selector-for-zsh/
+# https://dev.classmethod.jp/articles/my-perfect-aws_profile-environment/
+# if [ -f ~/.bash_profile_aws-profile ]; then
+#   . ~/.bash_profile_aws-profile
+# fi
 
 # pyenv configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+#
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# NodeJS version manager
+# NVM, https://github.com/nvm-sh/nvm . To install:
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #######################
 # Ancillary functions #
@@ -416,26 +361,20 @@ alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
 alias lavim="NVIM_APPNAME=LazyVim nvim"
 alias luvim="lvim"
 
-function nvims() {
-  # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
-  items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
+# function nvims() {
+#   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
+#   items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
+#   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+#   if [[ -z $config ]]; then
+#     echo "Nothing selected"
+#     return 0
+#   elif [[ $config == "default" ]]; then
+#     config=""
+#   fi
+#   NVIM_APPNAME=$config nvim $@
+# }
 
 # bindkey -s ^a "nvims\n"
-
-# NVM, https://github.com/nvm-sh/nvm . To install:
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function update_lazy_vim() {
   echo "Will update LazyVim..."
