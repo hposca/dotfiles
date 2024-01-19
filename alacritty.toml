@@ -28,7 +28,7 @@ background = "#1c1c1c"
 foreground = "#ddeedd"
 
 [font]
-size = 9
+size = 8
 
 [font.bold]
 family = "RobotoMono Nerd Font"

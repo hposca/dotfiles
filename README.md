@@ -13,12 +13,13 @@ ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ln -s $(readlink -f i3-config) ~/.config/i3/config
 ln -s $(readlink -f i3-bins) ~/.i3-bins
 ln -s $(readlink -f polybar-config) ~/.config/polybar/config
+ln -s $(readlink -f alacritty.yml) ~/.config/alacritty/alacritty.yml
 ln -s $(readlink -f config.lua) ~/.config/lvim/config.lua
 ln -s $(readlink -f luasnippets) ~/.config/lvim/
 
 ln -s $(readlink -f tmux.conf) ~/.config/tmux/tmux.conf
 ln -s $(readlink -f zshrc) ~/.zshrc
-ln -s $(readlink -f alacritty.yml) ~/.config/alacritty/alacritty.yml
+ln -s $(readlink -f alacritty.toml) ~/.config/alacritty/alacritty.toml
 ln -s $(readlink -f LazyVim/lua) ~/.config/LazyVim/
 ln -s $(readlink -f snippets) ~/.config/LazyVim/
 ln -s $(readlink -f i3blocks.conf) ~/.config/i3/i3blocks.conf
