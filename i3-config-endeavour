@@ -439,7 +439,7 @@ exec_always --no-startup-id "setxkbmap -layout ca,us -variant eng,intl -option g
 
 exec_always --no-startup-id ~/.config/i3/scripts/i3-inverted_mouse.sh
 exec_always --no-startup-id ~/.config/i3/scripts/i3-caps_as_control.sh
-exec_always --no-startup-id gkrellm
+exec --no-startup-id gkrellm
 
 # start conky:
 #exec_always --no-startup-id conky
