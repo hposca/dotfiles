@@ -517,6 +517,7 @@ for_window [class=Gnome-calculator] floating enable
 for_window [class=Steam] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
+for_window [class=eve-online.exe] floating enable
 
 # From https://bewilderedoctothorpe.net/2022/03/30/i3wm-zoom-screen-sharing/
 # Set Zoom notification window to floating with no focus
