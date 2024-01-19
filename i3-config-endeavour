@@ -515,9 +515,16 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class=Enpass] floating enable
 for_window [class=Gnome-calculator] floating enable
 for_window [class=Steam] floating enable
-for_window [class=zoom] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
+
+# From https://bewilderedoctothorpe.net/2022/03/30/i3wm-zoom-screen-sharing/
+# Set Zoom notification window to floating with no focus
+for_window [title="^zoom\s?$"] floating enable
+no_focus [title="^zoom\s?$"]
+# For meetings that you have joined via a link
+for_window [title="^join\?action=join.*$"] floating enable
+no_focus [title="^join\?action=join.*$"]
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
