@@ -293,6 +293,14 @@ function paste_to_file() {
   xclip -selection clipboard -o > "${_file}"
 }
 
+function copy() {
+  xclip -selection clipboard
+}
+
+function paste() {
+  xclip -o -selection clipboard
+}
+
 function open() {
   _file="${1}"
   xdg-open "${_file}" &
