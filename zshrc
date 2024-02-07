@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # export GOROOT=/usr/local/go
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/src/go
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=/opt/google-cloud-cli/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -243,20 +243,15 @@ bindkey \^U backward-kill-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Loading autocomplete for gcloud
+[ -f /opt/google-cloud-cli/completion.zsh.inc ] && source /opt/google-cloud-cli/completion.zsh.inc
+
 # If you want to have a cool aws profile picker
 # https://gist.github.com/cm-watanabeseigo/0a103315529d502ce4a82d2a8aab6cd3
 # https://dev.classmethod.jp/articles/201912-aws-profiler-selector-for-zsh/
 # https://dev.classmethod.jp/articles/my-perfect-aws_profile-environment/
 # if [ -f ~/.bash_profile_aws-profile ]; then
 #   . ~/.bash_profile_aws-profile
-# fi
-
-# pyenv configuration
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-#
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
 # fi
 
 # NodeJS version manager
@@ -403,3 +398,6 @@ function full_reinstall_lazy_vim() {
   echo "Size of LazyVim packages:"
   du -hs "${HOME}/.local/share/LazyVim"
 }
+
+# Activate direnv
+eval "$(direnv hook zsh)"
