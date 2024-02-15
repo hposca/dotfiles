@@ -199,3 +199,9 @@ map("n", "<C-h>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTre
 -- Tab switching
 map("n", "]T", "<cmd>tabnext<CR>", { desc = "Tab Next" })
 map("n", "[T", "<cmd>tabprevious<CR>", { desc = "Tab Next" })
+
+-- Vertical Tag openning
+-- C-]         Jump to definition in the same file
+-- C-W C-]     Jump to definition in a horizontal split
+-- C-W C-V C-] Jump to definition in a vertical split
+map("n", "<C-W><C-V><C-]>", "<cmd>vert winc ]<CR>")
