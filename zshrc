@@ -76,6 +76,7 @@ source $ZSH/oh-my-zsh.sh
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/src/go
 export PATH=/opt/google-cloud-cli/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/.gloo/bin:$PATH
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -218,7 +219,14 @@ setopt EXTENDED_HISTORY # saves timestamps on history
 # Application specific configuration #
 ######################################
 alias tmux='tmux -2'
-alias tiga='tig --all'
+
+# Tig supports the same order flags as `git log`
+# https://github.com/jonas/tig/issues/497#issuecomment-214261777
+alias tiga='tig --all' # --topo-order
+alias tigad='tig --all --date-order'
+alias tigat='tig --all --topo-order'
+alias tigaad='tig --all --author-date-order'
+
 
 ###############
 # Some tweaks #
