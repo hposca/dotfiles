@@ -273,6 +273,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Force center active window
+bindsym $mod+z move absolute position center
+
 # split in horizontal orientation
 bindsym $mod+x split h
 
