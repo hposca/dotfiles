@@ -48,14 +48,16 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-default_border pixel 3
+# Forcing all windows to have the same border decoration
+# default_border pixel 3
+for_window [class=.*] border pixel 3
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 1
-gaps outer 1
+gaps inner 0
+gaps outer 0
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
