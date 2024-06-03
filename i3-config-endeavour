@@ -517,6 +517,7 @@ exec --no-startup-id blueberry-tray
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
 # To get the class and instance of a window use `xprop | grep WM_CLASS`
@@ -538,7 +539,7 @@ no_focus [title="^join\?action=join.*$"]
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
