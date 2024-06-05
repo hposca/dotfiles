@@ -409,3 +409,9 @@ function full_reinstall_lazy_vim() {
 
 # Activate direnv
 eval "$(direnv hook zsh)"
+
+# Shortcuts to display PRs in github ready to be copy+pasted
+gh_prs_open() {gh search prs --author '@me' --sort=created --state=open --json=url | jq -r '.[].url'}
+gh_prs_open_md() {gh search prs --author '@me' --sort=created --state=open --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
+gh_prs_all() {gh search prs --author '@me' --sort=created --json=url | jq -r '.[].url'}
+gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
