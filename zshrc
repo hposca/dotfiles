@@ -358,7 +358,7 @@ function md_to_html() {
 
 # The nvim configuration names should be directories in ~/.config
 # As an example, to install AstroNvim:
-# git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/AstroNvim
+# git clone --depth 1 https://github.com/AstroNvim/template ~/.config/AstroNvim
 # And for LazyVim:
 # git clone --depth 1 https://github.com/LazyVim/starter ~/.config/LazyVim
 # git clone --depth 1 https://github.com/NvChad/NvChad ~/.config/NvChad
@@ -372,6 +372,7 @@ alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
 alias lavim="NVIM_APPNAME=LazyVim nvim"
 alias luvim="lvim"
+alias avim="NVIM_APPNAME=AstroNvim nvim"
 
 # function nvims() {
 #   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
