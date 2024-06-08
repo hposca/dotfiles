@@ -1,16 +1,58 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
-
----@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
-  opts = function(_, opts)
-    -- add more things to the ensure_installed table protecting against community packs modifying it
-    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-      "lua",
-      "vim",
-      -- add more arguments for adding more treesitter parsers
-    })
-  end,
+	"nvim-treesitter/nvim-treesitter",
+	opts = {
+		ensure_installed = {
+			"awk",
+			"bash",
+			"bibtex",
+			"c",
+			"comment",
+			"css",
+			"dhall",
+			"diff",
+			"dockerfile",
+			"dot",
+			"git_config",
+			"git_rebase",
+			"gitattributes",
+			"gitcommit",
+			"gitignore",
+			"go",
+			"gomod",
+			"gosum",
+			"hcl",
+			"html",
+			"htmldjango",
+			"http",
+			"ini",
+			"java",
+			"javascript",
+			"jq",
+			"json",
+			"json5",
+			"jsonc",
+			"jsonnet",
+			"latex",
+			"lua",
+			"luadoc",
+			"luap",
+			"luau",
+			"make",
+			"markdown",
+			"markdown_inline",
+			"mermaid",
+			"passwd",
+			"python",
+			"regex",
+			"ruby",
+			"rust",
+			"sql",
+			"terraform",
+			"todotxt",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"yaml",
+		},
+	},
 }
