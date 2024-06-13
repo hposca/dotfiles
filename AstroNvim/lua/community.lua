@@ -16,10 +16,10 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline"}, 
+  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
   { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.pack.yaml" },
-  
+
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
@@ -30,9 +30,10 @@ return {
 
   { import = "astrocommunity.completion.cmp-emoji" },
   { import = "astrocommunity.completion.cmp-git" },
-  
+
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
 
   { import = "astrocommunity.editing-support.refactoring-nvim" },
+  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 }
