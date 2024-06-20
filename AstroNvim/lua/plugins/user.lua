@@ -13,6 +13,20 @@ return {
   { "mzlogin/vim-markdown-toc" }, -- Generate Table of Contents for Markdown files
 
   { "benfowler/telescope-luasnip.nvim" },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        mappings = {
+          ["-"] = "toggle_node",
+          ["S"] = "split_with_window_picker",
+          ["s"] = "vsplit_with_window_picker",
+          ["<C-x>"] = "split_with_window_picker",
+          ["<C-v>"] = "vsplit_with_window_picker",
+        },
+      },
+    },
+  },
 }
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 --
