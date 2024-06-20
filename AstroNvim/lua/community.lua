@@ -18,6 +18,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
   { import = "astrocommunity.pack.terraform" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
 
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
