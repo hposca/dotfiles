@@ -2,7 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local del = vim.api.nvim_del_keymap
+local del = vim.keymap.del
+local map = vim.keymap.set
 
 local function map(mode, lhs, rhs, opts)
 	local keys = require("lazy.core.handler").handlers.keys
@@ -114,8 +115,8 @@ map("x", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
 -- Redefining default windows mappings to upper case w
 del("n", "<leader>ww")
 del("n", "<leader>wd")
-del("n", "<leader>w-")
-del("n", "<leader>w|")
+-- del("n", "<leader>w-")
+-- del("n", "<leader>w|")
 map("n", "<leader>Ww", "<C-W>p", { desc = "Other window" })
 map("n", "<leader>Wd", "<C-W>c", { desc = "Delete window" })
 map("n", "<leader>W-", "<C-W>s", { desc = "Split window below" })
