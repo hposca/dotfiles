@@ -1,5 +1,22 @@
 return {
-  { "max397574/better-escape.nvim", opts = { mapping = { "jk", "kj", "jj", "kk" } } },
+  -- { "max397574/better-escape.nvim", opts = { mapping = { "jk", "kj", "jj", "kk" } } },
+  {
+    "max397574/better-escape.nvim",
+    opts = {
+      mappings = {
+        i = {
+          j = {
+            j = "<Esc>",
+            k = "<Esc>",
+          },
+          k = {
+            j = "<Esc>",
+            k = "<Esc>",
+          },
+        },
+      },
+    },
+  },
   { "tpope/vim-rhubarb" }, -- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
   { "tpope/vim-rsi" }, -- Readline Key Bindings
   { "tpope/vim-repeat" }, -- Enable repeating supported plugin maps with "."

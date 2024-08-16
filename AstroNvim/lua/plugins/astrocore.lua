@@ -8,6 +8,7 @@ return {
       opt = { -- vim.opt.<key>
         clipboard = "",
         listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" },
+        wrap = true,
       },
     },
     mappings = {
