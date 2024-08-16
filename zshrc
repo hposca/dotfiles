@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # export GOROOT=/usr/local/go
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/src/go
-export PATH=/opt/google-cloud-cli/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=/opt/asdf-vm/bin:/opt/google-cloud-cli/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.gloo/bin:$PATH
 
 # You may need to manually set your language environment
@@ -196,6 +196,8 @@ alias dclw="docker-compose logs web"
 # Extracted from https://github.com/stedolan/jq/issues/243#issuecomment-45460474 and https://github.com/stedolan/jq/issues/243#issuecomment-48470943
 alias jqh="jq -c 'path(..)|[.[]|tostring]|join(\"/\")'"
 alias jquh="jq '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
+# https://github.com/jqlang/jq/issues/243#issuecomment-880152966
+alias jqhi="jq 'select(objects)|=[.] | map( paths(scalars) ) | map( map(select(numbers)=\"[]\") | join(\".\")) | unique'"
 alias yqh="yq -c 'path(..)|[.[]|tostring]|join(\"/\")'"
 alias yquh="yq '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
 
