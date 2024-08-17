@@ -128,12 +128,12 @@ map("n", "Zo", "<C-w>=", { desc = "Restore windows sizes" })
 map("n", "<leader>Wz", "<C-w>_|<C-w>|", { desc = "Maximize window" })
 map("n", "<leader>Wo", "<C-w>=", { desc = "Restore windows sizes" })
 
--- Improved Code Folding
-map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
-map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Fold less" })
-map("n", "zm", require("ufo").closeFoldsWith, { desc = "Fold more" })
-map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" })
+-- -- Improved Code Folding
+-- map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+-- map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+-- map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Fold less" })
+-- map("n", "zm", require("ufo").closeFoldsWith, { desc = "Fold more" })
+-- map("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" })
 
 -- Search Snippets
 map("n", "<leader>fs", "<cmd>Telescope luasnip<CR>", { desc = "Search Snippets" })
@@ -182,6 +182,7 @@ function Toggle_diagnostics_text()
 		print("Diagnostic appears on the same line as issue")
 	end
 end
+
 map("n", "<leader>uD", "<cmd>lua Toggle_diagnostics_text()<CR>", { desc = "Toggle Diagnostics virtual text" })
 
 -- Remapping for VimwikiIndex
@@ -197,8 +198,9 @@ function Toggle_NeoTree_Focus()
 		vim.cmd.Neotree("focus")
 	end
 end
+
 -- map("n", "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
-map("n", "<C-h>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
+-- map("n", "<C-h>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", { desc = "Toggle NeoTree Focus" })
 
 -- Tab switching
 map("n", "]T", "<cmd>tabnext<CR>", { desc = "Tab Next" })

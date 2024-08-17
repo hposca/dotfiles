@@ -1,4 +1,17 @@
+local navic = require("nvim-navic")
+local icons = require("lazyvim.config").icons
 return {
+	--
+	-- Disabling LazyVim plugins
+	--
+	{ "folke/flash.nvim", enabled = false },
+	-- easily jump to any location and enhanced f/t motions for Leap
+	{ "ggandor/flit.nvim", enabled = false },
+	{ "ggandor/leap.nvim", enabled = false },
+	{ "echasnovski/mini.surround", enabled = false },
+
+	-- TODO: Organize by blocks
+
 	{
 		"max397574/better-escape.nvim",
 		opts = {
@@ -16,17 +29,17 @@ return {
 			},
 		},
 	},
-	{
-		"kevinhwang91/nvim-bqf",
-		dependencies = {
-			"junegunn/fzf",
-			build = function()
-				vim.fn["fzf#install"]()
-			end,
-		},
-		event = "VeryLazy",
-		opts = {},
-	},
+	-- {
+	-- 	"kevinhwang91/nvim-bqf",
+	-- 	dependencies = {
+	-- 		"junegunn/fzf",
+	-- 		build = function()
+	-- 			vim.fn["fzf#install"]()
+	-- 		end,
+	-- 	},
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- },
 	-- local cmp = require("cmp")
 	--
 	-- {
@@ -38,12 +51,14 @@ return {
 	-- 		}),
 	-- 	},
 	-- }
+	-- add dracula
+	{ "Mofiqul/dracula.nvim" },
+	{ "neanias/everforest-nvim" },
 	{
-		{
-			"LazyVim/LazyVim",
-			opts = {
-				colorscheme = "catppuccin",
-			},
+		"LazyVim/LazyVim",
+		opts = {
+			-- colorscheme = "catppuccin",
+			colorscheme = "everforest",
 		},
 	},
 	{
@@ -55,9 +70,6 @@ return {
 	-- A Vim alignment plugin
 	{ "junegunn/vim-easy-align" },
 
-	{ "folke/flash.nvim", enabled = false },
-	-- easily jump to any location and enhanced f/t motions for Leap
-	{ "ggandor/flit.nvim", enabled = false },
 	-- Git integration
 	{
 		"tpope/vim-fugitive",
@@ -94,67 +106,58 @@ return {
 		-- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 		"fatih/vim-go",
 	},
-	-- easily jump to any location and enhanced f/t motions for Leap
-	{ "ggandor/leap.nvim", enabled = false },
-	{
-		{
-			"neovim/nvim-lspconfig",
-			opts = {
-				diagnostics = {
-					-- Disable by default, let the user choose which style is prefered, same line as default
-					virtual_text = true,
-					virtual_lines = false,
-				},
-			},
-		},
-	},
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-		end,
-	},
-	-- local navic = require("nvim-navic")
-	-- local icons = require("lazyvim.config").icons
-	--
 	-- {
-	-- 	{
-	-- 		"nvim-lualine/lualine.nvim",
-	-- 		opts = {
-	-- 			sections = {
-	-- 				lualine_c = {
-	-- 					{
-	-- 						"diagnostics",
-	-- 						symbols = {
-	-- 							error = icons.diagnostics.Error,
-	-- 							warn = icons.diagnostics.Warn,
-	-- 							info = icons.diagnostics.Info,
-	-- 							hint = icons.diagnostics.Hint,
-	-- 						},
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		diagnostics = {
+	-- 			-- Disable by default, let the user choose which style is prefered, same line as default
+	-- 			virtual_text = true,
+	-- 			virtual_lines = false,
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 	end,
+	-- },
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	opts = {
+	-- 		sections = {
+	-- 			lualine_c = {
+	-- 				{
+	-- 					"diagnostics",
+	-- 					symbols = {
+	-- 						error = icons.diagnostics.Error,
+	-- 						warn = icons.diagnostics.Warn,
+	-- 						info = icons.diagnostics.Info,
+	-- 						hint = icons.diagnostics.Hint,
 	-- 					},
-	-- 					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-	-- 					{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
 	-- 				},
+	-- 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+	-- 				{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
 	-- 			},
-	-- 			winbar = {
-	-- 				lualine_c = {
-	-- 					{
-	-- 						"filetype",
-	-- 						icon_only = true,
-	-- 						separator = "",
-	-- 						padding = { left = 1, right = 0 },
-	-- 						cond = function()
-	-- 							navic.is_available()
-	-- 						end,
-	-- 					},
-	-- 					{
-	-- 						function()
-	-- 							navic.get_location()
-	-- 						end,
-	-- 						cond = function()
-	-- 							navic.is_available()
-	-- 						end,
-	-- 					},
+	-- 		},
+	-- 		winbar = {
+	-- 			lualine_c = {
+	-- 				{
+	-- 					"filetype",
+	-- 					icon_only = true,
+	-- 					separator = "",
+	-- 					padding = { left = 1, right = 0 },
+	-- 					cond = function()
+	-- 						navic.is_available()
+	-- 					end,
+	-- 				},
+	-- 				{
+	-- 					function()
+	-- 						navic.get_location()
+	-- 					end,
+	-- 					cond = function()
+	-- 						navic.is_available()
+	-- 					end,
 	-- 				},
 	-- 			},
 	-- 		},
@@ -385,7 +388,6 @@ return {
 			},
 		},
 	},
-	{ "echasnovski/mini.surround", enabled = false },
 	{
 		"numToStr/Navigator.nvim",
 		config = function()
@@ -394,6 +396,13 @@ return {
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"s1n7ax/nvim-window-picker",
+			opts = {},
+		},
+		keys = {
+			{ "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
+		},
 		opts = {
 			window = {
 				mappings = {
@@ -457,23 +466,21 @@ return {
 	-- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
 	{ "tpope/vim-rhubarb" },
 	{ "andrewradev/switch.vim" },
-	{
-		{
-			"simrat39/symbols-outline.nvim",
-			cmd = "SymbolsOutline",
-			keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-			opts = {
-				-- add your options that should be passed to the setup() function here
-				position = "right",
-			},
-		},
-	},
-	{
-		"abecodes/tabout.nvim",
-		config = function()
-			require("tabout").setup({})
-		end,
-	},
+	-- {
+	-- 	"simrat39/symbols-outline.nvim",
+	-- 	cmd = "SymbolsOutline",
+	-- 	keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+	-- 	opts = {
+	-- 		-- add your options that should be passed to the setup() function here
+	-- 		position = "right",
+	-- 	},
+	-- },
+	-- {
+	-- 	"abecodes/tabout.nvim",
+	-- 	config = function()
+	-- 		require("tabout").setup({})
+	-- 	end,
+	-- },
 	{
 		"nvim-telescope/telescope.nvim",
 		keys = {
@@ -490,12 +497,14 @@ return {
 			require("telescope").load_extension("luasnip")
 		end,
 	},
-	{
-		"levouh/tint.nvim",
-		config = function()
-			require("tint").setup()
-		end,
-	},
+	-- TODO: Configure it correctly
+	-- Dim inactive windows in Neovim using window-local highlight namespaces
+	-- {
+	-- 	"levouh/tint.nvim",
+	-- 	config = function()
+	-- 		require("tint").setup()
+	-- 	end,
+	-- },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
@@ -554,6 +563,7 @@ return {
 			},
 		},
 	},
+	-- TODO: Configure it correctly
 	-- Neovim plugin for splitting/joining blocks of code
 	{
 		"Wansmer/treesj",
@@ -579,12 +589,12 @@ return {
 			})
 		end,
 	},
-	{
-		"cappyzawa/trim.nvim",
-		config = function()
-			require("trim").setup()
-		end,
-	},
+	-- {
+	-- 	"cappyzawa/trim.nvim",
+	-- 	config = function()
+	-- 		require("trim").setup()
+	-- 	end,
+	-- },
 	-- {
 	-- 	"kevinhwang91/nvim-ufo",
 	-- 	dependencies = {
@@ -610,16 +620,12 @@ return {
 	-- 		end,
 	-- 	},
 	-- },
-	{
-		"mbbill/undotree",
-	},
+	{ "mbbill/undotree" },
 	--  Draw ASCII diagrams in Neovim
 	{ "jbyuki/venn.nvim" },
 	-- Readline Key Bindings
 	{ "tpope/vim-rsi" },
-	{
-		"tpope/vim-surround",
-	},
+	{ "tpope/vim-surround" },
 	-- Personal Wiki for Vim
 	{ "vimwiki/vimwiki" },
 	{
@@ -632,11 +638,5 @@ return {
 				["<leader>w"] = { name = "+VimWiki" },
 			},
 		},
-	},
-	{
-		"s1n7ax/nvim-window-picker",
-		config = function()
-			require("window-picker").setup()
-		end,
 	},
 }
