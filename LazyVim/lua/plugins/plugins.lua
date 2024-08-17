@@ -4,13 +4,28 @@ return {
 	--
 	-- Disabling LazyVim plugins
 	--
+
 	{ "folke/flash.nvim", enabled = false },
-	-- easily jump to any location and enhanced f/t motions for Leap
 	{ "ggandor/flit.nvim", enabled = false },
 	{ "ggandor/leap.nvim", enabled = false },
 	{ "echasnovski/mini.surround", enabled = false },
 
-	-- TODO: Organize by blocks
+	--
+	-- colorscheme
+	--
+
+	{ "neanias/everforest-nvim" },
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			-- colorscheme = "catppuccin",
+			colorscheme = "everforest",
+		},
+	},
+
+	--
+	-- Movements
+	--
 
 	{
 		"max397574/better-escape.nvim",
@@ -29,36 +44,24 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"kevinhwang91/nvim-bqf",
-	-- 	dependencies = {
-	-- 		"junegunn/fzf",
-	-- 		build = function()
-	-- 			vim.fn["fzf#install"]()
-	-- 		end,
-	-- 	},
-	-- 	event = "VeryLazy",
-	-- 	opts = {},
-	-- },
-	-- local cmp = require("cmp")
-	--
-	-- {
-	-- 	"hrsh7th/nvim-cmp",
-	--
-	-- 	opts = {
-	-- 		mapping = cmp.mapping.preset.insert({
-	-- 			["<tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	-- 		}),
-	-- 	},
-	-- }
-	-- add dracula
-	{ "Mofiqul/dracula.nvim" },
-	{ "neanias/everforest-nvim" },
+	-- Smoothly navigate between neovim and terminal multiplexer(s)
 	{
-		"LazyVim/LazyVim",
-		opts = {
-			-- colorscheme = "catppuccin",
-			colorscheme = "everforest",
+		"numToStr/Navigator.nvim",
+		config = function()
+			require("Navigator").setup()
+		end,
+	},
+	-- Readline Key Bindings
+	{ "tpope/vim-rsi" },
+
+	--
+	-- Text Manipulation
+	--
+
+	{
+		"nvim-telescope/telescope.nvim",
+		keys = {
+			{ "<leader>/", false },
 		},
 	},
 	{
@@ -69,8 +72,26 @@ return {
 	},
 	-- A Vim alignment plugin
 	{ "junegunn/vim-easy-align" },
+	-- :GenTocGFM -> For GitHub style
+	-- :GenTocMarked -> For MarkdownPreview style
+	{ "mzlogin/vim-markdown-toc" },
+	{
+		"iamcco/markdown-preview.nvim",
+		config = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{ "andrewradev/switch.vim" },
+	--  Draw ASCII diagrams in Neovim
+	{ "jbyuki/venn.nvim" },
+	{ "tpope/vim-surround" },
+	-- Personal Wiki for Vim
+	{ "vimwiki/vimwiki" },
 
+	--
 	-- Git integration
+	--
+
 	{
 		"tpope/vim-fugitive",
 		cmd = {
@@ -90,79 +111,108 @@ return {
 		},
 		ft = { "fugitive" },
 	},
-	-- Another alternative: https://github.com/olexsmir/gopher.nvim
+	-- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
+	{ "tpope/vim-rhubarb" },
+
+	--
+	-- UI
+	--
+
 	{
-		-- "ray-x/go.nvim",
-		-- dependencies = { -- optional packages
-		-- 	"ray-x/guihua.lua",
-		-- 	"neovim/nvim-lspconfig",
-		-- 	"nvim-treesitter/nvim-treesitter",
-		-- },
-		-- config = function()
-		-- 	require("go").setup()
-		-- end,
-		-- event = { "CmdlineEnter" },
-		-- ft = { "go", "gomod" },
-		-- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-		"fatih/vim-go",
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"s1n7ax/nvim-window-picker",
+			opts = {},
+		},
+		keys = {
+			{ "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
+		},
+		opts = {
+			window = {
+				mappings = {
+					["-"] = "toggle_node",
+					["l"] = "open",
+					["h"] = "close_node",
+					["S"] = "split_with_window_picker",
+					["s"] = "vsplit_with_window_picker",
+					["<C-x>"] = "split_with_window_picker",
+					["<C-v>"] = "vsplit_with_window_picker",
+				},
+			},
+		},
 	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- Classic command line position
+			-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#classic-cmdline
+
+			-- cmdline = {
+			-- 	view = "cmdline",
+			-- },
+
+			-- Command line and popup menu together
+			-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#display-the-cmdline-and-popupmenu-together
+
+			views = {
+				cmdline_popup = {
+					position = {
+						row = "98%",
+						col = "8%",
+					},
+					size = {
+						width = 60,
+						height = "auto",
+					},
+				},
+				popupmenu = {
+					relative = "editor",
+					position = {
+						row = "94%",
+						col = "7%",
+					},
+					size = {
+						width = 60,
+						height = 10,
+					},
+					border = {
+						style = "rounded",
+						padding = { 0, 1 },
+					},
+					win_options = {
+						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+					},
+				},
+			},
+		},
+	},
+	{
+		"folke/which-key.nvim",
+		opts = {
+			spec = {
+				mode = { "n", "v" },
+				["<leader>M"] = { name = "+MarkdownPreview" },
+				["<leader>W"] = { name = "+Windows" },
+				["<leader>w"] = { name = "+VimWiki" },
+			},
+		},
+	},
+	-- TODO: Configure it correctly
+	-- Dim inactive windows in Neovim using window-local highlight namespaces
 	-- {
-	-- 	"neovim/nvim-lspconfig",
-	-- 	opts = {
-	-- 		diagnostics = {
-	-- 			-- Disable by default, let the user choose which style is prefered, same line as default
-	-- 			virtual_text = true,
-	-- 			virtual_lines = false,
-	-- 		},
-	-- 	},
-	-- },
-	-- {
-	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	"levouh/tint.nvim",
 	-- 	config = function()
-	-- 		require("lsp_lines").setup()
+	-- 		require("tint").setup()
 	-- 	end,
 	-- },
-	-- {
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	opts = {
-	-- 		sections = {
-	-- 			lualine_c = {
-	-- 				{
-	-- 					"diagnostics",
-	-- 					symbols = {
-	-- 						error = icons.diagnostics.Error,
-	-- 						warn = icons.diagnostics.Warn,
-	-- 						info = icons.diagnostics.Info,
-	-- 						hint = icons.diagnostics.Hint,
-	-- 					},
-	-- 				},
-	-- 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-	-- 				{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-	-- 			},
-	-- 		},
-	-- 		winbar = {
-	-- 			lualine_c = {
-	-- 				{
-	-- 					"filetype",
-	-- 					icon_only = true,
-	-- 					separator = "",
-	-- 					padding = { left = 1, right = 0 },
-	-- 					cond = function()
-	-- 						navic.is_available()
-	-- 					end,
-	-- 				},
-	-- 				{
-	-- 					function()
-	-- 						navic.get_location()
-	-- 					end,
-	-- 					cond = function()
-	-- 						navic.is_available()
-	-- 					end,
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
+
+	--
+	-- Coding
+	--
+
+	-- Another alternative: https://github.com/olexsmir/gopher.nvim
+	{ "fatih/vim-go" },
 	{
 		"L3MON4D3/LuaSnip",
 		-- "rafamadriz/friendly-snippets",
@@ -180,15 +230,16 @@ return {
 			})
 		end,
 	},
+	-- Telescope.nvim extension that adds LuaSnip integration.
 	{
-		"iamcco/markdown-preview.nvim",
+		"benfowler/telescope-luasnip.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
 		config = function()
-			vim.fn["mkdp#util#install"]()
+			require("telescope").load_extension("luasnip")
 		end,
 	},
-	-- :GenTocGFM -> For GitHub style
-	-- :GenTocMarked -> For MarkdownPreview style
-	{ "mzlogin/vim-markdown-toc" },
 	{
 		"williamboman/mason.nvim",
 		opts = {
@@ -389,123 +440,6 @@ return {
 		},
 	},
 	{
-		"numToStr/Navigator.nvim",
-		config = function()
-			require("Navigator").setup()
-		end,
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"s1n7ax/nvim-window-picker",
-			opts = {},
-		},
-		keys = {
-			{ "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
-		},
-		opts = {
-			window = {
-				mappings = {
-					["-"] = "toggle_node",
-					["l"] = "open",
-					["h"] = "close_node",
-					["S"] = "split_with_window_picker",
-					["s"] = "vsplit_with_window_picker",
-					["<C-x>"] = "split_with_window_picker",
-					["<C-v>"] = "vsplit_with_window_picker",
-				},
-			},
-		},
-	},
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- Classic command line position
-			-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#classic-cmdline
-
-			-- cmdline = {
-			-- 	view = "cmdline",
-			-- },
-
-			-- Command line and popup menu together
-			-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#display-the-cmdline-and-popupmenu-together
-
-			views = {
-				cmdline_popup = {
-					position = {
-						row = "98%",
-						col = "8%",
-					},
-					size = {
-						width = 60,
-						height = "auto",
-					},
-				},
-				popupmenu = {
-					relative = "editor",
-					position = {
-						row = "94%",
-						col = "7%",
-					},
-					size = {
-						width = 60,
-						height = 10,
-					},
-					border = {
-						style = "rounded",
-						padding = { 0, 1 },
-					},
-					win_options = {
-						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-					},
-				},
-			},
-		},
-	},
-	-- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
-	{ "tpope/vim-rhubarb" },
-	{ "andrewradev/switch.vim" },
-	-- {
-	-- 	"simrat39/symbols-outline.nvim",
-	-- 	cmd = "SymbolsOutline",
-	-- 	keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-	-- 	opts = {
-	-- 		-- add your options that should be passed to the setup() function here
-	-- 		position = "right",
-	-- 	},
-	-- },
-	-- {
-	-- 	"abecodes/tabout.nvim",
-	-- 	config = function()
-	-- 		require("tabout").setup({})
-	-- 	end,
-	-- },
-	{
-		"nvim-telescope/telescope.nvim",
-		keys = {
-			{ "<leader>/", false },
-		},
-	},
-	-- Telescope.nvim extension that adds LuaSnip integration.
-	{
-		"benfowler/telescope-luasnip.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
-		config = function()
-			require("telescope").load_extension("luasnip")
-		end,
-	},
-	-- TODO: Configure it correctly
-	-- Dim inactive windows in Neovim using window-local highlight namespaces
-	-- {
-	-- 	"levouh/tint.nvim",
-	-- 	config = function()
-	-- 		require("tint").setup()
-	-- 	end,
-	-- },
-	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = {
@@ -589,12 +523,134 @@ return {
 			})
 		end,
 	},
+	{ "mbbill/undotree" },
+
+	--------------------------------------------------------------------
+	--------------------------------------------------------------------
+	--------------------------------------------------------------------
+
+	-- {
+	-- 	"kevinhwang91/nvim-bqf",
+	-- 	dependencies = {
+	-- 		"junegunn/fzf",
+	-- 		build = function()
+	-- 			vim.fn["fzf#install"]()
+	-- 		end,
+	-- 	},
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- },
+	-- local cmp = require("cmp")
+	--
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	--
+	-- 	opts = {
+	-- 		mapping = cmp.mapping.preset.insert({
+	-- 			["<tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	-- 		}),
+	-- 	},
+	-- }
+
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		diagnostics = {
+	-- 			-- Disable by default, let the user choose which style is prefered, same line as default
+	-- 			virtual_text = true,
+	-- 			virtual_lines = false,
+	-- 		},
+	-- 	},
+	-- },
+
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 	end,
+	-- },
+
+	-- {
+	-- "ray-x/go.nvim",
+	-- dependencies = { -- optional packages
+	-- 	"ray-x/guihua.lua",
+	-- 	"neovim/nvim-lspconfig",
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- },
+	-- config = function()
+	-- 	require("go").setup()
+	-- end,
+	-- event = { "CmdlineEnter" },
+	-- ft = { "go", "gomod" },
+	-- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+	-- },
+
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	opts = {
+	-- 		sections = {
+	-- 			lualine_c = {
+	-- 				{
+	-- 					"diagnostics",
+	-- 					symbols = {
+	-- 						error = icons.diagnostics.Error,
+	-- 						warn = icons.diagnostics.Warn,
+	-- 						info = icons.diagnostics.Info,
+	-- 						hint = icons.diagnostics.Hint,
+	-- 					},
+	-- 				},
+	-- 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+	-- 				{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+	-- 			},
+	-- 		},
+	-- 		winbar = {
+	-- 			lualine_c = {
+	-- 				{
+	-- 					"filetype",
+	-- 					icon_only = true,
+	-- 					separator = "",
+	-- 					padding = { left = 1, right = 0 },
+	-- 					cond = function()
+	-- 						navic.is_available()
+	-- 					end,
+	-- 				},
+	-- 				{
+	-- 					function()
+	-- 						navic.get_location()
+	-- 					end,
+	-- 					cond = function()
+	-- 						navic.is_available()
+	-- 					end,
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+
+	-- {
+	-- 	"simrat39/symbols-outline.nvim",
+	-- 	cmd = "SymbolsOutline",
+	-- 	keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+	-- 	opts = {
+	-- 		-- add your options that should be passed to the setup() function here
+	-- 		position = "right",
+	-- 	},
+	-- },
+
+	-- {
+	-- 	"abecodes/tabout.nvim",
+	-- 	config = function()
+	-- 		require("tabout").setup({})
+	-- 	end,
+	-- },
+
 	-- {
 	-- 	"cappyzawa/trim.nvim",
 	-- 	config = function()
 	-- 		require("trim").setup()
 	-- 	end,
 	-- },
+
 	-- {
 	-- 	"kevinhwang91/nvim-ufo",
 	-- 	dependencies = {
@@ -620,23 +676,4 @@ return {
 	-- 		end,
 	-- 	},
 	-- },
-	{ "mbbill/undotree" },
-	--  Draw ASCII diagrams in Neovim
-	{ "jbyuki/venn.nvim" },
-	-- Readline Key Bindings
-	{ "tpope/vim-rsi" },
-	{ "tpope/vim-surround" },
-	-- Personal Wiki for Vim
-	{ "vimwiki/vimwiki" },
-	{
-		"folke/which-key.nvim",
-		opts = {
-			spec = {
-				mode = { "n", "v" },
-				["<leader>M"] = { name = "+MarkdownPreview" },
-				["<leader>W"] = { name = "+Windows" },
-				["<leader>w"] = { name = "+VimWiki" },
-			},
-		},
-	},
 }
