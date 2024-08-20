@@ -32,3 +32,5 @@ vim.cmd([[
 
 vim.opt.listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" }
 vim.opt.list = false
+
+vim.treesitter.language.register("markdown", { "vimwiki" })
