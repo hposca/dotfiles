@@ -14,12 +14,11 @@ return {
 	-- colorscheme
 	--
 
-	{ "neanias/everforest-nvim" },
+	{ "catppuccin/nvim" },
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			-- colorscheme = "catppuccin",
-			colorscheme = "everforest",
+			colorscheme = "catppuccin",
 		},
 	},
 
