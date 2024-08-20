@@ -1,5 +1,9 @@
-local navic = require("nvim-navic")
-local icons = require("lazyvim.config").icons
+-- local navic = require("nvim-navic")
+-- local icons = require("lazyvim.config").icons
+
+-- TODO
+-- - [ ] autopairs for parenthesis/quotes not working
+
 return {
 	--
 	-- Disabling LazyVim plugins
@@ -82,7 +86,12 @@ return {
 	},
 	{ "andrewradev/switch.vim" },
 	--  Draw ASCII diagrams in Neovim
+	--  Before using it is better to:
+	--    :set ve=all
+	--  Then, after you are done
+	--    :set ve=block
 	{ "jbyuki/venn.nvim" },
+	-- Easy surrounding
 	{ "tpope/vim-surround" },
 	-- Personal Wiki for Vim
 	{ "vimwiki/vimwiki" },
