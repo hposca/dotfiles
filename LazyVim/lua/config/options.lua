@@ -11,6 +11,7 @@ opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
 opt.foldlevelstart = 99 -- start with all code unfolded
 opt.foldcolumn = "1"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.scrolloff = 4
 
 -- VimWiki options
 vim.cmd([[
