@@ -3,7 +3,6 @@
 ``` bash
 ln -s $(readlink -f LazyVim/lua) ~/.config/LazyVim/
 ln -s $(readlink -f alacritty.toml) ~/.config/alacritty/alacritty.toml
-ln -s $(readlink -f alacritty.toml) ~/.config/alacritty/alacritty.toml
 ln -s $(readlink -f bash_profile_aws-profile) ~/.bash_profile_aws-profile
 ln -s $(readlink -f git-commit-template.txt) ~/.git-commit-template.txt
 ln -s $(readlink -f gitconfig) ~/.gitconfig
@@ -14,4 +13,6 @@ ln -s $(readlink -f snippets) ~/.config/LazyVim/
 ln -s $(readlink -f tmux.conf) ~/.config/tmux/tmux.conf
 ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ln -s $(readlink -f zshrc) ~/.zshrc
+mkdir -p ~/.config/zathura/
+ln -s $(readlink -f zathurarc) ~/.config/zathura/zathurarc
 ```
