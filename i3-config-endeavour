@@ -173,9 +173,16 @@ bindsym $mod+r mode "resize"
 # Displays configuration #
 ##########################
 # Forcing workspaces to fixed monitors
-set $monleft DP-2
-set $moncenter DP-3
-set $monright HDMI-0
+
+# System 76
+# set $monleft DP-2
+# set $moncenter DP-3
+# set $monright HDMI-0
+# Thinkpad
+set $monleft eDP
+set $moncenter DisplayPort-9
+set $monright DisplayPort-10
+
 workspace $ws1 output $monleft
 workspace $ws2 output $moncenter
 workspace $ws3 output $monright
@@ -451,7 +458,8 @@ exec --no-startup-id gkrellm
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+# exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.config/i3/scripts/i3-3-monitors-thinkpad.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
