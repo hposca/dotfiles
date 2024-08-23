@@ -9,4 +9,6 @@ xrandr \
   --output DisplayPort-5 --off \
   --output DisplayPort-6 --off \
   --output DisplayPort-7 --off \
-  --output DisplayPort-8 --off
+  --output DisplayPort-8 --off \
+  --output DisplayPort-9 --off \
+  --output DisplayPort-10 --off
