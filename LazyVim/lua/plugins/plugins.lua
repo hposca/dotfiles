@@ -4,6 +4,16 @@
 -- TODO
 -- - [ ] autopairs for parenthesis/quotes not working
 
+-- NeoTree toggle Focus
+-- Based on AstroVim's
+function Toggle_NeoTree_Focus()
+	if vim.bo.filetype == "neo-tree" then
+		vim.cmd.wincmd("p")
+	else
+		vim.cmd.Neotree("focus")
+	end
+end
+
 return {
 	--
 	-- Disabling LazyVim plugins
@@ -133,7 +143,7 @@ return {
 			opts = {},
 		},
 		keys = {
-			{ "<leader>o", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
+			{ "\\", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
 		},
 		opts = {
 			window = {
