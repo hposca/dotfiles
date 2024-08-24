@@ -3,6 +3,7 @@
 
 -- TODO
 -- - [ ] autopairs for parenthesis/quotes not working
+-- - [ ] Trimming on save
 
 -- NeoTree toggle Focus
 -- Based on AstroVim's
