@@ -363,7 +363,7 @@ function md_to_html() {
 # git clone --depth 1 https://github.com/AstroNvim/template ~/.config/AstroNvim
 # And for LazyVim:
 # git clone --depth 1 https://github.com/LazyVim/starter ~/.config/LazyVim
-# git clone --depth 1 https://github.com/NvChad/NvChad ~/.config/NvChad
+# git clone --depth 1 https://github.com/NvChad/starter ~/.config/NvChad
 # git clone --depth 1 https://github.com/nvim-lua/kickstart.nvim ~/.config/kickstart
 # git clone --depth 1 https://github.com/CosmicNvim/CosmicNvim.git ~/.config/CosmicNvim
 # NOTE: The default configuraiton uses ~/.config/nvim/
@@ -373,21 +373,20 @@ alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-cosmic="NVIM_APPNAME=CosmicNvim nvim"
 alias lavim="NVIM_APPNAME=LazyVim nvim"
-alias luvim="lvim"
 alias avim="NVIM_APPNAME=AstroNvim nvim"
 
-# function nvims() {
-#   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
-#   items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
-#   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
-#   if [[ -z $config ]]; then
-#     echo "Nothing selected"
-#     return 0
-#   elif [[ $config == "default" ]]; then
-#     config=""
-#   fi
-#   NVIM_APPNAME=$config nvim $@
-# }
+function nvims() {
+  # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "CosmicNvim")
+  items=("default" "AstroNvim" "LazyVim" "NvChad" "kickstart" "CosmicNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
 
 # bindkey -s ^a "nvims\n"
 
