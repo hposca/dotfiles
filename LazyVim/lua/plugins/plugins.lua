@@ -1,9 +1,39 @@
--- local navic = require("nvim-navic")
--- local icons = require("lazyvim.config").icons
-
 -- TODO
 -- - [ ] autopairs for parenthesis/quotes not working
 -- - [ ] Trimming on save
+
+-- From https://github.com/meuter/lualine-so-fancy.nvim/blob/main/lua/lualine/components/fancy_lsp_servers.lua
+local LspServers = require("lualine.component"):extend()
+
+function LspServers:init(options)
+	options.icon = options.icon or "󰌘"
+	options.split = options.split or ","
+	LspServers.super.init(self, options)
+end
+
+function LspServers:update_status()
+	local buf_clients = nil
+	if vim.lsp.get_clients ~= nil then
+		-- buf_get_client is deprecated in nvim >=0.10.0
+		buf_clients = vim.lsp.get_clients({ bufnr = 0 })
+	else
+		buf_clients = vim.lsp.buf_get_clients()
+	end
+	local null_ls_installed, null_ls = pcall(require, "null-ls")
+	local buf_client_names = {}
+	for _, client in pairs(buf_clients) do
+		if client.name == "null-ls" then
+			if null_ls_installed then
+				for _, source in ipairs(null_ls.get_source({ filetype = vim.bo.filetype })) do
+					table.insert(buf_client_names, source.name)
+				end
+			end
+		else
+			table.insert(buf_client_names, client.name)
+		end
+	end
+	return table.concat(buf_client_names, self.options.split)
+end
 
 -- NeoTree toggle Focus
 -- Based on AstroVim's
@@ -544,6 +574,86 @@ return {
 	},
 	{ "mbbill/undotree" },
 
+	-- Modified from https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/editor/navic.lua
+	-- lsp symbol navigation for lualine. This shows where
+	-- in the code structure you are - within functions, classes,
+	-- etc - in the statusline.
+	{
+		"SmiteshP/nvim-navic",
+		lazy = true,
+		init = function()
+			vim.g.navic_silence = true
+			LazyVim.lsp.on_attach(function(client, buffer)
+				if client.supports_method("textDocument/documentSymbol") then
+					require("nvim-navic").attach(client, buffer)
+				end
+			end)
+		end,
+		opts = function()
+			return {
+				separator = " ",
+				highlight = true,
+				depth_limit = 5,
+				icons = LazyVim.config.icons.kinds,
+				lazy_update_context = true,
+			}
+		end,
+		config = function()
+			-- lualine integration
+			require("lualine").setup({
+				inactive_winbar = {
+					lualine_c = {},
+				},
+				winbar = {
+					lualine_c = {
+						{
+							function()
+								return require("nvim-navic").get_location()
+							end,
+							cond = function()
+								return require("nvim-navic").is_available()
+							end,
+						},
+					},
+				},
+			})
+		end,
+	},
+
+	-- Some modifications from the original https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/ui.lua
+	{
+		"nvim-lualine/lualine.nvim",
+		opts = {
+			sections = {
+				lualine_c = {
+					LazyVim.lualine.root_dir(),
+					{
+						"diagnostics",
+						symbols = {
+							error = require("lazyvim.config").icons.diagnostics.Error,
+							warn = require("lazyvim.config").icons.diagnostics.Warn,
+							info = require("lazyvim.config").icons.diagnostics.Info,
+							hint = require("lazyvim.config").icons.diagnostics.Hint,
+						},
+					},
+					{ "filename", path = 1 },
+				},
+			},
+			winbar = {
+				lualine_x = {
+					{ LspServers },
+				},
+				lualine_y = {
+					{ "filetype" },
+					{ "encoding" },
+				},
+				lualine_z = {
+					{ "fileformat" },
+				},
+			},
+		},
+	},
+
 	--------------------------------------------------------------------
 	--------------------------------------------------------------------
 	--------------------------------------------------------------------
@@ -602,48 +712,6 @@ return {
 	-- event = { "CmdlineEnter" },
 	-- ft = { "go", "gomod" },
 	-- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-	-- },
-
-	-- {
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	opts = {
-	-- 		sections = {
-	-- 			lualine_c = {
-	-- 				{
-	-- 					"diagnostics",
-	-- 					symbols = {
-	-- 						error = icons.diagnostics.Error,
-	-- 						warn = icons.diagnostics.Warn,
-	-- 						info = icons.diagnostics.Info,
-	-- 						hint = icons.diagnostics.Hint,
-	-- 					},
-	-- 				},
-	-- 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-	-- 				{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-	-- 			},
-	-- 		},
-	-- 		winbar = {
-	-- 			lualine_c = {
-	-- 				{
-	-- 					"filetype",
-	-- 					icon_only = true,
-	-- 					separator = "",
-	-- 					padding = { left = 1, right = 0 },
-	-- 					cond = function()
-	-- 						navic.is_available()
-	-- 					end,
-	-- 				},
-	-- 				{
-	-- 					function()
-	-- 						navic.get_location()
-	-- 					end,
-	-- 					cond = function()
-	-- 						navic.is_available()
-	-- 					end,
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	},
 	-- },
 
 	-- {
