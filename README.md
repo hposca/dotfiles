@@ -1,7 +1,8 @@
 # dotfiles
 
-``` bash
+```bash
 ln -s $(readlink -f LazyVim/lua) ~/.config/LazyVim/
+ln -s $(readlink -f AstroNvim) ~/.config/AstroNvim/
 ln -s $(readlink -f alacritty.toml) ~/.config/alacritty/alacritty.toml
 ln -s $(readlink -f bash_profile_aws-profile) ~/.bash_profile_aws-profile
 ln -s $(readlink -f git-commit-template.txt) ~/.git-commit-template.txt
