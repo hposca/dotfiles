@@ -1,6 +1,6 @@
 -- TODO
 -- - [ ] autopairs for parenthesis/quotes not working
--- - [ ] Trimming on save
+-- - [ ] Snippets not being loaded from the right directory
 
 -- From https://github.com/meuter/lualine-so-fancy.nvim/blob/main/lua/lualine/components/fancy_lsp_servers.lua
 local LspServers = require("lualine.component"):extend()
@@ -32,6 +32,16 @@ function LspServers:update_status()
 			table.insert(buf_client_names, client.name)
 		end
 	end
+
+	-- Listing formatters via conform
+	-- :ConformInfo
+	local conform_installed, conform = pcall(require, "conform")
+	if conform_installed then
+		for _, formatter in ipairs(conform.list_formatters_for_buffer(vim.fn.bufnr())) do
+			table.insert(buf_client_names, formatter)
+		end
+	end
+
 	return table.concat(buf_client_names, self.options.split)
 end
 
@@ -357,7 +367,7 @@ return {
 				"jsonlint",
 				-- "nxls",
 				-- "prettier",
-				-- "prettierd",
+				"prettierd",
 				-- "rome",
 				-- "semgrep",
 				-- "spectral-language-server",
@@ -485,6 +495,25 @@ return {
 				-- "yamlfmt",
 				-- "yamllint",
 				-- "yq",
+			},
+		},
+	},
+	-- https://github.com/stevearc/conform.nvim
+	-- Lightweight yet powerful formatter plugin for Neovim
+	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				["go"] = { "goimports" },
+				["json"] = { "prettierd" },
+				["markdown"] = { "prettierd" },
+				["python"] = { "black" },
+				["sh"] = { "shfmt" },
+				["yaml"] = { "prettierd" },
+				-- Use the "_" filetype to run formatters on filetypes that don't
+				-- have other formatters configured.
+				["_"] = { "trim_whitespace" },
 			},
 		},
 	},
