@@ -510,6 +510,7 @@ return {
 				["markdown"] = { "prettierd" },
 				["python"] = { "black" },
 				["sh"] = { "shfmt" },
+				["vimwiki"] = { "prettierd" },
 				["yaml"] = { "prettierd" },
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
