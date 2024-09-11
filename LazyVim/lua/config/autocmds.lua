@@ -14,3 +14,12 @@ vim.api.nvim_create_autocmd("FileType", {
     ]])
 	end,
 })
+
+-- Automatically set helm type on helm files :)
+-- https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248/3
+vim.filetype.add({
+	pattern = {
+		[".*/templates/.*%.yaml"] = "helm",
+		[".*/templates/.*%.tpl"] = "helm",
+	},
+})
