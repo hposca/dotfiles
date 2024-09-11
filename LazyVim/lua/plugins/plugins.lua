@@ -181,7 +181,7 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
 			"s1n7ax/nvim-window-picker",
-			opts = {},
+			opts = { hint = "floating-big-letter" },
 		},
 		keys = {
 			{ "\\", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
