@@ -271,9 +271,9 @@ return {
 
 	-- Another alternative: https://github.com/olexsmir/gopher.nvim
 	{ "fatih/vim-go" },
+	{ import = "lazyvim.plugins.extras.coding.luasnip" },
 	{
 		"L3MON4D3/LuaSnip",
-		-- "rafamadriz/friendly-snippets",
 		config = function()
 			local path = vim.fn.stdpath("config") .. "/snippets"
 
@@ -298,6 +298,7 @@ return {
 			require("telescope").load_extension("luasnip")
 		end,
 	},
+
 	{
 		"williamboman/mason.nvim",
 		opts = {
