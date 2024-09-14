@@ -1,6 +1,5 @@
 -- TODO
--- - [ ] autopairs for parenthesis/quotes not working
--- - [ ] Snippets not being loaded from the right directory
+-- - [ ] autopairs for parenthesis/quotes not working sometimes
 
 -- From https://github.com/meuter/lualine-so-fancy.nvim/blob/main/lua/lualine/components/fancy_lsp_servers.lua
 local LspServers = require("lualine.component"):extend()
@@ -279,13 +278,13 @@ return {
 			local path = vim.fn.stdpath("config") .. "/snippets"
 
 			-- require("luasnip.loaders.from_snipmate").lazy_load({
-			-- 	paths = path,
+			-- 	paths = { path },
 			-- })
 			-- require("luasnip.loaders.from_vscode").lazy_load({
-			-- 	paths = path,
+			-- 	paths = { path },
 			-- })
 			require("luasnip.loaders.from_lua").lazy_load({
-				paths = path,
+				paths = { path },
 			})
 		end,
 	},
