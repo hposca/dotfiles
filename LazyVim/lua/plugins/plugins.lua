@@ -177,6 +177,13 @@ return {
 	--
 
 	{
+		"yorickpeterse/nvim-window",
+		keys = {
+			{ "<leader>j", "<cmd>lua require('nvim-window').pick()<cr>", desc = "nvim-window: Jump to window" },
+		},
+		config = true,
+	},
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
 			"s1n7ax/nvim-window-picker",
