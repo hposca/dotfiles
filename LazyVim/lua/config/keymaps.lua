@@ -72,7 +72,7 @@ del("n", "<S-h>")
 del("n", "<S-l>")
 
 map("n", "<leader>B", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-map("n", "<leader>F", "<cmd>Telescope find_files<cr>", { desc = "Find Files (root dir)" })
+map("n", "<leader><space>", "<cmd>Telescope find_files<cr>", { desc = "Find Files (root dir)" })
 
 map("n", "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", { desc = "Find" })
 map("n", "<leader>bj", "<cmd>BufferLinePick<cr>", { desc = "Jump" })
