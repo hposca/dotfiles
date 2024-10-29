@@ -264,12 +264,8 @@ bindkey \^U backward-kill-line
 #   . ~/.bash_profile_aws-profile
 # fi
 
-# NodeJS version manager
-# NVM, https://github.com/nvm-sh/nvm . To install:
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Loading NVM
+source /usr/share/nvm/init-nvm.sh
 
 #######################
 # Ancillary functions #
@@ -417,3 +413,7 @@ gh_prs_open() {gh search prs --author '@me' --sort=created --state=open --json=u
 gh_prs_open_md() {gh search prs --author '@me' --sort=created --state=open --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
 gh_prs_all() {gh search prs --author '@me' --sort=created --json=url | jq -r '.[].url'}
 gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
+
+
+# DotNet Tools
+export PATH="$PATH:/home/hugo/.dotnet/tools"
