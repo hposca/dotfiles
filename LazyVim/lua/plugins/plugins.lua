@@ -171,6 +171,8 @@ return {
 	},
 	-- :GBrowse from to open GitHub URLs. Omni-complete on commit messages
 	{ "tpope/vim-rhubarb" },
+	-- A vim extension to fugitive.vim for GitLab support
+	{ "shumphrey/fugitive-gitlab.vim" },
 
 	--
 	-- UI
