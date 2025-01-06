@@ -63,7 +63,13 @@ return {
 	{ "ggandor/flit.nvim", enabled = false },
 	{ "ggandor/leap.nvim", enabled = false },
 	{ "echasnovski/mini.surround", enabled = false },
-
+	{ "snacks.nvim", opts = { scroll = { enabled = false } } },
+	{
+		"ibhagwan/fzf-lua",
+		keys = {
+			{ "<leader>/", false },
+		},
+	},
 	--
 	-- colorscheme
 	--
@@ -281,22 +287,22 @@ return {
 	-- Another alternative: https://github.com/olexsmir/gopher.nvim
 	{ "fatih/vim-go" },
 	{ import = "lazyvim.plugins.extras.coding.luasnip" },
-	{
-		"L3MON4D3/LuaSnip",
-		config = function()
-			local path = vim.fn.stdpath("config") .. "/snippets"
-
-			-- require("luasnip.loaders.from_snipmate").lazy_load({
-			-- 	paths = { path },
-			-- })
-			-- require("luasnip.loaders.from_vscode").lazy_load({
-			-- 	paths = { path },
-			-- })
-			require("luasnip.loaders.from_lua").lazy_load({
-				paths = { path },
-			})
-		end,
-	},
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	config = function()
+	-- 		local path = vim.fn.stdpath("config") .. "/snippets"
+	--
+	-- 		-- require("luasnip.loaders.from_snipmate").lazy_load({
+	-- 		-- 	paths = { path },
+	-- 		-- })
+	-- 		-- require("luasnip.loaders.from_vscode").lazy_load({
+	-- 		-- 	paths = { path },
+	-- 		-- })
+	-- 		require("luasnip.loaders.from_lua").lazy_load({
+	-- 			paths = { path },
+	-- 		})
+	-- 	end,
+	-- },
 	-- Telescope.nvim extension that adds LuaSnip integration.
 	{
 		"benfowler/telescope-luasnip.nvim",
