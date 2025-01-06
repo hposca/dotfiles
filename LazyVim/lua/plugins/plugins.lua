@@ -553,8 +553,20 @@ return {
 		},
 	},
 	{
+		"saghen/blink.cmp",
+		opts = {
+			keymap = {
+				preset = "super-tab",
+			},
+		},
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
+			-- Ensure C-space incremental selection - This was interefering with vimwiki and orgmode
+			incremental_selection = {
+				enable = false,
+			},
 			ensure_installed = {
 				"awk",
 				"bash",
