@@ -14,6 +14,7 @@ ln -s $(readlink -f snippets) ~/.config/LazyVim/
 ln -s $(readlink -f tmux.conf) ~/.config/tmux/tmux.conf
 ln -s $(readlink -f wtfutil.yml) ~/.config/wtf/config.yml
 ln -s $(readlink -f zshrc) ~/.zshrc
+ln -s $(readlink -f tigrc) ~/.config/tig/config
 mkdir -p ~/.config/zathura/
 ln -s $(readlink -f zathurarc) ~/.config/zathura/zathurarc
 ```
