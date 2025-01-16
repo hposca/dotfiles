@@ -1,1 +1,9 @@
-color cursor red yellow bold
+# https://jonas.github.io/tig/doc/tigrc.5.html#_color_command
+
+color cursor    red yellow  bold
+color main-head green default bold
+
+# https://jonas.github.io/tig/doc/tigrc.5.html#_bind_command
+
+# Update commit command to be verbose (display all changes)
+bind status C !git commit --verbose
