@@ -7,3 +7,4 @@ color main-head green default bold
 
 # Update commit command to be verbose (display all changes)
 bind status C !git commit --verbose
+bind stage C !git commit --verbose
