@@ -2,6 +2,8 @@
 # Please modify these lines
 #	email = your_email@provider
 #	name = Your Name Here
+# [includeif "gitdir:~/src/organization/"]
+#   path = .gitconfig-organization
 [push]
   default = simple
 [color]
