@@ -37,3 +37,5 @@
   conflictstyle = zdiff3
 [rerere]
   enabled = true
+[credential]
+  helper = cache
