@@ -56,6 +56,14 @@ end
 
 vim.treesitter.language.register("markdown", "vimwiki")
 
+-- https://github.com/Saghen/blink.cmp/issues/1098#issuecomment-2619750942
+local source_priority = {
+	snippets = 4,
+	lsp = 5,
+	path = 2,
+	buffer = 1,
+}
+
 return {
 	--
 	-- Disabling LazyVim plugins
@@ -316,6 +324,17 @@ return {
 			snippets = {
 				preset = "luasnip",
 			},
+			-- https://github.com/Saghen/blink.cmp/issues/1098#issuecomment-2619750942
+			-- fuzzy = {
+			-- 	sorts = {
+			-- 		function(a, b)
+			-- 			return source_priority[a.source_id] > source_priority[b.source_id]
+			-- 		end,
+			-- 		-- defaults
+			-- 		"score",
+			-- 		"sort_text",
+			-- 	},
+			-- },
 		},
 	},
 	{
