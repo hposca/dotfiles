@@ -29,7 +29,7 @@
 -- local t = ls.text_node
 -- local types = require("luasnip.util.types")
 
-package.path = os.getenv("HOME") .. "/.config/LazyVim/snippets/helpers.lua" .. ";" .. package.path
+package.path = package.path .. ";" .. vim.fn.stdpath("config") .. "/snippets/?.lua" .. ";"
 
 local h = require("helpers")
 
