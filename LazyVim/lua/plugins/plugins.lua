@@ -644,8 +644,14 @@ return {
 				"vim",
 				"vimdoc",
 				"yaml",
+				"nu",
 			},
 		},
+	},
+	{
+		"LhKipp/nvim-nu",
+		-- build = ":TSInstall nu",
+		opts = {},
 	},
 	-- TODO: Configure it correctly
 	-- Neovim plugin for splitting/joining blocks of code
