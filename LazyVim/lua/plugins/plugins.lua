@@ -54,6 +54,8 @@ function Toggle_NeoTree_Focus()
 	end
 end
 
+vim.treesitter.language.register("markdown", "vimwiki")
+
 return {
 	--
 	-- Disabling LazyVim plugins
@@ -138,6 +140,25 @@ return {
 		"iamcco/markdown-preview.nvim",
 		config = function()
 			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+		config = function()
+			require("render-markdown").setup({
+				file_types = { "markdown", "vimwiki" },
+				heading = {
+					-- backgrounds = { },
+					width = "block",
+					min_width = 30,
+				},
+			})
 		end,
 	},
 	{ "andrewradev/switch.vim" },
