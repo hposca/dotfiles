@@ -254,7 +254,7 @@ return {
 			opts = { hint = "floating-big-letter" },
 		},
 		keys = {
-			{ "\\", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
+			{ "<C-\\>", "<cmd>lua Toggle_NeoTree_Focus()<CR>", desc = "Toggle NeoTree Focus" },
 		},
 		opts = {
 			window = {

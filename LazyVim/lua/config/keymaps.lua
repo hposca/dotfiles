@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local del = vim.keymap.del
-local map = vim.keymap.set
+-- local map = vim.keymap.set
 
 local function map(mode, lhs, rhs, opts)
 	local keys = require("lazy.core.handler").handlers.keys
