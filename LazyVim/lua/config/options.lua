@@ -13,7 +13,6 @@ opt.foldcolumn = "1"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.scrolloff = 4
 
--- VimWiki options
 vim.cmd([[
   " Fix common typos in command mode
   command! -bang Q q<bang>
@@ -23,11 +22,6 @@ vim.cmd([[
   command! -bang WQ wq<bang>
   command! -bang Wq wq<bang>
 
-  let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-  let g:vimwiki_ext2syntax = { '.markdown': 'markdown', '.md': 'markdown', '.mdown': 'markdown', '.mdwn': 'markdown', '.mkd': 'markdown', '.mkdn': 'markdown', '.wiki': 'media' }
-  " Append wiki file extension to links in Markdown
-  let g:vimwiki_markdown_link_ext = 1
-  let g:vimwiki_global_ext = 0
 ]])
 
 vim.opt.listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" }

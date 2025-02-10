@@ -113,7 +113,7 @@ map("n", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
 map("x", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
 
 -- Redefining default windows mappings to upper case w
-del("n", "<leader>ww")
+-- del("n", "<leader>ww")
 del("n", "<leader>wd")
 -- del("n", "<leader>w-")
 -- del("n", "<leader>w|")
