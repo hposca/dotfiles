@@ -315,8 +315,6 @@ return {
 
 	-- Another alternative: https://github.com/olexsmir/gopher.nvim
 	{ "fatih/vim-go" },
-	{ import = "lazyvim.plugins.extras.coding.luasnip" },
-	{ import = "lazyvim.plugins.extras.coding.blink" },
 	{
 		"saghen/blink.cmp",
 		optional = true,
