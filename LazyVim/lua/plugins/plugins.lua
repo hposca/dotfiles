@@ -201,6 +201,12 @@ return {
 			vim.g.vimwiki_global_ext = 0
 		end,
 	},
+	{
+		"mattn/calendar-vim",
+		init = function()
+			vim.g.calendar_diary = "~/vimwiki/diary/"
+		end,
+	},
 
 	--
 	-- Git integration
