@@ -207,6 +207,41 @@ return {
 			vim.g.calendar_diary = "~/vimwiki/diary/"
 		end,
 	},
+	{
+		"nvim-orgmode/orgmode",
+		event = "VeryLazy",
+		ft = { "org" },
+		keys = { { "<leader>o", "", desc = "Org Mode" } },
+		config = function()
+			require("orgmode").setup({
+				org_agenda_files = "~/orgfiles/**/*",
+				org_default_notes_file = "~/orgfiles/refile.org",
+				mappings = {
+					org_return_uses_meta_return = false,
+				},
+				org_capture_templates = {
+					j = {
+						description = "Journal",
+						template = "\n* %<%Y-%m-%d - %A>\n** %U\n\n%?",
+						target = "~/orgfiles/journal/%<%Y-%m-%d>.org",
+						headline = "Journal",
+						properties = {
+							empty_lines = 1,
+						},
+					},
+				},
+			})
+		end,
+	},
+	{
+		"lukas-reineke/headlines.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true, -- or `opts = {}`
+	},
+	{
+		"nvim-orgmode/org-bullets.nvim",
+		config = true,
+	},
 
 	--
 	-- Git integration
@@ -319,6 +354,8 @@ return {
 	{
 		"folke/which-key.nvim",
 		opts = {
+			-- sort = { "local", "order", "group", "alphanum", "mod" },
+			sort = { "alphanum" },
 			spec = {
 				mode = { "n", "v" },
 				["<leader>M"] = { name = "+MarkdownPreview" },
@@ -360,6 +397,18 @@ return {
 			-- 		"sort_text",
 			-- 	},
 			-- },
+		},
+		sources = {
+			per_filetype = {
+				org = { "orgmode" },
+			},
+			providers = {
+				orgmode = {
+					name = "Orgmode",
+					module = "orgmode.org.autocompletion.blink",
+					fallbacks = { "buffer" },
+				},
+			},
 		},
 	},
 	{
