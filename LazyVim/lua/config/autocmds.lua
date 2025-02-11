@@ -10,7 +10,9 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd([[
       setlocal spell
       set spelllang=en_ca
-      inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
+      " This was moved to keymaps.lua
+      " It was the only way to make it work again :/
+      " inoremap <C-s> <c-g>u<Esc>[s1z=`]a<c-g>u
     ]])
 	end,
 })

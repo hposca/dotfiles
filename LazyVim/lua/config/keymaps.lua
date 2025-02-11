@@ -47,6 +47,7 @@ del("i", "<C-s>")
 del("v", "<C-s>")
 del("n", "<C-s>")
 -- del("s", "<C-s>")
+map("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Correcting spelling mistakes on the fly" })
 
 -- Redefining C- keys
 map("n", "<C-j>", "<Esc>o<Esc>k", { desc = "Insert new line below" })
