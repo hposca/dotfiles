@@ -217,8 +217,10 @@ return {
 				org_agenda_files = "~/orgfiles/**/*",
 				org_default_notes_file = "~/orgfiles/refile.org",
 				mappings = {
-					org_return_uses_meta_return = false,
+					org_return_uses_meta_return = true,
 				},
+				-- Fast acces to states -- https://github.com/nvim-orgmode/orgmode/blob/master/docs/configuration.org#org_todo_keywords
+				org_todo_keywords = { "TODO(t)", "DOING(d)", "NEXT(n)", "WAITING(w)", "|", "DONE(o)" },
 				org_capture_templates = {
 					j = {
 						description = "Journal",

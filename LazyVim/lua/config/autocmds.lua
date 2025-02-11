@@ -5,7 +5,7 @@
 -- Correcting spelling mistakes on the fly
 -- [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "markdown", "vimwiki", "gitcommit" },
+	pattern = { "markdown", "vimwiki", "gitcommit", "org" },
 	callback = function()
 		vim.cmd([[
       setlocal spell
@@ -24,4 +24,14 @@ vim.filetype.add({
 		[".*/templates/.*%.yaml"] = "helm",
 		[".*/templates/.*%.tpl"] = "helm",
 	},
+})
+
+-- Setting a big textwidth on org giles to not break links while formatting
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "org" },
+	callback = function()
+		vim.cmd([[
+			set tw=300
+		]])
+	end,
 })
