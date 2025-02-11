@@ -215,6 +215,17 @@ return {
 		config = function()
 			require("orgmode").setup({
 				org_agenda_files = "~/orgfiles/**/*",
+				org_agenda_custom_commands = {
+					d = {
+						description = "List DONE tasks",
+						types = {
+							{
+								type = "tags",
+								match = "/DONE",
+							},
+						},
+					},
+				},
 				org_default_notes_file = "~/orgfiles/refile.org",
 				mappings = {
 					org_return_uses_meta_return = true,
