@@ -208,7 +208,7 @@ alias dirs='dirs -v'
 
 # History
 
-HISTFILE=~/.zhistfile
+HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
