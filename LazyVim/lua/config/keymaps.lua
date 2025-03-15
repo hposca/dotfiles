@@ -186,10 +186,6 @@ end
 
 map("n", "<leader>uD", "<cmd>lua Toggle_diagnostics_text()<CR>", { desc = "Toggle Diagnostics virtual text" })
 
--- Remapping for VimwikiIndex
--- Probably due to the loading order the deletion of the default `ww` causes an issue with it
-map("n", "<leader>ww", "<cmd>VimwikiIndex<CR>", { desc = "Vimwiki Index" })
-
 -- Tab switching
 map("n", "]T", "<cmd>tabnext<CR>", { desc = "Tab Next" })
 map("n", "[T", "<cmd>tabprevious<CR>", { desc = "Tab Next" })

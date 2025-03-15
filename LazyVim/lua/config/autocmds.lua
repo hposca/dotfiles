@@ -5,7 +5,7 @@
 -- Correcting spelling mistakes on the fly
 -- [How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "markdown", "vimwiki", "gitcommit", "org" },
+	pattern = { "markdown", "gitcommit", "org" },
 	callback = function()
 		vim.cmd([[
       setlocal spell

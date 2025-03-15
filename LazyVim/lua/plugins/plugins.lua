@@ -54,8 +54,6 @@ function Toggle_NeoTree_Focus()
 	end
 end
 
-vim.treesitter.language.register("markdown", "vimwiki")
-
 -- https://github.com/Saghen/blink.cmp/issues/1098#issuecomment-2619750942
 local source_priority = {
 	snippets = 4,
@@ -160,7 +158,7 @@ return {
 		opts = {},
 		config = function()
 			require("render-markdown").setup({
-				file_types = { "markdown", "vimwiki" },
+				file_types = { "markdown" },
 				heading = {
 					-- backgrounds = { },
 					width = "block",
@@ -178,30 +176,8 @@ return {
 	{ "jbyuki/venn.nvim" },
 	-- Easy surrounding
 	{ "tpope/vim-surround" },
-	-- Personal Wiki for Vim
-	{
-		"vimwiki/vimwiki",
-		init = function()
-			vim.g.vimwiki_list = { {
-				path = "~/vimwiki/",
-				syntax = "markdown",
-				ext = ".md",
-			} }
-			vim.g.vimwiki_ext2syntax = {
-				[".markdown"] = "markdown",
-				[".md"] = "markdown",
-				[".mdown"] = "markdown",
-				[".mdwn"] = "markdown",
-				[".mkd"] = "markdown",
-				[".mkdn"] = "markdown",
-				[".wiki"] = "media",
-			}
-			-- Append wiki file extension to links in Markdown
-			vim.g.vimwiki_markdown_link_ext = 1
-			vim.g.vimwiki_global_ext = 0
-		end,
-	},
 
+	--  Obsidian 🤝 Neovim
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
@@ -281,52 +257,9 @@ return {
 		end,
 	},
 	{
-		"nvim-orgmode/orgmode",
-		event = "VeryLazy",
-		ft = { "org" },
-		keys = { { "<leader>o", "", desc = "Org Mode" } },
-		config = function()
-			require("orgmode").setup({
-				org_agenda_files = "~/orgfiles/**/*",
-				org_agenda_custom_commands = {
-					d = {
-						description = "List DONE tasks",
-						types = {
-							{
-								type = "tags",
-								match = "/DONE",
-							},
-						},
-					},
-				},
-				org_default_notes_file = "~/orgfiles/refile.org",
-				mappings = {
-					org_return_uses_meta_return = true,
-				},
-				-- Fast acces to states -- https://github.com/nvim-orgmode/orgmode/blob/master/docs/configuration.org#org_todo_keywords
-				org_todo_keywords = { "TODO(t)", "DOING(d)", "NEXT(n)", "WAITING(w)", "|", "DONE(o)" },
-				org_capture_templates = {
-					j = {
-						description = "Journal",
-						template = "\n* %<%Y-%m-%d - %A>\n** %U\n\n%?",
-						target = "~/orgfiles/journal/%<%Y-%m-%d>.org",
-						headline = "Journal",
-						properties = {
-							empty_lines = 1,
-						},
-					},
-				},
-			})
-		end,
-	},
-	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true, -- or `opts = {}`
-	},
-	{
-		"nvim-orgmode/org-bullets.nvim",
-		config = true,
 	},
 
 	--
@@ -445,8 +378,7 @@ return {
 			spec = {
 				mode = { "n", "v" },
 				["<leader>M"] = { name = "+MarkdownPreview" },
-				["<leader>W"] = { name = "+Windows" },
-				["<leader>w"] = { name = "+VimWiki" },
+				-- ["<leader>W"] = { name = "+Windows" },
 			},
 		},
 	},
@@ -483,18 +415,6 @@ return {
 			-- 		"sort_text",
 			-- 	},
 			-- },
-		},
-		sources = {
-			per_filetype = {
-				org = { "orgmode" },
-			},
-			providers = {
-				orgmode = {
-					name = "Orgmode",
-					module = "orgmode.org.autocompletion.blink",
-					fallbacks = { "buffer" },
-				},
-			},
 		},
 	},
 	{
@@ -728,7 +648,6 @@ return {
 				["markdown"] = { "prettierd" },
 				["python"] = { "black" },
 				["sh"] = { "shfmt" },
-				["vimwiki"] = { "prettierd" },
 				["yaml"] = { "prettierd" },
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
@@ -766,10 +685,6 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
-			-- Ensure C-space incremental selection - This was interefering with vimwiki and orgmode
-			incremental_selection = {
-				enable = false,
-			},
 			ensure_installed = {
 				"awk",
 				"bash",
