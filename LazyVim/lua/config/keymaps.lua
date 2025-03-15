@@ -199,3 +199,111 @@ map("n", "[T", "<cmd>tabprevious<CR>", { desc = "Tab Next" })
 -- C-W C-]     Jump to definition in a horizontal split
 -- C-W C-V C-] Jump to definition in a vertical split
 map("n", "<C-W><C-V><C-]>", "<cmd>vert winc ]<CR>")
+
+---
+---
+--- Configuring Obsidian Plugin
+--- This should have been its own file but my Lua-foo is not strong right now and
+--- I wasn't able to make the mapping invoke the function in another file :/
+---
+---
+
+--- Configuration based on https://gitlab.com/shastenm/dotfiles/-/blob/main/.config/nvim-configs/astro/lua/done.lua
+
+--- Lua function to expand the tilde (~) to the user's home directory
+local function expand_home_directory(path)
+	local home = os.getenv("HOME")
+	if home then
+		return path:gsub("~", home)
+	else
+		return path
+	end
+end
+
+-- Define the file paths with the expanded home directory
+local todo_file = expand_home_directory("~/vimwiki/tasks-todo.md")
+local done_file = expand_home_directory("~/vimwiki/tasks-done.md")
+
+-- Function to check if a line contains a "done" task
+local function is_done_task(line)
+	return line:match("%[x%]") ~= nil -- Checks for "[x]" which indicates a completed task
+end
+
+-- Function to process the TODO file
+local function move_done_tasks()
+	-- Open the TODO file
+	local todo = io.open(todo_file, "r")
+	if not todo then
+		print("Error: Could not open " .. todo_file)
+		return
+	end
+
+	-- Open the DONE file in append mode
+	local done = io.open(done_file, "a")
+	if not done then
+		print("Error: Could not open " .. done_file)
+		return
+	end
+
+	-- Read each line from the TODO file
+	local remaining_lines = {}
+	for line in todo:lines() do
+		if is_done_task(line) then
+			-- If the task is completed, move it to the DONE file
+			done:write(line .. "\n")
+		else
+			-- Otherwise, keep the line in the remaining lines list
+			table.insert(remaining_lines, line)
+		end
+	end
+
+	-- Close the TODO and DONE files
+	todo:close()
+	done:close()
+
+	-- Rewrite the TODO file without completed tasks
+	local todo_rewrite = io.open(todo_file, "w")
+	if not todo_rewrite then
+		print("Error: Could not open " .. todo_file .. " for writing")
+		return
+	end
+
+	for _, line in ipairs(remaining_lines) do
+		todo_rewrite:write(line .. "\n")
+	end
+
+	todo_rewrite:close()
+	print("Finished moving completed tasks to DONE.md.")
+end
+
+-- Keybindings
+
+map("n", "<leader>o", "", { desc = "Obsidian" })
+map("n", "<leader>oO", "<cmd>ObsidianOpen<CR>", { desc = "Open a note in the Obsidian app" })
+map("n", "<leader>oR", "<cmd>ObsidianRename<CR>", { desc = "Rename current buffer or reference under the cursor" })
+map("n", "<leader>oi", "<cmd>edit ~/vimwiki/index.md<CR>", { desc = "Obsidian Index" })
+map("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create a new note" })
+map("n", "<leader>op", "<cmd>ObsidianPasteImg<CR>", { desc = "Paste an image from the clipboard" })
+map("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search for notes in your vault" })
+
+map("n", "<leader>ot", "", { desc = "Tasks" })
+map("n", "<leader>otT", "<cmd>edit ~/vimwiki/tasks-todo.md<CR>", { desc = "Open TODO list" })
+map("n", "<leader>otd", "<cmd>edit ~/vimwiki/tasks-done.md<CR>", { desc = "Open DONE list" })
+map("n", "<leader>oto", "<cmd>ObsidianTomorrow<CR>", { desc = "Open/create a tomorrow daily note. " })
+map("n", "<leader>ott", "<cmd>ObsidianToday<CR>", { desc = "Open/create a daily note. " })
+map("n", "<leader>oty", "<cmd>ObsidianYesterday<CR>", { desc = "Open/create a yesterday daily note. " })
+map("n", "<leader>otz", move_done_tasks, { desc = "Move completed tasks to DONE" })
+
+map("n", "<leader>of", "", { desc = "Find" })
+map("n", "<leader>ofT", "<cmd>ObsidianTemplate<CR>", { desc = "List/Insert template" })
+map("n", "<leader>ofb", "<cmd>ObsidianBacklinks<CR>", { desc = "List of references to the current buffer" })
+map("n", "<leader>ofd", "<cmd>ObsidianDailies<CR>", { desc = "List/Insert of daily notes" })
+map("n", "<leader>off", "<cmd>ObsidianSearch<CR>", { desc = "Search for notes in your vault" })
+map("n", "<leader>ofl", "<cmd>ObsidianLinks<CR>", { desc = "List of links within the current buffer" })
+map("n", "<leader>ofo", "<cmd>ObsidianTOC<CR>", { desc = "List the table of contents" })
+map("n", "<leader>ofs", "<cmd>ObsidianSearch<CR>", { desc = "Search for notes in your vault" })
+map("n", "<leader>oft", "<cmd>ObsidianTags<CR>", { desc = "List/Insert tags" })
+
+---
+--- /Obsidian
+---

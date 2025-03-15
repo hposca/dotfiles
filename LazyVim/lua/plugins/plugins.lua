@@ -201,6 +201,79 @@ return {
 			vim.g.vimwiki_global_ext = 0
 		end,
 	},
+
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = false,
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "vimwiki",
+					path = "~/vimwiki/",
+				},
+			},
+			templates = {
+				folder = "~/vimwiki/templates",
+				date_format = "%Y-%m-%d",
+				time_format = "%H:%M",
+				-- A map for custom variables, the key should be the variable and the value a function
+				substitutions = {},
+			},
+
+			-- NOTE: Define mappings somewhere else
+			-- When I tried to defined them here, it made the plugin to not wokr properly
+			-- e.g.: Toggling tasks was deactivated via <CR> ¯\_(ツ)_/¯
+			--
+			-- mappings = {},
+
+			ui = {
+				enable = false,
+			},
+
+			attachments = {
+				img_folder = "assets/images",
+			},
+
+			-- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+			-- URL it will be ignored but you can customize this behavior here.
+			---@param url string
+			follow_url_func = function(url)
+				-- Open the URL in the default web browser.
+				-- vim.fn.jobstart({ "open", url }) -- Mac OS
+				vim.fn.jobstart({ "xdg-open", url }) -- linux
+				-- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+				-- vim.ui.open(url) -- need Neovim 0.10.0+
+			end,
+
+			-- Optional, by default when you use `:ObsidianFollowLink` on a link to an image
+			-- file it will be ignored but you can customize this behavior here.
+			---@param img string
+			follow_img_func = function(img)
+				-- vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
+				vim.fn.jobstart({ "xdg-open", img }) -- linux
+				-- vim.cmd(':silent exec "!start ' .. img .. '"') -- Windows
+			end,
+
+			daily_notes = {
+				-- Optional, if you keep daily notes in a separate directory.
+				folder = "diary",
+				-- Optional, if you want to change the date format for the ID of daily notes.
+				date_format = "%Y-%m-%d",
+				-- Optional, if you want to change the date format of the default alias of daily notes.
+				alias_format = "%B %-d, %Y",
+				-- Optional, default tags to add to each new daily note created.
+				default_tags = { "daily-notes" },
+				-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+				template = nil,
+			},
+		},
+	},
+
 	{
 		"mattn/calendar-vim",
 		init = function()
