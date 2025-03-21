@@ -257,9 +257,57 @@ return {
 		end,
 	},
 	{
+		"nvim-orgmode/orgmode",
+		event = "VeryLazy",
+		ft = { "org" },
+		keys = { { "<leader>o", "", desc = "Org Mode" } },
+		config = function()
+			require("orgmode").setup({
+				org_agenda_files = "~/orgfiles/**/*",
+				org_agenda_custom_commands = {
+					d = {
+						description = "List DONE tasks",
+						types = {
+							{
+								type = "tags",
+								match = "/DONE",
+							},
+						},
+					},
+				},
+				org_default_notes_file = "~/orgfiles/refile.org",
+				mappings = {
+					org_return_uses_meta_return = true,
+				},
+				-- Fast acces to states -- https://github.com/nvim-orgmode/orgmode/blob/master/docs/configuration.org#org_todo_keywords
+				org_todo_keywords = { "TODO(t)", "DOING(d)", "NEXT(n)", "WAITING(w)", "|", "DONE(o)" },
+				org_capture_templates = {
+					j = {
+						description = "Journal",
+						template = "\n* %<%Y-%m-%d - %A>\n** %U\n\n%?",
+						target = "~/orgfiles/journal/%<%Y-%m-%d>.org",
+						headline = "Journal",
+						properties = {
+							empty_lines = 1,
+						},
+					},
+				},
+				-- Copying from orgmode/lua/orgmode/config/defaults.lua so the linter stops complaining
+				org_use_property_inheritance = false,
+				hyperlinks = {
+					sources = {},
+				},
+			})
+		end,
+	},
+	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true, -- or `opts = {}`
+	},
+	{
+		"nvim-orgmode/org-bullets.nvim",
+		config = true,
 	},
 
 	--
@@ -415,6 +463,18 @@ return {
 			-- 		"sort_text",
 			-- 	},
 			-- },
+		},
+		sources = {
+			per_filetype = {
+				org = { "orgmode" },
+			},
+			providers = {
+				orgmode = {
+					name = "Orgmode",
+					module = "orgmode.org.autocompletion.blink",
+					fallbacks = { "buffer" },
+				},
+			},
 		},
 	},
 	{
@@ -685,6 +745,10 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
+			-- Ensure C-space incremental selection - This was interefering with vimwiki and orgmode
+			incremental_selection = {
+				enable = false,
+			},
 			ensure_installed = {
 				"awk",
 				"bash",
