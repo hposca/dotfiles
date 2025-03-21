@@ -260,10 +260,13 @@ return {
 		"nvim-orgmode/orgmode",
 		event = "VeryLazy",
 		ft = { "org" },
-		keys = { { "<leader>o", "", desc = "Org Mode" } },
+		keys = {
+			{ "<leader>o", "", desc = "Org Mode" },
+			{ "<leader>or", "<cmd>edit ~/vimwiki/refile.org<CR>", desc = "Org Refile" },
+		},
 		config = function()
 			require("orgmode").setup({
-				org_agenda_files = "~/orgfiles/**/*",
+				org_agenda_files = "~/vimwiki/**/*",
 				org_agenda_custom_commands = {
 					d = {
 						description = "List DONE tasks",
@@ -275,7 +278,7 @@ return {
 						},
 					},
 				},
-				org_default_notes_file = "~/orgfiles/refile.org",
+				org_default_notes_file = "~/vimwiki/refile.org",
 				mappings = {
 					org_return_uses_meta_return = true,
 				},
@@ -285,7 +288,7 @@ return {
 					j = {
 						description = "Journal",
 						template = "\n* %<%Y-%m-%d - %A>\n** %U\n\n%?",
-						target = "~/orgfiles/journal/%<%Y-%m-%d>.org",
+						target = "~/vimwiki/journal/%<%Y-%m-%d>.org",
 						headline = "Journal",
 						properties = {
 							empty_lines = 1,
