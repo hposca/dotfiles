@@ -201,6 +201,7 @@ bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
+bindsym $mod+grave workspace back_and_forth
 
 ###################
 # Mouse behaviour #
