@@ -142,31 +142,7 @@ return {
 	-- :GenTocGFM -> For GitHub style
 	-- :GenTocMarked -> For MarkdownPreview style
 	{ "mzlogin/vim-markdown-toc" },
-	{
-		"iamcco/markdown-preview.nvim",
-		config = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {},
-		config = function()
-			require("render-markdown").setup({
-				file_types = { "markdown" },
-				heading = {
-					-- backgrounds = { },
-					width = "block",
-					min_width = 30,
-				},
-			})
-		end,
-	},
+	-- Simple switch using '-'
 	{ "andrewradev/switch.vim" },
 	--  Draw ASCII diagrams in Neovim
 	--  Before using it is better to:

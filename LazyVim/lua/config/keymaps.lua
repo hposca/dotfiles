@@ -105,6 +105,7 @@ map("n", "N", "Nzzzv")
 map("n", "<leader>U", "<CMD>UndotreeToggle<CR>", { desc = "UndoTree Toggle" })
 
 -- MarkdownPreview
+map("n", "<leader>M", "", { desc = "MarkdownPreview" })
 map("n", "<leader>Mo", "<cmd>MarkdownPreview<cr>", { desc = "Open MarkdownPreview" })
 map("n", "<leader>Ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "Stop MarkdownPreview" })
 map("n", "<leader>Mt", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle MarkdownPreview" })
