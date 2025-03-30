@@ -793,6 +793,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"mermaid",
+				"nu",
 				"passwd",
 				"python",
 				"regex",
