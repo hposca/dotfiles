@@ -601,8 +601,8 @@ return {
 				-- "protolint",
 
 				-- #PYTHON
-				"black",
-				"pyright",
+				-- "black",
+				-- "pyright",
 				-- "autoflake",
 				-- "autopep8",
 				-- "blackd-client",
