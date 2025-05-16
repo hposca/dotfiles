@@ -1,33 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo "First attempt..."
-xrandr \
-	--output eDP --primary --mode 1920x1200 --pos 0x720 --rotate normal \
-	--output HDMI-A-0 --off \
-	--output DisplayPort-0 --off \
-	--output DisplayPort-1 --off \
-	--output DisplayPort-2 --off \
-	--output DisplayPort-3 --off \
-	--output DisplayPort-4 --off \
-	--output DisplayPort-5 --off \
-	--output DisplayPort-6 --off \
-	--output DisplayPort-7 --off \
-	--output DisplayPort-8 --off \
-	--output DisplayPort-9 --mode 2560x1440 --pos 1920x480 --rotate normal \
-	--output DisplayPort-10 --mode 1920x1080 --pos 4480x0 --rotate left ||
-	true
+declare -A primary=(["mode"]="1920x1200" ["pos"]="0x720" ["rotate"]="normal")
+declare -A normal=(["mode"]="2560x1440" ["pos"]="1920x480" ["rotate"]="normal")
+declare -A left=(["mode"]="1920x1080" ["pos"]="4480x0" ["rotate"]="left")
 
-echo "Second attempt..."
+connected=$(xrandr --query | grep " connected" | cut -d" " -f1 | grep -i DisplayPort)
+IFS=$'\n' read -r -d '' -a ports <<<"$connected"
+
 xrandr \
-	--output eDP --primary --mode 1920x1200 --pos 0x720 --rotate normal \
-	--output HDMI-A-0 --off \
-	--output DisplayPort-0 --off \
-	--output DisplayPort-1 --off \
-	--output DisplayPort-2 --off \
-	--output DisplayPort-3 --off \
-	--output DisplayPort-4 --off \
-	--output DisplayPort-5 --off \
-	--output DisplayPort-6 --off \
-	--output DisplayPort-7 --mode 2560x1440 --pos 1920x480 --rotate normal \
-	--output DisplayPort-8 --mode 1920x1080 --pos 4480x0 --rotate left ||
-	true
+	--output eDP --primary --mode "${primary["mode"]}" --pos "${primary["pos"]}" --rotate "${primary["rotate"]}" \
+	--output "${ports[0]}" --mode "${normal["mode"]}" --pos "${normal["pos"]}" --rotate "${normal["rotate"]}" \
+	--output "${ports[1]}" --mode "${left["mode"]}" --pos "${left["pos"]}" --rotate "${left["rotate"]}"
+
+nohup feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png &>/dev/null
