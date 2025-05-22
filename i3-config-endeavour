@@ -687,3 +687,6 @@ bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 # <alt+1> inserts the most recently used character, <alt+2> for the second most recently one etc.
 # <alt+u> inserts the Unicode codepoint, <alt+i> copies it to the clipboard
 bindsym $mod+i exec --no-startup-id rofimoji
+
+# Uses right control (105) as mod key
+exec_always --no-startup-id ~/.config/i3/scripts/i3-right-control-as-super.sh
