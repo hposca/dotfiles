@@ -63,10 +63,12 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
-plugins=(aws colored-man-pages colorize docker gh git golang helm kind kube-ps1 kubectl kubectx terraform tmux tmuxinator vagrant z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(1password aws colored-man-pages colorize direnv docker gh git golang helm kind kube-ps1 kubectl kubectx nix-shell tailscale terraform tmux tmuxinator vagrant zoxide zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(/usr/bin/mise activate zsh)"
 
 # User configuration
 
@@ -254,7 +256,7 @@ bindkey \^U backward-kill-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Loading autocomplete for gcloud
-[ -f /opt/google-cloud-cli/completion.zsh.inc ] && source /opt/google-cloud-cli/completion.zsh.inc
+# [ -f /opt/google-cloud-cli/completion.zsh.inc ] && source /opt/google-cloud-cli/completion.zsh.inc
 
 # If you want to have a cool aws profile picker
 # https://gist.github.com/cm-watanabeseigo/0a103315529d502ce4a82d2a8aab6cd3
@@ -265,7 +267,7 @@ bindkey \^U backward-kill-line
 # fi
 
 # Loading NVM
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
 
 #######################
 # Ancillary functions #
@@ -305,30 +307,6 @@ function paste() {
 function open() {
   _file="${1}"
   xdg-open "${_file}" &
-}
-
-function uninstall_lunar_vim() {
-  _rc_file="${HOME}/.config/lvim/config.lua"
-  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
-
-  echo "Will uninstall LunarVim..."
-  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
-
-  echo "LunarVim uninstalled."
-}
-
-function install_lunar_vim() {
-  _rc_file="${HOME}/.config/lvim/config.lua"
-  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
-
-  echo "Will install LunarVim..."
-  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
-
-  echo "Linking config file..."
-  [ -f "${_rc_file}" ] && cp "${_rc_file}" "${_rc_file}.$(date -Iseconds)"
-  ln -sf "${HOME}/src/hposca/dotfiles/config.lua" "${_rc_file}"
-
-  echo "LunarVim installed."
 }
 
 # Converts the clipboard contents to markdown
@@ -406,7 +384,7 @@ function full_reinstall_lazy_vim() {
 }
 
 # Activate direnv
-eval "$(direnv hook zsh)"
+#eval "$(direnv hook zsh)"
 
 # Shortcuts to display PRs in github ready to be copy+pasted
 gh_prs_open() {gh search prs --author '@me' --sort=created --state=open --json=url | jq -r '.[].url'}
@@ -414,6 +392,6 @@ gh_prs_open_md() {gh search prs --author '@me' --sort=created --state=open --jso
 gh_prs_all() {gh search prs --author '@me' --sort=created --json=url | jq -r '.[].url'}
 gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,repository | jq -r '.[] | "- `" + .repository.name + "`: [" + .title + "](" + .url + ")"'}
 
-
-# DotNet Tools
-export PATH="$PATH:/home/hugo/.dotnet/tools"
+# eval "$(zoxide init zsh)"
+# eval "$(direnv hook zsh)"
+# source <(tailscale completion zsh)
