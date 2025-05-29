@@ -19,6 +19,7 @@ ZSH_THEME="spaceship"
 # https://github.com/spaceship-prompt/spaceship-prompt/issues/1193#issuecomment-1722579999
 # In my case, adding `sleep 0.03` was enough
 SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -66,9 +67,10 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(1password aws colored-man-pages colorize direnv docker gh git golang helm kind kube-ps1 kubectl kubectx nix-shell tailscale terraform tmux tmuxinator vagrant zoxide zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-source $ZSH/oh-my-zsh.sh
-
+# NOTE: mise's activation needs to happen before loading oh-my-zsh or else its plugins will not be able to find the executables.
+# As an example, kubectl plugin wasn't being activated because it couldn't find the kubectl binary.
 eval "$(/usr/bin/mise activate zsh)"
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
