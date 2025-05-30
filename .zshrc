@@ -129,6 +129,7 @@ alias sl='ls'
 alias kaw='ps aux | grep wine | awk '"'"'{print $2}'"'"' | xargs kill'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias ag='ag --hidden'
+alias mkt='cd $(mktemp -d)'
 
 ###############
 # Git aliases #
