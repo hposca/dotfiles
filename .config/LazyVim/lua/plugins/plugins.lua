@@ -153,6 +153,22 @@ return {
 	-- Easy surrounding
 	{ "tpope/vim-surround" },
 
+	--  render-markdown configuration
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {
+			code = {
+				sign = true,
+			},
+			heading = {
+				sign = true,
+			},
+			checkbox = {
+				enabled = true,
+			},
+		},
+	},
+
 	--  Obsidian 🤝 Neovim
 	{
 		"epwalsh/obsidian.nvim",
@@ -227,12 +243,6 @@ return {
 	},
 
 	{
-		"mattn/calendar-vim",
-		init = function()
-			vim.g.calendar_diary = "~/vimwiki/diary/"
-		end,
-	},
-	{
 		"nvim-orgmode/orgmode",
 		event = "VeryLazy",
 		ft = { "org" },
@@ -278,15 +288,6 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = true, -- or `opts = {}`
-	},
-	{
-		"nvim-orgmode/org-bullets.nvim",
-		config = true,
 	},
 
 	--
