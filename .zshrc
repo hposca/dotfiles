@@ -398,3 +398,4 @@ gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,re
 # eval "$(zoxide init zsh)"
 # eval "$(direnv hook zsh)"
 # source <(tailscale completion zsh)
+source <(just --completions zsh)
