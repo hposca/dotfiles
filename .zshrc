@@ -64,6 +64,8 @@ COMPLETION_WAITING_DOTS="true"
 # cd ~/.oh-my-zsh/custom/plugins
 # git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
+# NOTE Install the nix-shell plugin with:
+# git clone https://github.com/chisui/zsh-nix-shell.git $ZSH_CUSTOM/plugins/nix-shell
 plugins=(1password aws colored-man-pages colorize direnv docker gh git golang helm kind kube-ps1 kubectl kubectx nix-shell tailscale terraform tmux tmuxinator vagrant zoxide zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
