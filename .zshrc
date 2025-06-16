@@ -196,6 +196,12 @@ alias dcrwb="docker-compose run --service-ports web /bin/sh"
 alias dewb="docker exec -ti \$(docker-compose ps -q web) /bin/sh"
 alias dclw="docker-compose logs web"
 
+######################
+# Kubernetes aliases #
+######################
+alias kc="kubectx"
+alias kn="kubens"
+
 #################
 # jq/yq aliases #
 #################
