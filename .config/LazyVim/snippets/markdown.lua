@@ -39,4 +39,9 @@ return {
 		t({ "", "" }),
 		t(h.from_file("wiki-mindmap.md")),
 	}),
+	s({ trig = "callouts", dscr = "All available callouts" }, {
+		i(0),
+		t({ "", "" }),
+		t(h.from_file("callouts.md")),
+	}),
 }
