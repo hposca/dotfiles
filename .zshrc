@@ -66,7 +66,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # NOTE Install the nix-shell plugin with:
 # git clone https://github.com/chisui/zsh-nix-shell.git $ZSH_CUSTOM/plugins/nix-shell
-plugins=(1password aws colored-man-pages colorize direnv docker gh git golang helm kind kube-ps1 kubectl kubectx nix-shell tailscale terraform tmux tmuxinator vagrant zoxide zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(1password aws colored-man-pages colorize direnv docker gh git golang helm kind kube-ps1 kubectl nix-shell tailscale terraform tmux tmuxinator vagrant zoxide zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 # NOTE: mise's activation needs to happen before loading oh-my-zsh or else its plugins will not be able to find the executables.
@@ -199,8 +199,9 @@ alias dclw="docker-compose logs web"
 ######################
 # Kubernetes aliases #
 ######################
-alias kc="kubectx"
-alias kn="kubens"
+alias kc="switch"
+alias kn="switch namespace"
+alias s="switch"
 
 #################
 # jq/yq aliases #
@@ -407,3 +408,15 @@ gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,re
 # eval "$(direnv hook zsh)"
 # source <(tailscale completion zsh)
 source <(just --completions zsh)
+source <(jj util completion zsh)
+
+#
+# Install switcher following the instructions from https://github.com/danielfoehrKn/kubeswitch/blob/master/docs/installation.md
+# OS=linux                        # Pick the right os: linux, darwin (intel only)
+# VERSION=0.9.3                   # Pick the current version.
+#
+# curl -L -o /usr/local/bin/switcher https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switcher_${OS}_amd64
+# chmod +x /usr/local/bin/switcher
+#
+source <(switcher init zsh)
+source <(switcher completion zsh)
