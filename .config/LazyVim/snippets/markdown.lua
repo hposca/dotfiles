@@ -44,6 +44,11 @@ return {
 		t({ "", "" }),
 		t(h.from_file("callouts.md")),
 	}),
+	s({ trig = "class", dscr = "class diagram - mermaid" }, {
+		i(0),
+		t({ "", "" }),
+		t(h.from_file("class-mermaid.md")),
+	}),
 	s({ trig = "flow", dscr = "Flow diagram - mermaid" }, {
 		i(0),
 		t({ "", "" }),
