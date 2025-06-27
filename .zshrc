@@ -408,7 +408,9 @@ gh_prs_all_md() {gh search prs --author '@me' --sort=created --json=title,url,re
 # eval "$(direnv hook zsh)"
 # source <(tailscale completion zsh)
 source <(just --completions zsh)
-source <(jj util completion zsh)
+if command -v jj >/dev/null 2>&1 ; then
+  source <(jj util completion zsh)
+fi
 
 #
 # Install switcher following the instructions from https://github.com/danielfoehrKn/kubeswitch/blob/master/docs/installation.md
@@ -418,5 +420,7 @@ source <(jj util completion zsh)
 # curl -L -o /usr/local/bin/switcher https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switcher_${OS}_amd64
 # chmod +x /usr/local/bin/switcher
 #
-source <(switcher init zsh)
-source <(switcher completion zsh)
+if command -v switcher >/dev/null 2>&1 ; then
+  source <(switcher init zsh)
+  source <(switcher completion zsh)
+fi
