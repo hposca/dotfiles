@@ -285,6 +285,12 @@ bindkey \^U backward-kill-line
 # Ancillary functions #
 #######################
 
+function copy_current_directory_path() {
+  echo "$(pwd)/" | tr -d '\n' | xclip -selection clipboard
+}
+
+alias ccd="copy_current_directory_path"
+
 function copy_file_path() {
   _file="${1}"
   readlink -f "${_file}" | tr -d '\n' | xclip -selection clipboard
