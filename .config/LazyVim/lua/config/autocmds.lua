@@ -35,3 +35,19 @@ vim.api.nvim_create_autocmd("FileType", {
 		]])
 	end,
 })
+
+-- Disable UI features for markdown files
+-- All of these can be re-enabled via <leader>u{d,m} submenu
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		-- Disable diagnostics
+		vim.diagnostic.enable(false)
+
+		-- Disable render-markdown.nvim decorations
+		local ok, render_markdown = pcall(require, "render-markdown")
+		if ok then
+			render_markdown.disable()
+		end
+	end,
+})
