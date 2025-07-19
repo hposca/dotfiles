@@ -688,6 +688,7 @@ return {
 				["markdown"] = { "prettierd" },
 				["python"] = { "black" },
 				["sh"] = { "shfmt" },
+				["terraform"] = { "terraform_fmt" },
 				["yaml"] = { "prettierd" },
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
