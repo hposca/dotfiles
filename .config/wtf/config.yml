@@ -1,0 +1,63 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [4, 10, 10, 4, 4, 90]
+  refreshInterval: 1
+  mods:
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        Auckland: "Pacific/Auckland"
+        Austin: "US/Central"
+        Dubai: "Asia/Dubai"
+        Dublin: "Europe/Dublin"
+        London: "Europe/London"
+        New York: "America/New_York"
+        Sao Paulo: "America/Sao_Paulo"
+        Sydney: "Australia/Sydney"
+        Tokyo: "Asia/Tokyo"
+        Toronto: "America/Toronto"
+        UTC: "Etc/UTC"
+        Vancouver: "America/Vancouver"
+      position:
+        top: 0
+        left: 0
+        height: 3
+        width: 2
+      refreshInterval: 15
+      sort: "reversechronological"
+      title: "World Time"
+      timeFormat: "15:04 -0700 (MST)"
+      dateFormat: "- Jan 02 (Mon)"
+      type: "clocks"
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 150
+    uptime:
+      args: []
+      cmd: "uptime"
+      enabled: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 30
+      type: cmdrunner
