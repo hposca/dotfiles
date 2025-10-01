@@ -430,3 +430,7 @@ if command -v switcher >/dev/null 2>&1 ; then
   source <(switcher init zsh)
   source <(switcher completion zsh)
 fi
+
+if command -v argocd >/dev/null 2>&1 ; then
+  source <(argocd completion zsh)
+fi
