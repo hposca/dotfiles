@@ -694,6 +694,15 @@ return {
 				-- have other formatters configured.
 				["_"] = { "trim_whitespace" },
 			},
+			formatters = {
+				shfmt = {
+					prepend_args = { "-i", "2", "-ci", "-s", "-bn" },
+					-- -i 2: indent with 2 spaces
+					-- -ci: indent switch cases
+					-- -s: simplify the code
+					-- -bn: binary ops like && and | may start a line
+				},
+			},
 		},
 	},
 	{
