@@ -70,7 +70,7 @@ return {
 	{ "folke/flash.nvim", enabled = false },
 	{ "ggandor/flit.nvim", enabled = false },
 	{ "ggandor/leap.nvim", enabled = false },
-	{ "echasnovski/mini.surround", enabled = false },
+	{ "nvim-mini/mini.surround", enabled = false },
 	{ "snacks.nvim", opts = { scroll = { enabled = false } } },
 	{
 		"ibhagwan/fzf-lua",
@@ -478,7 +478,7 @@ return {
 	},
 
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		opts = {
 			ensure_installed = {
 				-- #ANSIBLE
