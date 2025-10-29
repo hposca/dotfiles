@@ -3,6 +3,7 @@
 
 -- From https://github.com/meuter/lualine-so-fancy.nvim/blob/main/lua/lualine/components/fancy_lsp_servers.lua
 local LspServers = require("lualine.component"):extend()
+local Snacks = require("snacks")
 
 function LspServers:init(options)
 	options.icon = options.icon or "󰌘"
@@ -713,13 +714,13 @@ return {
 			},
 			setup = {
 				yamlls = function()
-					LazyVim.lsp.on_attach(function(client, buffer)
+					Snacks.util.lsp.on({name = "yamlls"},function(buffer, client)
 						if vim.bo[buffer].filetype == "helm" then
 							vim.schedule(function()
 								vim.cmd("LspStop ++force yamlls")
 							end)
 						end
-					end, "yamlls")
+					end)
 				end,
 			},
 		},
@@ -839,10 +840,8 @@ return {
 		lazy = true,
 		init = function()
 			vim.g.navic_silence = true
-			LazyVim.lsp.on_attach(function(client, buffer)
-				if client.supports_method("textDocument/documentSymbol") then
-					require("nvim-navic").attach(client, buffer)
-				end
+			Snacks.util.lsp.on({ method = "textDocument/documentSymbol" }, function(buffer, client)
+				require("nvim-navic").attach(client, buffer)
 			end)
 		end,
 		opts = function()
