@@ -249,7 +249,7 @@ return {
 		ft = { "org" },
 		keys = {
 			{ "<leader>o", "", desc = "Org Mode" },
-			{ "<leader>or", "<cmd>edit ~/vimwiki/refile.org<CR>", desc = "Org Refile" },
+			-- { "<leader>or", "<cmd>edit ~/vimwiki/refile.org<CR>", desc = "Org Refile" },
 		},
 		config = function()
 			require("orgmode").setup({
@@ -265,7 +265,8 @@ return {
 						},
 					},
 				},
-				org_default_notes_file = "~/vimwiki/refile.org",
+				-- org_default_notes_file = "~/vimwiki/refile.org",
+				org_default_notes_file = "~/vimwiki/work.org",
 				mappings = {
 					org_return_uses_meta_return = true,
 				},
@@ -280,6 +281,11 @@ return {
 						properties = {
 							empty_lines = 1,
 						},
+					},
+					w = {
+						description = "Work",
+						template = "* TODO %?\n  %u",
+						target = "~/vimwiki/work.org",
 					},
 				},
 				-- Copying from orgmode/lua/orgmode/config/defaults.lua so the linter stops complaining
