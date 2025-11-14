@@ -121,6 +121,17 @@ return {
 	},
 	-- Readline Key Bindings
 	{ "tpope/vim-rsi" },
+	{
+		"akinsho/bufferline.nvim",
+		opts = {
+			options = {
+				numbers = "ordinal",
+				pick = {
+					alphabet = "1234567890",
+				},
+			},
+		},
+	},
 
 	--
 	-- Text Manipulation

@@ -303,6 +303,19 @@ map("n", "<leader>OtT", "<cmd>edit ~/vimwiki/tasks-todo.md<CR>", { desc = "Open 
 map("n", "<leader>Otd", "<cmd>edit ~/vimwiki/tasks-done.md<CR>", { desc = "Open DONE list" })
 map("n", "<leader>Otz", move_done_tasks, { desc = "Move completed tasks to DONE" })
 
+-- Jump to buffer movements
+map("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Buffer 1" })
+map("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Buffer 2" })
+map("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Buffer 3" })
+map("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Buffer 4" })
+map("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Buffer 5" })
+map("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Buffer 6" })
+map("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Buffer 7" })
+map("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Buffer 8" })
+map("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Buffer 9" })
+-- Go to last buffer
+map("n", "<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>", { desc = "Buffer -1" })
+
 ---
 --- /Obsidian
 ---
