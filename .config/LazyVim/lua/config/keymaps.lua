@@ -188,8 +188,13 @@ end
 map("n", "<leader>uD", "<cmd>lua Toggle_diagnostics_text()<CR>", { desc = "Toggle Diagnostics virtual text" })
 
 -- Tab switching
+del("n", "<leader><tab><tab>")
+map("n", "<leader><tab>N", "<cmd>tabnew<CR>", { desc = "New Tab" })
 map("n", "]T", "<cmd>tabnext<CR>", { desc = "Tab Next" })
+map("n", "<leader><tab>n", "<cmd>tabnext<CR>", { desc = "Tab Next" })
+map("n", "<leader><tab><tab>", "<cmd>tabnext<CR>", { desc = "Tab Next" })
 map("n", "[T", "<cmd>tabprevious<CR>", { desc = "Tab Next" })
+map("n", "<leader><tab>p", "<cmd>tabprevious<CR>", { desc = "Tab Next" })
 
 -- Vertical Tag openning
 -- C-]         Jump to definition in the same file

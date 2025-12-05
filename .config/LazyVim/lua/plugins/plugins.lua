@@ -121,6 +121,15 @@ return {
 	},
 	-- Readline Key Bindings
 	{ "tpope/vim-rsi" },
+
+	-- Scope buffers to tabs
+	{
+		"tiagovla/scope.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("scope").setup({})
+		end,
+	},
 	{
 		"akinsho/bufferline.nvim",
 		opts = {
@@ -129,6 +138,9 @@ return {
 				pick = {
 					alphabet = "1234567890",
 				},
+				-- Always show tab indicators
+				show_tab_indicators = true,
+				always_show_bufferline = true,
 			},
 		},
 	},
