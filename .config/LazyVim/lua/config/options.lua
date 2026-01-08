@@ -26,3 +26,8 @@ vim.cmd([[
 
 vim.opt.listchars = { eol = "$", tab = "→ →", trail = "␣", extends = "…", space = "·" }
 vim.opt.list = false
+
+-- Treat words separated by dashes as a single word for operators like *, w, b, etc.
+-- To disable temporarily: :set iskeyword-=-
+-- To re-enable: :set iskeyword+=-
+vim.opt.iskeyword:append("-")
