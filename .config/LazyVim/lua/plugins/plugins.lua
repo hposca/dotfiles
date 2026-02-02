@@ -288,8 +288,8 @@ return {
 						},
 					},
 				},
-				-- org_default_notes_file = "~/vimwiki/refile.org",
-				org_default_notes_file = "~/vimwiki/work.org",
+				org_default_notes_file = "~/vimwiki/refile.org",
+				-- org_default_notes_file = "~/vimwiki/work.org",
 				mappings = {
 					org_return_uses_meta_return = true,
 				},
