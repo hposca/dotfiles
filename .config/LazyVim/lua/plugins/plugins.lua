@@ -267,6 +267,12 @@ return {
 	},
 
 	{
+		"3rd/image.nvim",
+		opts = {
+			backend = "ueberzug",
+		},
+	},
+	{
 		"nvim-orgmode/orgmode",
 		event = "VeryLazy",
 		ft = { "org" },
@@ -743,7 +749,7 @@ return {
 			},
 			setup = {
 				yamlls = function()
-					Snacks.util.lsp.on({name = "yamlls"},function(buffer, client)
+					Snacks.util.lsp.on({ name = "yamlls" }, function(buffer, client)
 						if vim.bo[buffer].filetype == "helm" then
 							vim.schedule(function()
 								vim.cmd("LspStop ++force yamlls")
