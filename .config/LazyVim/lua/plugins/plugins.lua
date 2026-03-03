@@ -70,7 +70,7 @@ return {
 
 	{ "folke/flash.nvim", enabled = false },
 	{ "ggandor/flit.nvim", enabled = false },
-	{ "ggandor/leap.nvim", enabled = false },
+	{ "codeberg.org/andyg/leap.nvim", enabled = false },
 	{ "nvim-mini/mini.surround", enabled = false },
 	{ "snacks.nvim", opts = { scroll = { enabled = false } } },
 	{
