@@ -270,6 +270,12 @@ return {
 		"3rd/image.nvim",
 		opts = {
 			backend = "ueberzug",
+			integrations = {
+				markdown = {
+					only_render_image_at_cursor = true,
+					only_render_image_at_cursor_mode = "popup", -- or "inline"
+				},
+			},
 		},
 	},
 	{
