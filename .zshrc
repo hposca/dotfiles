@@ -7,20 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 #   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # fi
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="spaceship"
-
-# https://github.com/spaceship-prompt/spaceship-prompt/issues/1193
-# SPACESHIP_PROMPT_ASYNC=false
-# Or add an sleep in `async.zsh`'s `_async_job()` as suggested in
-# https://github.com/spaceship-prompt/spaceship-prompt/issues/1193#issuecomment-1722579999
-# In my case, adding `sleep 0.03` was enough
-SPACESHIP_KUBECTL_SHOW=true
-SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE=true
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -434,3 +420,5 @@ fi
 if command -v argocd >/dev/null 2>&1 ; then
   source <(argocd completion zsh)
 fi
+
+eval "$(starship init zsh)"
