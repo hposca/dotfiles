@@ -301,7 +301,6 @@ return {
 					},
 				},
 				org_default_notes_file = "~/vimwiki/refile.org",
-				-- org_default_notes_file = "~/vimwiki/work.org",
 				mappings = {
 					org_return_uses_meta_return = true,
 				},
@@ -471,6 +470,9 @@ return {
 		"saghen/blink.cmp",
 		optional = true,
 		opts = {
+			keymap = {
+				preset = "super-tab",
+			},
 			snippets = {
 				preset = "luasnip",
 			},
@@ -763,14 +765,6 @@ return {
 						end
 					end)
 				end,
-			},
-		},
-	},
-	{
-		"saghen/blink.cmp",
-		opts = {
-			keymap = {
-				preset = "super-tab",
 			},
 		},
 	},
