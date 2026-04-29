@@ -766,6 +766,9 @@ return {
 					end)
 				end,
 			},
+			inlay_hints = {
+				enabled = false,
+			},
 		},
 	},
 	{
